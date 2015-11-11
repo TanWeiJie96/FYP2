@@ -7,9 +7,9 @@ public class BasicVar : MonoBehaviour {
 	public float speed;
 	public Vector3 dir;
 	public Vector3 accel;
-	public Vector3 magnitude;
+	public Vector3 vel;
 
 	void Awake () {
-		magnitude = accel * speed;
+        vel = accel * speed;
 	}
 }

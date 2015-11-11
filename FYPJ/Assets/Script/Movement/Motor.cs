@@ -73,34 +73,42 @@ public class Motor : MonoBehaviour {
 	{
 		if (inc.dir != Vector3.zero) {
 			//Debug.Log ("direction update");
-			inc.magnitude = inc.dir * inc.speed;
-			cur.magnitude += inc.magnitude;
+            inc.vel = inc.dir * inc.speed;
+            cur.vel += inc.vel;
 			inc.dir = Vector3.zero;
 		}
 
 
-		if (slowDown && cur.magnitude.magnitude > 0.1) {
+        if (slowDown && cur.vel.magnitude > 0.1)
+        {
 			//Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
-			cur.magnitude.Scale (new Vector3 (0.99f, 0.99f, 0.99f));
+            cur.vel.Scale(new Vector3(0.99f, 0.99f, 0.99f));
 			//Debug.Log ("slowing down...");
 		} else {
 			slowDown = false;
 		}
-			TransToMove.position += cur.magnitude;
+		//Move the object according to current magnitude
+        TransToMove.position += cur.vel;
 
 	}
 
 	void OnCollisionEnter(Collision collision){
-		if (collision.gameObject.tag == "Slope" || collision.gameObject.tag == "Floor" ) {
-			//gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
-			Debug.Log ("No Direction change");
-		}
-        if (collision.gameObject.tag == "Wall" )
-        {
-			cur.magnitude.x = -cur.magnitude.x;
-            cur.magnitude.Scale(new Vector3(0.1f, 0.1f, 0.1f));
-			Debug.Log ("Hit wall");
-		}
+
 
 	}
+
+    public void COLLISION(Collision collision)
+    {
+        if (collision.gameObject.tag == "Slope" || collision.gameObject.tag == "Floor")
+        {
+            //gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
+            Debug.Log("No Direction change");
+        }
+        if (collision.gameObject.tag == "Wall")
+        {
+            cur.vel.x = -cur.vel.x;
+            cur.vel.Scale(new Vector3(0.1f, 0.1f, 0.1f));
+            Debug.Log("Hit wall");
+        }
+    }
 }
