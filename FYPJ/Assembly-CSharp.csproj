@@ -45,10 +45,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\CheckForCollision.cs" />
+     <Compile Include="Assets\Script\CheckPointSystem.cs" />
      <Compile Include="Assets\Script\Collision\CollisionReaction.cs" />
      <Compile Include="Assets\Script\Collision\OnCollisionReaction.cs" />
      <Compile Include="Assets\Script\Collision\WallsCollision.cs" />
      <Compile Include="Assets\Script\Controls.cs" />
+     <Compile Include="Assets\Script\GameEndSystem.cs" />
      <Compile Include="Assets\Script\Global.cs" />
      <Compile Include="Assets\Script\Movement\BasicVar.cs" />
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
