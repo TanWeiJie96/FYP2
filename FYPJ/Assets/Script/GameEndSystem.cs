@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
 using System.Collections;
 using System.Collections.Generic;
+
 
 public enum GameEnd
 {
@@ -23,6 +26,7 @@ public class GameEndSystem : MonoBehaviour {
     public bool allNeededToLose = false;
     public List<bool> loseCondition;
 
+    public Text winLose;
 
 	// Use this for initialization
 	void Start () {
@@ -37,25 +41,29 @@ public class GameEndSystem : MonoBehaviour {
         }
 	}
 
-    void _checkForGameEnd()
+    public void _checkForGameEnd()
     {
+        Debug.Log("win condition needed:"+winCondition.Count);
         if (!allNeededToWin)
         {
             //if one of the winning condition is met, return win status
-            for (int i = 0; i < winCondition.Capacity; ++i)
+            for (int i = 0; i < winCondition.Count; ++i)
             {
                 if (winCondition[i] == true)
                 {
                     gameEnd = GameEnd.WIN;
+                    Debug.Log("you win");
+                    winLose.text = "you win";
                     break;
                 }
             }
+            Debug.Log("something is wrong");
         }
         else
         {
             //if all of the winning condition is met, return win status
             bool confirmWin = true;
-            for (int i = 0; i < winCondition.Capacity; ++i)
+            for (int i = 0; i < winCondition.Count; ++i)
             {
                 if (winCondition[i] == false)
                 {
@@ -66,10 +74,12 @@ public class GameEndSystem : MonoBehaviour {
             if (confirmWin)
             {
                 gameEnd = GameEnd.WIN;
+                Debug.Log("you win");
+                winLose.text = "you win";
             }
 
         }
-
+        needsCheckForGameEnd = false;
 
     }
 }

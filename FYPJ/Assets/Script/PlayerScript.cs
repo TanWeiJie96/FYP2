@@ -21,9 +21,9 @@ public class PlayerScript : MonoBehaviour {
 	        arrow.transform.Rotate(new Vector3(0,3,0));
 	}
 
-    public void _camRotAroundPlayer()
+    public void _camRotAroundPlayer(bool cw)
     {
-        camMovement._rotAroundPlayer();
+        camMovement._rotAroundPlayer(cw);
     }
 
     public void _motorGoTowardDir()

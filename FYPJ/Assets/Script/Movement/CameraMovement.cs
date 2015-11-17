@@ -18,8 +18,18 @@ public class CameraMovement : MonoBehaviour {
          */
 	}
 
-    public void _rotAroundPlayer()
+    public void _rotAroundPlayer(bool clockwise)
     {
-        gameObject.transform.RotateAround(player.transform.position, axis, rotSpeed);
+        if (clockwise)
+        {
+            gameObject.transform.RotateAround(player.transform.position, axis, rotSpeed);
+        }
+        else
+        {
+            gameObject.transform.RotateAround(player.transform.position, axis, -rotSpeed);
+        }
     }
+
 }
+
+

@@ -10,9 +10,13 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.F))
         {
-            Global.playerScript._camRotAroundPlayer();
+            Global.playerScript._camRotAroundPlayer(true);
+        }
+        if (Input.GetKey(KeyCode.G))
+        {
+            Global.playerScript._camRotAroundPlayer(false);
         }
 
         if (Input.GetKey(KeyCode.Space))
