@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: f8bb640f791b9d2458df92fdda0decfe
+timeCreated: 1447710981
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: curvel_wall2
+    100002: curvelwall4
+    100004: curvelwall_3
+    100006: curvewall1
+    100008: Magnet_Blue
+    100010: Magnet_Red
+    100012: Obstacle_wall
+    100014: polySurface1
+    100016: polySurface13
+    100018: polySurface16
+    100020: polySurface2
+    100022: polySurface20
+    100024: polySurface25
+    100026: pPlane2
+    100028: pPlane3
+    100030: track
+    100032: //RootNode
+    100034: wall
+    100036: wall2
+    100038: wall3
+    100040: wall4
+    100042: wall5
+    100044: wall6
+    400000: curvel_wall2
+    400002: curvelwall4
+    400004: curvelwall_3
+    400006: curvewall1
+    400008: Magnet_Blue
+    400010: Magnet_Red
+    400012: Obstacle_wall
+    400014: polySurface1
+    400016: polySurface13
+    400018: polySurface16
+    400020: polySurface2
+    400022: polySurface20
+    400024: polySurface25
+    400026: pPlane2
+    400028: pPlane3
+    400030: track
+    400032: //RootNode
+    400034: wall
+    400036: wall2
+    400038: wall3
+    400040: wall4
+    400042: wall5
+    400044: wall6
+    2300000: curvel_wall2
+    2300002: curvelwall4
+    2300004: curvelwall_3
+    2300006: curvewall1
+    2300008: Magnet_Blue
+    2300010: Magnet_Red
+    2300012: Obstacle_wall
+    2300014: polySurface16
+    2300016: polySurface20
+    2300018: track
+    2300020: wall
+    2300022: wall2
+    2300024: wall3
+    2300026: wall4
+    2300028: wall5
+    2300030: wall6
+    3300000: curvel_wall2
+    3300002: curvelwall4
+    3300004: curvelwall_3
+    3300006: curvewall1
+    3300008: Magnet_Blue
+    3300010: Magnet_Red
+    3300012: Obstacle_wall
+    3300014: polySurface16
+    3300016: polySurface20
+    3300018: track
+    3300020: wall
+    3300022: wall2
+    3300024: wall3
+    3300026: wall4
+    3300028: wall5
+    3300030: wall6
+    4300000: wall
+    4300002: wall2
+    4300004: polySurface16
+    4300006: polySurface20
+    4300008: wall5
+    4300010: wall6
+    4300012: wall3
+    4300014: wall4
+    4300016: track
+    4300018: Magnet_Blue
+    4300020: Magnet_Red
+    4300022: Obstacle_wall
+    4300024: curvelwall4
+    4300026: curvel_wall2
+    4300028: curvewall1
+    4300030: curvelwall_3
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

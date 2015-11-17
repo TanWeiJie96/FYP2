@@ -32,10 +32,10 @@ public class PlayerScript : MonoBehaviour {
 
         arrowSpin = false;
         //Arrow.SetActive(false);
-        Debug.Log(arrow.transform.eulerAngles.y);
+        //Debug.Log(arrow.transform.eulerAngles.y);
         Vector3 dir = new Vector3(Mathf.Sin(radians), 0, Mathf.Cos(radians));
         motor._movetowards(dir);
-        Debug.Log(dir);
+        //Debug.Log(dir);
     }
 
     public void _motorSlowsDowm()

@@ -53,6 +53,9 @@
      <Compile Include="Assets\Script\Controls.cs" />
      <Compile Include="Assets\Script\GameEndSystem.cs" />
      <Compile Include="Assets\Script\Global.cs" />
+     <Compile Include="Assets\Script\Magnet\MagentChangeDir.cs" />
+     <Compile Include="Assets\Script\Magnet\MagnetAction.cs" />
+     <Compile Include="Assets\Script\Magnet\PlayerMagnetAction.cs" />
      <Compile Include="Assets\Script\Movement\BasicVar.cs" />
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
      <Compile Include="Assets\Script\Movement\Motor.cs" />

@@ -19,6 +19,7 @@ public class CheckForCollision : MonoBehaviour {
     {
         if (!noMoreCheckNeed)
         {
+            gameObject.GetComponent<Renderer>().material.color = Color.green;
             Collided = true;
             Debug.Log("check point hit");
         }

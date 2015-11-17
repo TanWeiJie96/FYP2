@@ -79,7 +79,7 @@ public class Motor : MonoBehaviour {
 		}
 
 
-        if (slowDown && cur.vel.magnitude > 0.1)
+        if (slowDown && cur.vel.magnitude > 0.01)
         {
 			//Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
             cur.vel.Scale(new Vector3(0.99f, 0.99f, 0.99f));
