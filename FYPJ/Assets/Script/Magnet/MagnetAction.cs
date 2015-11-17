@@ -25,13 +25,5 @@ public class MagnetAction  : MonoBehaviour {
             trans.position = newPosition;
         }
     }
-
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "Player")
-        {
-
-        }
-    }
 }
 

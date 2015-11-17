@@ -9,9 +9,9 @@ public class PlayerMagnetAction : MonoBehaviour {
 
     public float distanceStrength = 10f; // Strength, based on the distance
 
-    private Transform trans;
-    private Transform magnetTrans;
-    private Rigidbody thisRd;
+    private Transform trans; // playerTransform
+    private Rigidbody thisRd; // playerRigidBody
+    private Transform magnetTrans; // magnetTransform 
     private bool magnetInZone;
 
     void Awake()
@@ -37,6 +37,7 @@ public class PlayerMagnetAction : MonoBehaviour {
     {
         if (other.tag == "Magnet")
         {
+            Debug.Log("Magnet Detected!");
             magnetTrans = other.transform;
             magnetInZone = true;
         }
@@ -44,8 +45,9 @@ public class PlayerMagnetAction : MonoBehaviour {
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Magnet" && looseMagnet == false)
+        if (other.tag == "Magnet" && looseMagnet == true)
         {
+            Debug.Log("Magnet Exit!");
             magnetInZone = false;
         }
     }
