@@ -1,0 +1,32 @@
+Naming convention
+class 
+-Name:		LargeAndLarge;
+-varaible: 	smallToLarge;
+-function: 	_underscoreInfront();
+Enum
+-Name:		LargeAndLarge;
+-Variable:	CAPSALLDAY;
+
+
+Main Structure
+Game object
+-Player/Camera
+ ~Camera will always follow player and looks toward the front of the vehicle
+-Environmental object/Obsticle
+ ~Each have a script to determind what happen when other object hits it or when they are close to it
+
+
+Game system 
+-Global object
+ ~Static, Set up from the start
+-Score
+ ~Static, Set up from the start
+-Control
+ ~Always checking (Movement, Skills,
+-Player State
+ ~Current Player mode (Starting/Playing/Pause/Destroyed/Respawn/End)
+
+Game graphic
+-UI
+ -Floating text
+ -Instructional notice
