@@ -6,7 +6,7 @@ public class Global:MonoBehaviour{
     public static PlayerScript playerScript;
     public static GameEndSystem gameEndSystem;
 
-    void Start()
+    void Awake()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         gameEndSystem = GameObject.Find("GameEndSystem").GetComponent<GameEndSystem>();
