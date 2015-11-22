@@ -96,8 +96,8 @@ public class Motor : MonoBehaviour {
 
 
 	}
-
-    public void COLLISION(Collision collision)
+    /*
+    public void _collisionResult(Collision collision)
     {
         if (collision.gameObject.tag == "Slope" || collision.gameObject.tag == "Floor")
         {
@@ -111,4 +111,5 @@ public class Motor : MonoBehaviour {
             Debug.Log("Hit wall");
         }
     }
+     */
 }

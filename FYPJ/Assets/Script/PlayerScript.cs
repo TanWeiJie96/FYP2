@@ -97,6 +97,11 @@ public class PlayerScript : MonoBehaviour {
         camMovement._rotAroundPlayer(cw);
     }
 
+    public void _camRotAroundPlayer(bool cw , float angle)
+    {
+        camMovement._rotAroundPlayer(cw,angle);
+    }
+
 
 
     public void _motorGoTowardDir()
