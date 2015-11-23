@@ -3,52 +3,110 @@ using System.Collections;
 
 public class PlayerMagnetAction : MonoBehaviour {
 
-    public float magnetStrength = 5f;
-    public float magnetDirection = 1; // 1 = Attraction, -1 = Repel
-    public bool looseMagnet = true;
+    public float magnetStrength = 5.0f;
+    public float magnetDirection = 0; // 1 = Attraction, -1 = Repel, 0 = Neutral
+    public float distanceStrength = 10.0f; // Strength, based on the distance
+    public bool looseMagnet = true; // able to leave the magnetInZone and move freely
+    //Hardcore[For now]
+   // public float attract = 1;
+   // public float repel = -1;
 
-    public float distanceStrength = 10f; // Strength, based on the distance
+    public bool north = false;
 
     private Transform trans; // playerTransform
     private Rigidbody thisRd; // playerRigidBody
     private Transform magnetTrans; // magnetTransform 
     private bool magnetInZone;
 
-    void Awake()
+    public GameObject magneticState;
+
+    void Start()
     {
         trans = transform;
         thisRd = trans.GetComponent<Rigidbody>();
     }
 
-    void FixedUpdate()
+    Vector3 directionToMagnet;
+
+    void Update()
     {
         if (magnetInZone)
         {
-            Vector3 directionToMagnet = magnetTrans.position - trans.position;
+            if (north == false)
+            {
+
+                directionToMagnet = magnetTrans.position - trans.position;
+            }
+            else if (north == true)
+            {
+                directionToMagnet = trans.position - magnetTrans.position;
+            }    
+
+
             float distance = Vector3.Distance(magnetTrans.position, trans.position);
             float magnetDistanceStr = (distanceStrength / distance) * magnetStrength;
 
             thisRd.AddForce(magnetDistanceStr * (directionToMagnet * magnetDirection), ForceMode.Force);
 
         }
+
+        //// Neutral
+        if (Input.GetKeyDown("z"))
+        {
+            Debug.Log("Change magnetic direction");
+            Debug.Log(magnetDirection);
+            magnetDirection = 0;
+
+            magneticState.GetComponent<Renderer>().material.color = new Color(255, 255, 255, 0.1f);
+        }
+
+        //// Repel
+        if (Input.GetKeyDown("x"))
+        {
+            Debug.Log("Change magnetic direction");
+            Debug.Log(magnetDirection);
+            magnetDirection = -1;
+
+            magneticState.GetComponent<Renderer>().material.color = new Color(0, 0, 255, 0.1f);
+        }
+
+        //// Attract
+        if (Input.GetKeyDown("c"))
+        {
+            Debug.Log("Change magnetic direction");
+            Debug.Log(magnetDirection);
+            magnetDirection = 1;
+
+            magneticState.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Magnet")
+        if (other.tag == "Magnet_S")
         {
-            Debug.Log("Magnet Detected!");
-            magnetTrans = other.transform;
+            Debug.Log("Magnet_S Detected!");
+            magnetTrans = other.transform ;
             magnetInZone = true;
         }
-    }
+
+        if (other.tag == "Magnet_N")
+        {
+            Debug.Log("Magnet_N Detected!");
+            magnetTrans = other.transform;
+            magnetInZone = true;
+            north = true;
+        }
+
+    }   
 
     void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Magnet" && looseMagnet == true)
+        if ( (other.tag == "Magnet_S" || other.tag == "Magnet_N") && looseMagnet == true)
         {
             Debug.Log("Magnet Exit!");
             magnetInZone = false;
+            north = false;
         }
     }
 }
