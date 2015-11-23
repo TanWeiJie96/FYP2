@@ -61,4 +61,20 @@ public class PlayerScript : MonoBehaviour {
         }
 
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
+        {
+            colReac.onColReacList[i].onTriEnter(other);
+        }
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
+        {
+            colReac.onColReacList[i].onTriExit(other);
+        }
+    }
 }

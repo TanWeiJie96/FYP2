@@ -1,15 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class PlayerMagnetAction : MonoBehaviour {
+public class PlayerMagnetAction : OnCollisionReaction {
 
     public float magnetStrength = 5.0f;
     public float magnetDirection = 0; // 1 = Attraction, -1 = Repel, 0 = Neutral
     public float distanceStrength = 10.0f; // Strength, based on the distance
     public bool looseMagnet = true; // able to leave the magnetInZone and move freely
-    //Hardcore[For now]
-   // public float attract = 1;
-   // public float repel = -1;
 
     public bool north = false;
 
@@ -23,7 +21,7 @@ public class PlayerMagnetAction : MonoBehaviour {
     void Start()
     {
         trans = transform;
-        thisRd = trans.GetComponent<Rigidbody>();
+        thisRd = Global.playerScript.gameObject.GetComponent<Rigidbody>();
     }
 
     Vector3 directionToMagnet;
@@ -81,7 +79,12 @@ public class PlayerMagnetAction : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    public override void onColRec(Collision collision)
+    {
+        
+    }
+
+    public override void onTriEnter(Collider other)
     {
         if (other.tag == "Magnet_S")
         {
@@ -98,9 +101,9 @@ public class PlayerMagnetAction : MonoBehaviour {
             north = true;
         }
 
-    }   
+    }
 
-    void OnTriggerExit(Collider other)
+    public override void onTriExit(Collider other)
     {
         if ( (other.tag == "Magnet_S" || other.tag == "Magnet_N") && looseMagnet == true)
         {

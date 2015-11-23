@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WallsCollision : OnCollisionReaction{
     
@@ -23,5 +24,15 @@ public class WallsCollision : OnCollisionReaction{
 
             Debug.Log("Hit wall");
         }
+    }
+
+    public override void onTriEnter(Collider other)
+    {
+        
+    }
+
+    public override void onTriExit(Collider other)
+    {
+
     }
 }
