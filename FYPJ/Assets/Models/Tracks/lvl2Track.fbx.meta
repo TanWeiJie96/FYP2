@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 1d751f91f97aecd4ea4fe8cebd1d787f
+timeCreated: 1448449799
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: charge
+    100002: End
+    100004: //RootNode
+    100006: start
+    100008: track
+    100010: trackwall1
+    100012: trackwall10
+    100014: trackwall11
+    100016: trackwall12
+    100018: trackwall13
+    100020: trackwall14
+    100022: trackwall16
+    100024: trackwall17
+    100026: trackwall18
+    100028: trackwall2
+    100030: trackwall20
+    100032: trackwall21
+    100034: trackwall22
+    100036: trackwall23
+    100038: trackwall24
+    100040: trackwall27
+    100042: trackwall3
+    100044: trackwall4
+    100046: trackwall5
+    100048: trackwall6
+    100050: trackwall7
+    100052: trackwall8
+    100054: trackwall9
+    400000: charge
+    400002: End
+    400004: //RootNode
+    400006: start
+    400008: track
+    400010: trackwall1
+    400012: trackwall10
+    400014: trackwall11
+    400016: trackwall12
+    400018: trackwall13
+    400020: trackwall14
+    400022: trackwall16
+    400024: trackwall17
+    400026: trackwall18
+    400028: trackwall2
+    400030: trackwall20
+    400032: trackwall21
+    400034: trackwall22
+    400036: trackwall23
+    400038: trackwall24
+    400040: trackwall27
+    400042: trackwall3
+    400044: trackwall4
+    400046: trackwall5
+    400048: trackwall6
+    400050: trackwall7
+    400052: trackwall8
+    400054: trackwall9
+    2300000: charge
+    2300002: End
+    2300004: start
+    2300006: track
+    2300008: trackwall1
+    2300010: trackwall10
+    2300012: trackwall11
+    2300014: trackwall12
+    2300016: trackwall13
+    2300018: trackwall14
+    2300020: trackwall16
+    2300022: trackwall17
+    2300024: trackwall18
+    2300026: trackwall2
+    2300028: trackwall20
+    2300030: trackwall21
+    2300032: trackwall22
+    2300034: trackwall23
+    2300036: trackwall24
+    2300038: trackwall27
+    2300040: trackwall3
+    2300042: trackwall4
+    2300044: trackwall5
+    2300046: trackwall6
+    2300048: trackwall7
+    2300050: trackwall8
+    2300052: trackwall9
+    3300000: charge
+    3300002: End
+    3300004: start
+    3300006: track
+    3300008: trackwall1
+    3300010: trackwall10
+    3300012: trackwall11
+    3300014: trackwall12
+    3300016: trackwall13
+    3300018: trackwall14
+    3300020: trackwall16
+    3300022: trackwall17
+    3300024: trackwall18
+    3300026: trackwall2
+    3300028: trackwall20
+    3300030: trackwall21
+    3300032: trackwall22
+    3300034: trackwall23
+    3300036: trackwall24
+    3300038: trackwall27
+    3300040: trackwall3
+    3300042: trackwall4
+    3300044: trackwall5
+    3300046: trackwall6
+    3300048: trackwall7
+    3300050: trackwall8
+    3300052: trackwall9
+    4300000: trackwall2
+    4300002: track
+    4300004: trackwall1
+    4300006: trackwall23
+    4300008: trackwall20
+    4300010: trackwall22
+    4300012: trackwall14
+    4300014: trackwall11
+    4300016: trackwall6
+    4300018: trackwall7
+    4300020: trackwall4
+    4300022: trackwall13
+    4300024: trackwall16
+    4300026: trackwall3
+    4300028: trackwall8
+    4300030: trackwall10
+    4300032: trackwall18
+    4300034: trackwall24
+    4300036: trackwall21
+    4300038: trackwall17
+    4300040: trackwall12
+    4300042: trackwall9
+    4300044: trackwall5
+    4300046: trackwall27
+    4300048: start
+    4300050: End
+    4300052: charge
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

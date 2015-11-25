@@ -4,12 +4,16 @@ using System.Collections;
 public class PlayerScript : MonoBehaviour {
     public Motor motor;
     public CameraMovement camMovement;
+    public GameObject playerModel;
 
     public GameObject arrow;
     public bool arrowSpin = true;
 
     public CollisionReaction colReac;
 
+    public float angleToGoTo = 0;
+
+    public float radians = 0;
     // Use this for initialization
     void Start () {
 
@@ -20,6 +24,13 @@ public class PlayerScript : MonoBehaviour {
         if(arrowSpin)
 	        arrow.transform.Rotate(new Vector3(0,3,0));
 
+        if (angleToGoTo != gameObject.transform.eulerAngles.y)
+        {
+            float myAngle = Mathf.LerpAngle(playerModel.gameObject.transform.eulerAngles.y, angleToGoTo, Time.deltaTime);
+            Quaternion currentRotation = Quaternion.Euler(0, myAngle, 0);
+            playerModel.gameObject.transform.rotation = currentRotation;
+        }
+
     }
       
     public void _camRotAroundPlayer(bool cw)
@@ -29,14 +40,15 @@ public class PlayerScript : MonoBehaviour {
 
     public void _camRotAroundPlayer(bool cw , float angle)
     {
-        camMovement._rotAroundPlayer(cw,angle);
+        camMovement._rotAroundPlayer(cw, angle);
     }
 
 
 
     public void _motorGoTowardDir()
     {
-        float radians = arrow.transform.eulerAngles.y * (Mathf.PI / 180);
+        angleToGoTo = arrow.transform.eulerAngles.y;
+        radians = arrow.transform.eulerAngles.y * (Mathf.PI / 180);
 
         arrowSpin = false;
         //Arrow.SetActive(false);

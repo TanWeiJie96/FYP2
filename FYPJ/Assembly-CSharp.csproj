@@ -45,6 +45,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Script\Arrow.cs" />
      <Compile Include="Assets\Script\CamTrigger.cs" />
      <Compile Include="Assets\Script\Collision\CheckForCollision.cs" />
      <Compile Include="Assets\Script\Collision\CheckPointSystem.cs" />
@@ -62,6 +63,7 @@
      <Compile Include="Assets\Script\Manager\UIManager.cs" />
      <Compile Include="Assets\Script\Movement\BasicVar.cs" />
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
+     <Compile Include="Assets\Script\Movement\CarCamera.cs" />
      <Compile Include="Assets\Script\Movement\Motor.cs" />
      <Compile Include="Assets\Script\Player\PlayerScript.cs" />
      <None Include="Assets\Structure.txt" />

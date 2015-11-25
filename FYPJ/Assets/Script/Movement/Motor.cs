@@ -90,6 +90,8 @@ public class Motor : MonoBehaviour {
 		//Move the object according to current magnitude
         TransToMove.position += cur.vel;
 
+
+
 	}
 
 	void OnCollisionEnter(Collision collision){
