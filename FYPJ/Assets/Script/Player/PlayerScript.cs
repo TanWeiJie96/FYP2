@@ -79,6 +79,7 @@ public class PlayerScript : MonoBehaviour {
         for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
         {
             colReac.onColReacList[i].onTriEnter(other);
+           // colReac.onColReacList[i].onTriEnterPower(power);
         }
     }
 

@@ -50,6 +50,7 @@
      <Compile Include="Assets\Script\Collision\CheckForCollision.cs" />
      <Compile Include="Assets\Script\Collision\CheckPointSystem.cs" />
      <Compile Include="Assets\Script\Collision\CollisionReaction.cs" />
+     <Compile Include="Assets\Script\Collision\OnColReactTemplete.cs" />
      <Compile Include="Assets\Script\Collision\OnCollisionReaction.cs" />
      <Compile Include="Assets\Script\Collision\WallsCollision.cs" />
      <Compile Include="Assets\Script\Global.cs" />
@@ -70,6 +71,7 @@
      <Compile Include="Assets\Script\Movement\CarCamera.cs" />
      <Compile Include="Assets\Script\Movement\Motor.cs" />
      <Compile Include="Assets\Script\Player\PlayerScript.cs" />
+     <Compile Include="Assets\Script\Power Ups\CollectPowerUp.cs" />
      <None Include="Assets\Structure.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
