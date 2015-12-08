@@ -3,10 +3,8 @@
 -nowarn:0169
 -out:Temp/Assembly-CSharp.dll
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll"
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll"
 -r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll"
--r:"C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll"
 -r:"C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll"
 -r:"C:/Program Files/Unity/Editor/Data\Managed/Mono.Cecil.dll"
 -r:"C:/Program Files/Unity/Editor/Data/PlaybackEngines/iOSSupport\UnityEditor.iOS.Extensions.Xcode.dll"
@@ -82,6 +80,7 @@ Assets/Script/CamTrigger.cs
 Assets/Script/Collision/CheckForCollision.cs
 Assets/Script/Collision/CheckPointSystem.cs
 Assets/Script/Collision/CollisionReaction.cs
+Assets/Script/Collision/OnColReactTemplete.cs
 Assets/Script/Collision/OnCollisionReaction.cs
 Assets/Script/Collision/WallsCollision.cs
 Assets/Script/Global.cs

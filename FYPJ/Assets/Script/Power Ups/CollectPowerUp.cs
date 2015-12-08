@@ -5,27 +5,24 @@ using System;
 public class CollectPowerUp : OnColReactTemplete
 {
 
-    public override void onTriEnterPower(Collider power)
+    public override void onTriEnterPower(Collider other)
     {
-        if (power.tag == "Speed")
+        Debug.Log("wtf");
+        if (other.tag == "Speed")
         {
             Debug.Log("Speed Power Up Got!");
         }
     }
 
-    public override void onTriEnter(Collider other)
-    {
-   
-    }
-
-    public override void onTriExit(Collider other)
-    {
-
-    }
-
-
-    public override void onColRec(Collision collision)
-    {
-
-    }
 }
+
+//public class CollectPowerUp : MonoBehaviour {
+
+//    public void OnTriggerEnter(Collider other)
+//    {
+//        if (other.tag == "Speed")
+//        {
+//            Debug.Log("Speed Power Up Got!");
+//        }
+//    }
+//}

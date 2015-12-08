@@ -84,7 +84,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
         
     }
 
-    public override void onTriEnterPower(Collider Power)
+    public override void onTriEnterPower(Collider other)
     {
         
     }

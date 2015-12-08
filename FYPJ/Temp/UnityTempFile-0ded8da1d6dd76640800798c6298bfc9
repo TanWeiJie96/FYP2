@@ -80,6 +80,7 @@ Assets/Script/CamTrigger.cs
 Assets/Script/Collision/CheckForCollision.cs
 Assets/Script/Collision/CheckPointSystem.cs
 Assets/Script/Collision/CollisionReaction.cs
+Assets/Script/Collision/OnColReactTemplete.cs
 Assets/Script/Collision/OnCollisionReaction.cs
 Assets/Script/Collision/WallsCollision.cs
 Assets/Script/Global.cs

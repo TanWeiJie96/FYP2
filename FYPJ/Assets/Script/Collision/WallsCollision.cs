@@ -36,7 +36,7 @@ public class WallsCollision : OnColReactTemplete {
 
     }
 
-    public override void onTriEnterPower(Collider Power)
+    public override void onTriEnterPower(Collider other)
     {
 
     }

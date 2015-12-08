@@ -31,6 +31,7 @@ public class PlayerScript : MonoBehaviour {
             playerModel.gameObject.transform.rotation = currentRotation;
         }
 
+        //gameObject.transform.position = playerModel.gameObject.transform.position;
     }
       
     public void _camRotAroundPlayer(bool cw)
@@ -64,8 +65,9 @@ public class PlayerScript : MonoBehaviour {
          motor.slowDown = true;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter(Collision collision)
     {
+        //Debug.Log("OnCollisionEnter");
         //colReac
         for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
         {
@@ -74,17 +76,25 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
-    public void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        //Debug.Log("On trigger enter");
         for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
         {
+            Debug.Log("checking list");
             colReac.onColReacList[i].onTriEnter(other);
-           // colReac.onColReacList[i].onTriEnterPower(power);
+            
+        }
+
+        for (int j = 0; j < colReac.onColReacList.Capacity; ++j)
+        {
+            colReac.onColReacList[j].onTriEnterPower(other);
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
+        //  Debug.Log("OnTriggerExit");
         for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
         {
             colReac.onColReacList[i].onTriExit(other);
