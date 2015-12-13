@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class WallsCollision : OnCollisionReaction{
+public class WallsCollision : OnColReactTemplete { 
     
     public override void onColRec(Collision collision)
     {
@@ -32,6 +32,11 @@ public class WallsCollision : OnCollisionReaction{
     }
 
     public override void onTriExit(Collider other)
+    {
+
+    }
+
+    public override void onTriEnterPower(Collider other)
     {
 
     }

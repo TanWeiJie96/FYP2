@@ -8,4 +8,5 @@ public abstract class OnCollisionReaction : MonoBehaviour {
 
     public abstract void onTriExit(Collider other);
 
+    public abstract void onTriEnterPower(Collider other);
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class PlayerMagnetAction : OnCollisionReaction {
+public class PlayerMagnetAction : OnColReactTemplete{
 
     public float magnetStrength = 5.0f;
     public float magnetDirection = 0; // 1 = Attraction, -1 = Repel, 0 = Neutral
@@ -80,6 +80,11 @@ public class PlayerMagnetAction : OnCollisionReaction {
     }
 
     public override void onColRec(Collision collision)
+    {
+        
+    }
+
+    public override void onTriEnterPower(Collider other)
     {
         
     }

@@ -4,6 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class CollisionReaction : MonoBehaviour {
-    public List<OnCollisionReaction> onColReacList;
+    public List<OnColReactTemplete> onColReacList;
 
 }
