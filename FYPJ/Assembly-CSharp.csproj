@@ -54,6 +54,7 @@
      <Compile Include="Assets\Script\Collision\OnCollisionReaction.cs" />
      <Compile Include="Assets\Script\Collision\WallsCollision.cs" />
      <Compile Include="Assets\Script\Global.cs" />
+     <Compile Include="Assets\Script\LevelUI.cs" />
      <Compile Include="Assets\Script\Magnet\MagentChangeDir.cs" />
      <Compile Include="Assets\Script\Magnet\MagnetAction.cs" />
      <Compile Include="Assets\Script\Magnet\PlayerMagnetAction.cs" />
@@ -61,6 +62,7 @@
      <Compile Include="Assets\Script\Manager\GameEndSystem.cs" />
      <Compile Include="Assets\Script\Manager\LevelInfo.cs" />
      <Compile Include="Assets\Script\Manager\LevelSystem.cs" />
+     <Compile Include="Assets\Script\Manager\MenuManager.cs" />
      <Compile Include="Assets\Script\Manager\UIManager.cs" />
      <Compile Include="Assets\Script\Menu\Exit.cs" />
      <Compile Include="Assets\Script\Menu\Fade.cs" />

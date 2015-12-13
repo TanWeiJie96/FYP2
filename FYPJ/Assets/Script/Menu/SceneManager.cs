@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SceneManager : MonoBehaviour {
 
     public string sceneName;
+
 
     public void Update()
     {
@@ -19,6 +21,11 @@ public class SceneManager : MonoBehaviour {
     public void _changeScene()
     {
         Application.LoadLevel(sceneName);
+    }
+
+    public void _changeScene(string scName)
+    {
+        Application.LoadLevel(scName);
     }
 
     public void _changeOption()
