@@ -6,6 +6,10 @@ public class Motor : MonoBehaviour {
 	//basic needs
 	public Transform TransToMove;
 
+	public CollectPowerUp cpp;
+
+	public float amtOfAccel = 1.0f; //ammount of time accelerated 
+
 	public BasicVar cur;
 	public BasicVar cons;
 	public BasicVar inc;
@@ -30,18 +34,18 @@ public class Motor : MonoBehaviour {
 		//_keyInput ();
 		_relation ();
 
-
 	}
 
 
     public void _movetowards(Vector3 dir)
     {
-        inc.dir = dir;
+        inc.dir = dir;	
         //inc.dir.Scale(new Vector3(cons.accel.x, 0, cons.accel.x));
     }
 
 	void _keyInput()
 	{
+
 		//Debug.Log("direction input");
 		if (Input.GetKey (KeyCode.A)) {
 			//Debug.Log("direction w");
@@ -72,9 +76,13 @@ public class Motor : MonoBehaviour {
 	void _relation()
 	{
 		if (inc.dir != Vector3.zero) {
-			//Debug.Log ("direction update");
-            inc.vel = inc.dir * inc.speed;
-            cur.vel += inc.vel;
+			for (int i = 0; i < amtOfAccel; ++i)
+			{
+				//Debug.Log ("direction update");
+				inc.vel = inc.dir * inc.speed;
+				cur.vel += inc.vel;
+				
+			}
 			inc.dir = Vector3.zero;
 		}
 
@@ -89,8 +97,6 @@ public class Motor : MonoBehaviour {
 		}
 		//Move the object according to current magnitude
         TransToMove.position += cur.vel;
-
-
 
 	}
 

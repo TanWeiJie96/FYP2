@@ -3,6 +3,8 @@ using System.Collections;
 
 public class Controls : MonoBehaviour {
 
+	public Motor motor;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,6 +28,7 @@ public class Controls : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Global.playerScript._motorSlowsDowm();
+			motor.inc.dir = Vector3.zero;
         }
 	}
 }
