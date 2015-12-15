@@ -1,13 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System;
+using UnityEngine.UI;
 
 public class CollectPowerUp : OnColReactTemplete
 {
 	// Power-up Variables
-	public bool changeSpe = false;
-	public bool changeInvis = false;
-	public bool changeBomb = false;
+	public bool gotSpeedUp = false;
+	public bool gotInvis = false;
+	public bool gotBomb = false;
+
+	public bool useSpeedUp = false;
+	public bool useInvis = false;
+	public bool useBomb = false;
+
+	// Power-up Image
+	public Image boostImage; 
+	public Image invisImage; 
+	public Image bombImage; 
 
 	// Power-up GameObjects
 	public GameObject speedUp;
@@ -24,75 +33,146 @@ public class CollectPowerUp : OnColReactTemplete
 
 	//-------------------------------------------------
 
-	public float timer = 3.0f;
+	public float startTime = 4.5f;
 
-	public override void onTriEnter(Collider other)
+	void Start()
+	{
+		boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+		invisImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+		bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+	}
+
+	public override void onTriEnterPower(Collider other)
     {	
         if (other.tag == "Speed")
         {	
-			Global.playerScript.motor.amtOfAccel = 3;
-			changeSpe = true;
+			gotSpeedUp = true;
+			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 			speedUp.SetActive(false);
+			
         }
 
 		if (other.tag == "Invis")
 		{
-			changeInvis = true;
+			gotInvis = true;
 			turnInvisible.SetActive(false);
+			invisImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 		}
+		
 
 		if (other.tag == "Bomb")
 		{
-			changeBomb = true;
+			gotBomb = true;
 			shootBomb.SetActive(false);
+			bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 		}
     }
 
-	void Update()
+	void timeDown()
 	{
-		if (changeSpe == true)
-			timer -= Time.deltaTime;
 
-		if (changeInvis == true)
-		{
-			wall1.GetComponent<Collider>().isTrigger = true;
-		}
-
-		if (timer <= 0.0f)
-		{
-			Global.playerScript.motor.amtOfAccel = 1;
-			timer = 0.0f;
-			changeSpe = false;
-			changeInvis = false;
-			wall1.GetComponent<Collider>().isTrigger = false;
-		}
-
-		if (Input.GetKey(KeyCode.B) )
-		{
-			clone = (GameObject)Instantiate(bombP, transform.position, transform.rotation);
-			clone.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0,0,speedOfBomb));
-			Physics.IgnoreCollision(clone.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
-
-		}
 	}
 
-//	public override void onTriExit(Collider other)
-//	{
-//		if (other.tag == "Speed")
-//		{
-//			changeSpe = false;
-//			speedUp.SetActive(false);
-//		}
-//	}
+	void Update()
+	{
+		Debug.Log ("Timer: " + startTime); 
+		if (gotSpeedUp == true)
+		{
+			if (Input.GetKeyUp(KeyCode.A))
+			{	
+				useSpeedUp = true;
+				boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+			}
+			
+			if (useSpeedUp == true)
+			{
+				startTime -= Time.deltaTime;
+				
+				Global.playerScript.motor.amtOfAccel = 3.0f;
+
+				if (startTime <= 0.0f)
+				{
+					gotSpeedUp = false;
+					useSpeedUp = false;
+				}
+			}
+
+		
+
+		}
+	
+
+
+		//-----------------------------------------------------------------------------
+
+		if (gotInvis == true)
+		{
+			if (Input.GetKeyDown(KeyCode.S))
+			{
+				useInvis = true;
+				invisImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+			}
+			
+			if (useInvis == true)
+			{
+				startTime -= Time.deltaTime;
+				
+				wall1.GetComponent<Collider>().isTrigger = true;
+
+				if (startTime <= 0.0f)
+				{
+					gotInvis = false;
+					useInvis = false;
+				}
+			}
+
+		}
+		//-----------------------------------------------------------------------------
+
+		if (gotBomb == true)
+		{
+			if (Input.GetKeyDown (KeyCode.D))
+			{
+				useBomb = true;
+				bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+			}
+			if (useBomb == true)
+			{
+				if (Input.GetKeyDown(KeyCode.B) )
+				{
+					startTime -= Time.deltaTime;
+					
+					clone = (GameObject)Instantiate(bombP, transform.position, transform.rotation);
+					clone.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0,0,speedOfBomb));
+					Physics.IgnoreCollision(clone.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+
+					if (startTime <= 0.0f)
+					{
+						gotBomb = false;
+						useBomb = false;
+					}
+
+				}
+			}
+		}
+		//-----------------------------------------------------------------------------
+		
+		if (startTime <= 0.0f)
+		{
+			Global.playerScript.motor.amtOfAccel = 1.0f;
+			//gotSpeedUp = false;
+			//gotInvis = false;
+			gotBomb = false;
+			useSpeedUp = false;
+			useInvis = false;
+			useBomb = false;
+			wall1.GetComponent<Collider>().isTrigger = false;
+			startTime = 0.0f;
+		}
+
+
+
+
+
+	}
 }
-
-//public class CollectPowerUp : MonoBehaviour {
-
-//    public void OnTriggerEnter(Collider other)
-//    {
-//        if (other.tag == "Speed")
-//        {
-//            Debug.Log("Speed Power Up Got!");
-//        }
-//    }
-//}
