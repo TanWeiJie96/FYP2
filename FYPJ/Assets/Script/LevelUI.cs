@@ -21,9 +21,10 @@ public class LevelUI : MonoBehaviour {
         {
             //set object to position
             GameObject newIcon = GameObject.Instantiate(levelIcon) as GameObject;
-      
-            newIcon.transform.parent = gameObject.transform;
+
             newIcon.transform.position = new Vector3(newIcon.transform.position.x + (i * spacing), newIcon.transform.position.y, newIcon.transform.position.z);
+            newIcon.transform.parent = gameObject.transform;
+            
 
             //input string into button
             string newstr;
@@ -43,9 +44,9 @@ public class LevelUI : MonoBehaviour {
             }
             else
             {
-                sceneManager.sceneName = "Level" + newstr;
+                //sceneManager.sceneName = "Level" + onLevel;
 
-                newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + newstr); });
+                newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel); });
             }
 
         }
