@@ -4,19 +4,28 @@ using System;
 
 public class CollectPowerUp : OnColReactTemplete
 {
+
 	public bool changeSpe = false;
+	public bool changeInvis = false;
 	public GameObject speedUp;
-	public float timer = 1.0f;
+	public GameObject turnInvisible;
+	public GameObject wall1;
+	public float timer = 3.0f;
 
 	public override void onTriEnter(Collider other)
     {	
         if (other.tag == "Speed")
         {	
+			Global.playerScript.motor.amtOfAccel = 3;
 			changeSpe = true;
 			speedUp.SetActive(false);
-
-			Debug.Log ("Timer: " + timer);
         }
+
+		if (other.tag == "Invis")
+		{
+			changeInvis = true;
+			turnInvisible.SetActive(false);
+		}
     }
 
 	void Update()
@@ -26,8 +35,14 @@ public class CollectPowerUp : OnColReactTemplete
 
 		if (timer <= 0.0f)
 		{
+			Global.playerScript.motor.amtOfAccel = 1;
 			timer = 0.0f;
 			changeSpe = false;
+		}
+
+		if (changeInvis == true)
+		{
+
 		}
 	}
 

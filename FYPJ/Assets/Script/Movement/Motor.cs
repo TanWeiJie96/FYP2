@@ -7,8 +7,8 @@ public class Motor : MonoBehaviour {
 	public Transform TransToMove;
 
 	public CollectPowerUp cpp;
-	public float newSpeed = 0.007f;
 
+	public float amtOfAccel = 1.0f; //ammount of time accelerated 
 
 	public BasicVar cur;
 	public BasicVar cons;
@@ -75,21 +75,15 @@ public class Motor : MonoBehaviour {
 
 	void _relation()
 	{
-		//Temp. change speed
-		if (cpp.changeSpe == true)
-		{
-			inc.speed = newSpeed;
-		}
-		else 
-		{
-			inc.speed = 0.001f;
-		}
-
 		if (inc.dir != Vector3.zero) {
-			//Debug.Log ("direction update");
-            inc.vel = inc.dir * inc.speed;
-            cur.vel += inc.vel;
-			//inc.dir = Vector3.zero;
+			for (int i = 0; i < amtOfAccel; ++i)
+			{
+				//Debug.Log ("direction update");
+				inc.vel = inc.dir * inc.speed;
+				cur.vel += inc.vel;
+				
+			}
+			inc.dir = Vector3.zero;
 		}
 
 
