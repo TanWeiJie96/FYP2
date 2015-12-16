@@ -8,7 +8,12 @@ public class CheckPointSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        GameObject CP = GameObject.Find("CheckPoints");
+        foreach (Transform child in CP.transform)
+        {
+            CheckPoints.Add(child.gameObject);
+        }
+
 	}
 	
 	// Update is called once per frame

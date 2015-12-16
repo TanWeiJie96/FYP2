@@ -22,8 +22,8 @@ public class LevelUI : MonoBehaviour {
             //set object to position
             GameObject newIcon = GameObject.Instantiate(levelIcon) as GameObject;
 
-            newIcon.transform.position = new Vector3(newIcon.transform.position.x + (i * spacing), newIcon.transform.position.y, newIcon.transform.position.z);
-            newIcon.transform.parent = gameObject.transform;
+            newIcon.transform.position = new Vector3(gameObject.transform.position.x - 100 + (i * spacing), gameObject.transform.position.y, gameObject.transform.position.z);
+            newIcon.transform.SetParent(gameObject.transform);
             
 
             //input string into button
