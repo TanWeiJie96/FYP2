@@ -68,11 +68,6 @@ public class CollectPowerUp : OnColReactTemplete
 		}
     }
 
-	void timeDown()
-	{
-
-	}
-
 	void Update()
 	{
 		Debug.Log ("Timer: " + startTime); 
@@ -96,13 +91,7 @@ public class CollectPowerUp : OnColReactTemplete
 					useSpeedUp = false;
 				}
 			}
-
-		
-
 		}
-	
-
-
 		//-----------------------------------------------------------------------------
 
 		if (gotInvis == true)
@@ -125,7 +114,6 @@ public class CollectPowerUp : OnColReactTemplete
 					useInvis = false;
 				}
 			}
-
 		}
 		//-----------------------------------------------------------------------------
 
@@ -133,26 +121,27 @@ public class CollectPowerUp : OnColReactTemplete
 		{
 			if (Input.GetKeyDown (KeyCode.D))
 			{
-				useBomb = true;
+				//useBomb = true;
 				bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
-			}
-			if (useBomb == true)
-			{
-				if (Input.GetKeyDown(KeyCode.B) )
-				{
-					startTime -= Time.deltaTime;
-					
+
+				///startTime -= Time.deltaTime;
+
+				//if (useBomb == true)
+				//{
+
 					clone = (GameObject)Instantiate(bombP, transform.position, transform.rotation);
 					clone.GetComponent<Rigidbody>().velocity = transform.TransformDirection(new Vector3(0,0,speedOfBomb));
-					Physics.IgnoreCollision(clone.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+					//Physics.IgnoreCollision(clone.GetComponent<Collider>(), transform.root.GetComponent<Collider>());
+					
 
-					if (startTime <= 0.0f)
-					{
-						gotBomb = false;
-						useBomb = false;
-					}
+				//}
+					
+//				if (startTime <= 0.0f)
+//				{
+//						gotBomb = false;
+//						useBomb = false;
+//				}
 
-				}
 			}
 		}
 		//-----------------------------------------------------------------------------
@@ -162,10 +151,10 @@ public class CollectPowerUp : OnColReactTemplete
 			Global.playerScript.motor.amtOfAccel = 1.0f;
 			//gotSpeedUp = false;
 			//gotInvis = false;
-			gotBomb = false;
-			useSpeedUp = false;
-			useInvis = false;
-			useBomb = false;
+			//gotBomb = false;
+			//useSpeedUp = false;
+			//useInvis = false;
+			//useBomb = false;
 			wall1.GetComponent<Collider>().isTrigger = false;
 			startTime = 0.0f;
 		}
