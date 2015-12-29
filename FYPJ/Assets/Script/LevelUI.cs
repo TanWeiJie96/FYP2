@@ -45,8 +45,9 @@ public class LevelUI : MonoBehaviour {
             else
             {
                 //sceneManager.sceneName = "Level" + onLevel;
-
-                newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel); });
+                int newint = i;
+                Debug.Log(newint);
+                newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel, newint); });
             }
 
         }

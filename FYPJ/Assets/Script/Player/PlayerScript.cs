@@ -81,7 +81,7 @@ public class PlayerScript : MonoBehaviour {
         //Debug.Log("On trigger enter");
         for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
         {
-            Debug.Log("checking list");
+            //Debug.Log("checking list");
             colReac.onColReacList[i].onTriEnter(other);
             
         }

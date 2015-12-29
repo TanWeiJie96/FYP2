@@ -43,7 +43,7 @@ public class GameEndSystem : MonoBehaviour {
 
     public void _checkForGameEnd()
     {
-        Debug.Log("win condition needed:"+winCondition.Count);
+        //Debug.Log("win condition needed:"+winCondition.Count);
         if (!allNeededToWin)
         {
             //if one of the winning condition is met, return win status
@@ -67,6 +67,7 @@ public class GameEndSystem : MonoBehaviour {
             {
                 if (winCondition[i] == false)
                 {
+                    Debug.Log("Amount of condition met: " + i + "/" + winCondition.Count);
                     confirmWin = false;
                     break;
                 }

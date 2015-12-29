@@ -70,7 +70,7 @@ public class CollectPowerUp : OnColReactTemplete
 
 	void Update()
 	{
-		Debug.Log ("Timer: " + startTime); 
+		//Debug.Log ("Timer: " + startTime); 
 		if (gotSpeedUp == true)
 		{
 			if (Input.GetKeyUp(KeyCode.A))

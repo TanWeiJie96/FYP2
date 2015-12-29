@@ -6,10 +6,28 @@ public class LevelInfo : MonoBehaviour {
     public float camStartAngle;
     public Vector3 startPosition;
 
-    public void _init()
+    public GameObject track;
+
+    public IEnumerator _init()
     {
-        Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
-        Global.playerScript.gameObject.transform.position = startPosition;
+        while (Global.playerScript == null)
+        {
+            Debug.Log("Loading player script.....");
+        }
+        Debug.Log("Player script is up~!");
+
+       if (Global.playerScript != null)
+       {
+            Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
+            Global.playerScript.gameObject.transform.position = startPosition;
+
+            if (GameObject.Find(track.name))
+                track.SetActive(true);
+            else
+                GameObject.Instantiate(track);
+            
+       }
+       yield return null;
     }
 
 	// Use this for initialization
