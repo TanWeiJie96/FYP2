@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (menuList[menuIndex] != null)
 	    menuList[menuIndex].SetActive(true);
 	}
 	

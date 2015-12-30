@@ -37,8 +37,11 @@ public class CollectPowerUp : OnColReactTemplete
 
 	void Start()
 	{
+		if (boostImage)
 		boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+		if (invisImage)
 		invisImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
+		if (bombImage)
 		bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 	}
 
