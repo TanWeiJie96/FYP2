@@ -12,6 +12,7 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
         if (Input.GetKey(KeyCode.F))
         {
             Global.playerScript._camRotAroundPlayer(true);
@@ -29,6 +30,11 @@ public class Controls : MonoBehaviour {
         {
             Global.playerScript._motorSlowsDowm();
 			motor.inc.dir = Vector3.zero;
+        }
+
+        if (Input.GetKeyUp(KeyCode.R))
+        {
+            Global.levelSystem.nextLevel();
         }
 	}
 }

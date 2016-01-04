@@ -8,6 +8,10 @@ public class LevelInfo : MonoBehaviour {
 
     public GameObject track;
 
+    public GameObject placedTrack;
+    public Vector3 trackPosition;
+
+
     public IEnumerator _init()
     {
         while (Global.playerScript == null)
@@ -18,13 +22,23 @@ public class LevelInfo : MonoBehaviour {
 
        if (Global.playerScript != null)
        {
+
+           //startPosition = GameObject.Find("startPoint").transform.position;
+
             Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
 
             if (GameObject.Find(track.name))
+            {
                 track.SetActive(true);
+            }
             else
-                GameObject.Instantiate(track);
+            {
+                placedTrack = GameObject.Instantiate(track);
+            }
+
+            track.transform.position = trackPosition;
+
             
        }
        yield return null;

@@ -4,8 +4,10 @@ using System.Collections.Generic;
 
 public class LevelSystem : MonoBehaviour {
     public List<LevelInfo> levelList;
+    
     public LevelInfo curLevel;
 
+    public int index;
 
 	// Use this for initialization
 	void Start () {
@@ -29,4 +31,17 @@ public class LevelSystem : MonoBehaviour {
         }
     }
 
+    public void nextLevel()
+    {
+        Destroy(curLevel.placedTrack.gameObject);
+
+        if (index < levelList.Count-1)
+            ++index;
+        else
+            index = 0;
+
+        curLevel = levelList[index] ;
+        _initLevel();
+
+    }
 }
