@@ -1,15 +1,11 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Manager\LevelInfo.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\ObjectRotation.cs">
     <Files>
-      <File FileName="Assets\Script\Menu\SceneManager.cs" Line="28" Column="55" />
-      <File FileName="Assets\Script\Menu\Fade.cs" Line="34" Column="22" />
-      <File FileName="Assets\Script\Menu\Fading.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Menu\Exit.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Manager\MenuManager.cs" Line="1" Column="1" />
-      <File FileName="Assets\Script\Manager\LevelSystem.cs" Line="24" Column="40" />
-      <File FileName="Assets\Script\Global.cs" Line="28" Column="29" />
-      <File FileName="Assets\Script\Manager\LevelInfo.cs" Line="11" Column="5" />
+      <File FileName="Assets\Script\Player\PlayerScript.cs" Line="40" Column="1" />
+      <File FileName="Assets\Script\Menu\SceneManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Magnet\PlayerMagnetAction.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\ObjectRotation.cs" Line="4" Column="28" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

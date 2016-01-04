@@ -75,6 +75,7 @@
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
      <Compile Include="Assets\Script\Movement\CarCamera.cs" />
      <Compile Include="Assets\Script\Movement\Motor.cs" />
+     <Compile Include="Assets\Script\ObjectRotation.cs" />
      <Compile Include="Assets\Script\Player\PlayerScript.cs" />
      <Compile Include="Assets\Script\Power Ups\Cannon.cs" />
      <Compile Include="Assets\Script\Power Ups\CollectPowerUp.cs" />
