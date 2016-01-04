@@ -2,6 +2,11 @@
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
+
+	public GameObject showInstructions; //Temp File
+	public GameObject showBackgroundColor; //Temp File
+	public bool show_I = false; //Temp Files
+
     public Motor motor;
     public CameraMovement camMovement;
     public GameObject playerModel;
@@ -32,6 +37,25 @@ public class PlayerScript : MonoBehaviour {
         }
 
         //gameObject.transform.position = playerModel.gameObject.transform.position;
+
+		if (Input.GetKeyDown(KeyCode.Escape))
+		{
+			show_I = !show_I;
+
+			if (show_I == true)
+			{
+				showInstructions.SetActive(true);
+				showBackgroundColor.SetActive(true);
+				Time.timeScale = 0;
+			}
+			else
+			{
+				showInstructions.SetActive (false);
+				showBackgroundColor.SetActive(false);
+				Time.timeScale = 1;
+			}
+			
+		}
     }
       
     public void _camRotAroundPlayer(bool cw)
