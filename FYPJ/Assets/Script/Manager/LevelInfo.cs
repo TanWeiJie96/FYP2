@@ -12,22 +12,20 @@ public class LevelInfo : MonoBehaviour {
     public Vector3 trackPosition;
 
 
-    public IEnumerator _init()
+    public void _init()
     {
-        while (Global.playerScript == null)
-        {
-            Debug.Log("Loading player script.....");
-        }
         Debug.Log("Player script is up~!");
 
        if (Global.playerScript != null)
-       {
+       {		
+			Debug.Log ("zzz");
+			placedTrack = GameObject.Instantiate(track);
 
-           //startPosition = GameObject.Find("startPoint").transform.position;
+			startPosition = GameObject.Find("startPosition").transform.position;
 
             Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
-
+			/*
             if (GameObject.Find(track.name))
             {
                 track.SetActive(true);
@@ -38,10 +36,9 @@ public class LevelInfo : MonoBehaviour {
             }
 
             track.transform.position = trackPosition;
-
-            
+			*/
        }
-       yield return null;
+       //yield return null;
     }
 
 	// Use this for initialization

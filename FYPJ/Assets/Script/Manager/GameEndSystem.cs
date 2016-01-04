@@ -54,6 +54,7 @@ public class GameEndSystem : MonoBehaviour {
                     gameEnd = GameEnd.WIN;
                     Debug.Log("you win with one of the condition met");
                     winLose.text = "you win";
+					Global.levelSystem.nextLevel();
                     break;
                 }
             }
@@ -77,6 +78,7 @@ public class GameEndSystem : MonoBehaviour {
                 gameEnd = GameEnd.WIN;
                 Debug.Log("you win with all the condition met");
                 winLose.text = "you win";
+				Global.levelSystem.nextLevel();
             }
 
         }

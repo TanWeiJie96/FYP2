@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -23,7 +23,8 @@ public class LevelSystem : MonoBehaviour {
     {
         if (levelList.Count > 0)
         {
-            StartCoroutine(curLevel._init());
+            curLevel._init();
+			Global.checkPointSystem.getCheckPoint();
         }
         else
         {
@@ -33,6 +34,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void nextLevel()
     {
+		Global.checkPointSystem.CheckPoints.Clear();
         Destroy(curLevel.placedTrack.gameObject);
 
         if (index < levelList.Count-1)
