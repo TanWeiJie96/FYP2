@@ -7,6 +7,7 @@ public class Global:MonoBehaviour{
     public static GameEndSystem gameEndSystem;
     public static LevelSystem levelSystem;
 	public static CheckPointSystem checkPointSystem;
+	public static CollectPowerUp collectPowerUp;
 
 	public delegate void CreationEvent();
 	public static CreationEvent CreationFunc;

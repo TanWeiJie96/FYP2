@@ -36,5 +36,23 @@ public class Controls : MonoBehaviour {
         {
             Global.levelSystem.nextLevel();
         }
+
+		// Show Instructions
+		if (Input.GetKeyUp(KeyCode.Escape))
+		{
+			//Global.playerScript.show_I = !Global.playerScript.show_I;
+			if (Global.playerScript.show_I == false)
+			{
+				Global.playerScript.showInstructions.SetActive(true);
+				Global.playerScript.showBackgroundColor.SetActive(true);
+				Time.timeScale = 0;
+			}
+			else 
+			{
+				Time.timeScale = 1;
+				Global.playerScript.showInstructions.SetActive(false);
+				Global.playerScript.showBackgroundColor.SetActive(false);
+			}
+		}
 	}
 }
