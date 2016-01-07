@@ -23,8 +23,8 @@ public class LevelSystem : MonoBehaviour {
     {
         if (levelList.Count > 0)
         {
-            curLevel._init();
-			Global.checkPointSystem.getCheckPoint();
+            StartCoroutine( curLevel._init() );
+			
         }
         else
         {
@@ -32,9 +32,22 @@ public class LevelSystem : MonoBehaviour {
         }
     }
 
+    public IEnumerator beforeNextLevel()
+    {
+        Global.controls.paused = true;
+        yield return new WaitForSeconds(5);
+        Global.controls.paused = false;
+        nextLevel();
+
+        yield return null;
+    }
+
+
     public void nextLevel()
     {
 		Global.checkPointSystem.CheckPoints.Clear();
+        Global.gameEndSystem.winLoseText.text = "";
+       
         Destroy(curLevel.placedTrack.gameObject);
 
         if (index < levelList.Count-1)
@@ -44,6 +57,7 @@ public class LevelSystem : MonoBehaviour {
 
         curLevel = levelList[index] ;
         _initLevel();
+
 
     }
 }

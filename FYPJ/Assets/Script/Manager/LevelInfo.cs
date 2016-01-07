@@ -12,16 +12,33 @@ public class LevelInfo : MonoBehaviour {
     public Vector3 trackPosition;
 
 
-    public void _init()
+    public IEnumerator _init()
     {
-        Debug.Log("Player script is up~!");
+        Debug.Log("Level number:" + levelno);
+
+        while (Global.playerScript == null)
+        {
+
+        }
 
        if (Global.playerScript != null)
        {		
-			Debug.Log ("zzz");
-			placedTrack = GameObject.Instantiate(track);
+			//Debug.Log ("zzz");
+           if (GameObject.Find(track.name))
+           {
+               track.SetActive(true);
+           }
+           else
+           {
+               placedTrack = GameObject.Instantiate(track);
+           }
 
-			startPosition = GameObject.Find("startPosition").transform.position;
+           foreach (Transform child in placedTrack.transform){
+                if (child.name == "startPosition"){
+                    startPosition = child.transform.position;
+                    Debug.Log("Starting position" + startPosition);
+                }
+           }
 
             Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
@@ -38,7 +55,8 @@ public class LevelInfo : MonoBehaviour {
             track.transform.position = trackPosition;
 			*/
        }
-       //yield return null;
+       Global.checkPointSystem.getCheckPoint();
+       yield return null;
     }
 
 	// Use this for initialization

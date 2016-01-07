@@ -26,7 +26,7 @@ public class GameEndSystem : MonoBehaviour {
     public bool allNeededToLose = false;
     public List<bool> loseCondition;
 
-    public Text winLose;
+    public Text winLoseText;
 
 	// Use this for initialization
 	void Start () {
@@ -53,8 +53,9 @@ public class GameEndSystem : MonoBehaviour {
                 {
                     gameEnd = GameEnd.WIN;
                     Debug.Log("you win with one of the condition met");
-                    winLose.text = "you win";
-					Global.levelSystem.nextLevel();
+                    winLoseText.text = "you win";
+                    StartCoroutine(Global.levelSystem.beforeNextLevel());
+					//Global.levelSystem.nextLevel();
                     break;
                 }
             }
@@ -77,8 +78,8 @@ public class GameEndSystem : MonoBehaviour {
             {
                 gameEnd = GameEnd.WIN;
                 Debug.Log("you win with all the condition met");
-                winLose.text = "you win";
-				Global.levelSystem.nextLevel();
+                winLoseText.text = "you win";
+                StartCoroutine(Global.levelSystem.beforeNextLevel());
             }
 
         }

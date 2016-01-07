@@ -9,6 +9,8 @@ public class Global:MonoBehaviour{
 	public static CheckPointSystem checkPointSystem;
 	public static CollectPowerUp collectPowerUp;
 
+    public static Controls controls;
+
 	public delegate void CreationEvent();
 	public static CreationEvent CreationFunc;
 
@@ -22,6 +24,7 @@ public class Global:MonoBehaviour{
 
         levelSystem = GameObject.Find("LevelInit").GetComponent<LevelSystem>();
 		checkPointSystem = GameObject.Find("CheckPointSystem").GetComponent<CheckPointSystem>();
+        controls = GameObject.Find("Controls").GetComponent<Controls>();
        
         if(playerScript.name!=null)
             Debug.Log(playerScript.name + " is up");

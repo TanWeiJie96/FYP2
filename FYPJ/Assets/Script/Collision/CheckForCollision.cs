@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class CheckForCollision : MonoBehaviour {
-    public bool intoWinCon = false;     //if trigger added to wincondition
+    public bool intoWinCon = true;     //if trigger added to wincondition
 
     public bool Collided = false;        //check if collided
     public bool noMoreCheckNeed = false; //stop checking wheter collide or not

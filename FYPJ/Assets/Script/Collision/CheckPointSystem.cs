@@ -13,7 +13,7 @@ public class CheckPointSystem : MonoBehaviour {
 
 	public void getCheckPoint()
 	{
-		GameObject CP = GameObject.Find("CheckPoints");
+		GameObject CP = GameObject.Find("Checkpoints");
 		Debug.Log("getting check point");
 		if (CP)
 		{
@@ -31,9 +31,12 @@ public class CheckPointSystem : MonoBehaviour {
         for (int x = 0; x < CheckPoints.Count; ++x)
         {
             GameObject go = CheckPoints[x];
+            Debug.Log("hi");
 			if(go != null)
 			{
+                Debug.Log("bye");
 	            CheckForCollision Coc = go.GetComponent<CheckForCollision>();
+                
 	            if (Coc.Collided == true && Coc.noMoreCheckNeed == false)
 	            {
 	                Global.gameEndSystem.winCondition[Coc.slot] = Coc.Collided;
@@ -41,7 +44,10 @@ public class CheckPointSystem : MonoBehaviour {
 	                Coc.noMoreCheckNeed = true;
 	                Coc.Collided = false;
 	                Debug.Log("check point updated");
+
+                    Debug.Log(CheckPoints.Count);
 	            }
+                
 			}
         }
 
