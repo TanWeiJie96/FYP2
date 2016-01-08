@@ -47,8 +47,11 @@ public class CollectPowerUp : OnColReactTemplete
 
 	public override void onTriEnterPower(Collider other)
     {	
+		Debug.Log (other.tag);
         if (other.tag == "Speed")
         {	
+			Debug.Log (other.tag);
+			Debug.Log ("Got Speed!");
 			gotSpeedUp = true;
 			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 			speedUp.SetActive(false);

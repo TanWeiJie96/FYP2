@@ -46,6 +46,8 @@ public class LevelSystem : MonoBehaviour {
     public void nextLevel()
     {
 		Global.checkPointSystem.CheckPoints.Clear();
+		Global.gameEndSystem.winCondition.Clear();
+		Global.gameEndSystem.loseCondition.Clear();
         Global.gameEndSystem.winLoseText.text = "";
        
         Destroy(curLevel.placedTrack.gameObject);
