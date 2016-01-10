@@ -6,10 +6,14 @@ public class LevelInfo : MonoBehaviour {
     public float camStartAngle;
     public Vector3 startPosition;
 
+    //track object and placement
     public GameObject track;
-
     public GameObject placedTrack;
     public Vector3 trackPosition;
+
+    //Scoring and time init
+    public float scorePerMin;
+    public float timeToComplete;
 
 
     public IEnumerator _init()
@@ -23,7 +27,7 @@ public class LevelInfo : MonoBehaviour {
 
        if (Global.playerScript != null)
        {		
-			//Debug.Log ("zzz");
+		    //Track init
            if (GameObject.Find(track.name))
            {
                track.SetActive(true);
@@ -38,24 +42,24 @@ public class LevelInfo : MonoBehaviour {
                     startPosition = child.transform.position;
                     Debug.Log("Starting position" + startPosition);
                 }
+                if (child.name == "Checkpoints")
+                {
+                    Global.checkPointSystem.getCheckPoint(child.gameObject);
+                    Debug.Log("Checkpoints getto");
+                }
            }
-
+           //player init
             Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
-			/*
-            if (GameObject.Find(track.name))
-            {
-                track.SetActive(true);
-            }
-            else
-            {
-                placedTrack = GameObject.Instantiate(track);
-            }
+	        
+           //UI info init
+            Global.uiManager.timerClass.startingTime = timeToComplete;
+            Global.uiManager.timerClass.timerAmount = timeToComplete;
+            Global.uiManager._updateLevel(levelno.ToString());
 
-            track.transform.position = trackPosition;
-			*/
+
        }
-       Global.checkPointSystem.getCheckPoint();
+      
        yield return null;
     }
 

@@ -8,21 +8,35 @@ public class CheckPointSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		getCheckPoint();
+		//getCheckPoint();
 	}
 
-	public void getCheckPoint()
+    public void getCheckPoint()
+    {
+        GameObject CP = GameObject.Find("Checkpoints");
+        //Debug.Log("getting check point");
+        if (CP)
+        {
+            Debug.Log("check points up");
+            foreach (Transform child in CP.transform)
+            {
+                CheckPoints.Add(child.gameObject);
+            }
+        }
+    }
+
+
+	public void getCheckPoint(GameObject CP)
 	{
-		GameObject CP = GameObject.Find("Checkpoints");
-		Debug.Log("getting check point");
-		if (CP)
+		//GameObject CP = GameObject.Find("Checkpoints");
+		//Debug.Log("getting check point");
+
+		Debug.Log("check points up");
+		foreach (Transform child in CP.transform)
 		{
-			Debug.Log("check points up");
-			foreach (Transform child in CP.transform)
-			{
-				CheckPoints.Add(child.gameObject);
-			}
+			CheckPoints.Add(child.gameObject);
 		}
+	
 	}
 	
 	// Update is called once per frame

@@ -17,6 +17,7 @@ public class Motor : MonoBehaviour {
 	//for deceleration when player has not select the direction
 	public bool slowDown = false;
 
+    public bool stopMoving = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,10 +33,16 @@ public class Motor : MonoBehaviour {
 	void Update () {
 
 		//_keyInput ();
-		_relation ();
+        if(!stopMoving)
+		    _relation ();
 
 	}
 
+    public void _stopMoving(bool stopMov)
+    {
+        stopMoving = stopMov;
+        cur.vel = Vector3.zero;
+    }
 
     public void _movetowards(Vector3 dir)
     {

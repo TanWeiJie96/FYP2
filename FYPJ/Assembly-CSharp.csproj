@@ -66,11 +66,15 @@
      <Compile Include="Assets\Script\Manager\LevelInfo.cs" />
      <Compile Include="Assets\Script\Manager\LevelSystem.cs" />
      <Compile Include="Assets\Script\Manager\MenuManager.cs" />
+     <Compile Include="Assets\Script\Manager\UIHandler.cs" />
      <Compile Include="Assets\Script\Manager\UIManager.cs" />
      <Compile Include="Assets\Script\Menu\Exit.cs" />
      <Compile Include="Assets\Script\Menu\Fade.cs" />
      <Compile Include="Assets\Script\Menu\Fading.cs" />
+     <Compile Include="Assets\Script\Menu\GameEndMenu.cs" />
+     <Compile Include="Assets\Script\Menu\PlaceMid.cs" />
      <Compile Include="Assets\Script\Menu\SceneManager.cs" />
+     <Compile Include="Assets\Script\Misc\Timer.cs" />
      <Compile Include="Assets\Script\Movement\BasicVar.cs" />
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
      <Compile Include="Assets\Script\Movement\CarCamera.cs" />

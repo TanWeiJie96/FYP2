@@ -53,6 +53,7 @@ public class GameEndSystem : MonoBehaviour {
                 {
                     gameEnd = GameEnd.WIN;
                     Debug.Log("you win with one of the condition met");
+                    
                     winLoseText.text = "you win";
                     StartCoroutine(Global.levelSystem.beforeNextLevel());
 					//Global.levelSystem.nextLevel();
@@ -85,5 +86,12 @@ public class GameEndSystem : MonoBehaviour {
         }
         needsCheckForGameEnd = false;
 
+    }
+
+    public void _reset()
+    {
+        gameEnd = GameEnd.NOTYET;
+        winCondition.Clear();
+        loseCondition.Clear();
     }
 }

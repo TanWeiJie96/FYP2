@@ -8,10 +8,16 @@ public class LevelSystem : MonoBehaviour {
     public LevelInfo curLevel;
 
     public int index;
+    public GameEndMenu gameEndMenu;
 
 	// Use this for initialization
-	void Start () {
-       
+	void Awake () {
+        if (gameEndMenu == null)
+        {
+            gameEndMenu = GameObject.Find("GameEndMenu").GetComponent<GameEndMenu>();
+            gameEndMenu.gameObject.SetActive(false);
+        }
+        
 	}
 	
 	// Update is called once per frame
@@ -32,13 +38,26 @@ public class LevelSystem : MonoBehaviour {
         }
     }
 
+    public void _setUpGameEndMenu()
+    {
+         //gameEndMenu.timeBonus._changeText(Global
+    }
+
+    void _switchForBeforeNextLevel()
+    {
+        gameEndMenu.gameObject.SetActive(!gameEndMenu.gameObject.activeSelf);
+        Global.controls.paused = !Global.controls.paused;
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+        Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+    }
+
     public IEnumerator beforeNextLevel()
     {
-        Global.controls.paused = true;
+        _switchForBeforeNextLevel();
         yield return new WaitForSeconds(5);
-        Global.controls.paused = false;
+        _switchForBeforeNextLevel();
+        
         nextLevel();
-
         yield return null;
     }
 
@@ -46,7 +65,7 @@ public class LevelSystem : MonoBehaviour {
     public void nextLevel()
     {
 		Global.checkPointSystem.CheckPoints.Clear();
-        Global.gameEndSystem.winLoseText.text = "";
+        Global.gameEndSystem._reset();
        
         Destroy(curLevel.placedTrack.gameObject);
 

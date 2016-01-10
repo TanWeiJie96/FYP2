@@ -4,9 +4,13 @@ using System.Collections;
 
 public class Global:MonoBehaviour{
     public static PlayerScript playerScript;
+
     public static GameEndSystem gameEndSystem;
     public static LevelSystem levelSystem;
 	public static CheckPointSystem checkPointSystem;
+
+    public static UIManager uiManager;
+
 	public static CollectPowerUp collectPowerUp;
 
     public static Controls controls;
@@ -21,9 +25,11 @@ public class Global:MonoBehaviour{
 
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         gameEndSystem = GameObject.Find("GameEndSystem").GetComponent<GameEndSystem>();
-
         levelSystem = GameObject.Find("LevelInit").GetComponent<LevelSystem>();
-		checkPointSystem = GameObject.Find("CheckPointSystem").GetComponent<CheckPointSystem>();
+        
+        uiManager = GameObject.Find("UIManager").GetComponent<UIManager>();
+		
+        checkPointSystem = GameObject.Find("CheckPointSystem").GetComponent<CheckPointSystem>();
         controls = GameObject.Find("Controls").GetComponent<Controls>();
        
         if(playerScript.name!=null)
