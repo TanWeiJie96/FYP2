@@ -5,11 +5,11 @@ using System;
 public class PlayerMagnetAction : OnColReactTemplete{
 
     public float magnetStrength = 5.0f;
-    public float magnetDirection = 0; // 1 = Attraction, -1 = Repel, 0 = Neutral
+    public float magnetDirection = -1; // 1 = Attraction, -1 = Repel, 0 = Neutral
     public float distanceStrength = 10.0f; // Strength, based on the distance
     public bool looseMagnet = true; // able to leave the magnetInZone and move freely
 
-    public bool north = false;
+    public bool north = false; // Differentiate Between Red and Blue Magnet 
 
     private Transform trans; // playerTransform
     private Rigidbody thisRd; // playerRigidBody
@@ -18,13 +18,14 @@ public class PlayerMagnetAction : OnColReactTemplete{
 
     public GameObject magneticState;
 
+	public Vector3 directionToMagnet;
+		
     void Start()
     {
         trans = transform;
         thisRd = Global.playerScript.gameObject.GetComponent<Rigidbody>();
     }
 
-    Vector3 directionToMagnet;
 
     void Update()
     {
@@ -32,14 +33,12 @@ public class PlayerMagnetAction : OnColReactTemplete{
         {
             if (north == false)
             {
-
                 directionToMagnet = magnetTrans.position - trans.position;
             }
             else if (north == true)
-            {
+            {	
                 directionToMagnet = trans.position - magnetTrans.position;
             }    
-
 
             float distance = Vector3.Distance(magnetTrans.position, trans.position);
             float magnetDistanceStr = (distanceStrength / distance) * magnetStrength;
@@ -79,16 +78,6 @@ public class PlayerMagnetAction : OnColReactTemplete{
         }
     }
 
-//    public override void onColRec(Collision collision)
-//    {
-//        
-//    }
-//
-//    public override void onTriEnterPower(Collider other)
-//    {
-//        
-//    }
-
     public override void onTriEnter(Collider other)
     {
         if (other.tag == "Magnet_S")
@@ -97,6 +86,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
             magnetTrans = other.transform ;
             magnetInZone = true;
         }
+		Debug.Log("Enter Collider!");
 
         if (other.tag == "Magnet_N")
         {
