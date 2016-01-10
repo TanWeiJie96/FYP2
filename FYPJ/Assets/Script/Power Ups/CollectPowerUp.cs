@@ -32,11 +32,12 @@ public class CollectPowerUp : OnColReactTemplete
 	public float speedOfBomb = 20.0f;
 
 	//-------------------------------------------------
-
-	public float startTime = 4.5f;
+	public float defaultTime = 4.5f;
+	public float startTime;
 
 	void Start()
 	{
+		startTime = defaultTime;
 		if (boostImage)
 		boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 		if (invisImage)
@@ -50,18 +51,14 @@ public class CollectPowerUp : OnColReactTemplete
 		Debug.Log (other.tag);
         if (other.tag == "Speed")
         {	
-			Debug.Log (other.tag);
-			Debug.Log ("Got Speed!");
 			gotSpeedUp = true;
 			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
-			speedUp.SetActive(false);
-			
         }
 
 		if (other.tag == "Invis")
 		{
 			gotInvis = true;
-			turnInvisible.SetActive(false);
+			//turnInvisible.SetActive(false);
 			invisImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 		}
 		
@@ -69,14 +66,16 @@ public class CollectPowerUp : OnColReactTemplete
 		if (other.tag == "Bomb")
 		{
 			gotBomb = true;
-			shootBomb.SetActive(false);
+			//shootBomb.SetActive(false);
 			bombImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
 		}
     }
 
 	void Update()
-	{
-		//Debug.Log ("Timer: " + startTime); 
+	{	
+		Debug.Log("gotSpeedUp: " + gotSpeedUp);
+		Debug.Log("useSpeedUp: " + useSpeedUp);
+
 		if (gotSpeedUp == true)
 		{
 			if (Input.GetKeyUp(KeyCode.A))
@@ -84,24 +83,33 @@ public class CollectPowerUp : OnColReactTemplete
 				useSpeedUp = true;
 				boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
 			}
-			
+
 			if (useSpeedUp == true)
 			{
-				startTime -= Time.deltaTime;
-				
-				Global.playerScript.motor.amtOfAccel = 3.0f;
-
 				if (startTime <= 0.0f)
 				{
 					gotSpeedUp = false;
 					useSpeedUp = false;
+					
+					Global.playerScript.motor.amtOfAccel = 1.0f;
+
+					startTime = defaultTime;
+				}
+				else 
+				{
+					startTime -= Time.deltaTime;
+					
+					Global.playerScript.motor.amtOfAccel = 3.0f;
 				}
 			}
+
+
 		}
 		//-----------------------------------------------------------------------------
 
 		if (gotInvis == true)
 		{
+			Debug.Log ("Active:" + speedUp.activeSelf);
 			if (Input.GetKeyDown(KeyCode.S))
 			{
 				useInvis = true;
@@ -154,13 +162,6 @@ public class CollectPowerUp : OnColReactTemplete
 		
 		if (startTime <= 0.0f)
 		{
-			Global.playerScript.motor.amtOfAccel = 1.0f;
-			//gotSpeedUp = false;
-			//gotInvis = false;
-			//gotBomb = false;
-			//useSpeedUp = false;
-			//useInvis = false;
-			//useBomb = false;
 			wall1.GetComponent<Collider>().isTrigger = false;
 			startTime = 0.0f;
 		}
