@@ -20,6 +20,7 @@ public class CollectPowerUp : OnColReactTemplete
 
 	// Power-up GameObjects
 	public GameObject speedUp;
+	public GameObject speedUpOnMap;
 	public GameObject turnInvisible;
 	public GameObject shootBomb;
 	public GameObject wall1;
@@ -37,6 +38,9 @@ public class CollectPowerUp : OnColReactTemplete
 
 	void Start()
 	{
+		speedUpOnMap = GameObject.Find("charge");
+		speedUp = speedUpOnMap;
+
 		startTime = defaultTime;
 		if (boostImage)
 		boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
@@ -48,11 +52,13 @@ public class CollectPowerUp : OnColReactTemplete
 
 	public override void onTriEnterPower(Collider other)
     {	
+
 		Debug.Log (other.tag);
         if (other.tag == "Speed")
         {	
 			gotSpeedUp = true;
 			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			speedUp.SetActive(false);
         }
 
 		if (other.tag == "Invis")
