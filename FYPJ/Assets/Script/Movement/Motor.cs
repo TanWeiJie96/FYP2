@@ -35,6 +35,10 @@ public class Motor : MonoBehaviour {
 		//_keyInput ();
         if(!stopMoving)
 		    _relation ();
+		else
+		{
+			cur.vel = Vector3.zero;
+		}
 
 	}
 

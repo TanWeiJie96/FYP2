@@ -50,8 +50,8 @@ public class PlayerMagnetAction : OnColReactTemplete{
         //// Neutral
         if (Input.GetKeyDown("z"))
         {
-            Debug.Log("Change magnetic direction");
-            Debug.Log(magnetDirection);
+            //Debug.Log("Change magnetic direction");
+            //Debug.Log(magnetDirection);
             magnetDirection = 0;
 
             magneticState.GetComponent<Renderer>().material.color = new Color(255, 255, 255, 0.1f);
@@ -60,8 +60,8 @@ public class PlayerMagnetAction : OnColReactTemplete{
         //// Repel
         if (Input.GetKeyDown("x"))
         {
-            Debug.Log("Change magnetic direction");
-            Debug.Log(magnetDirection);
+            //Debug.Log("Change magnetic direction");
+            //Debug.Log(magnetDirection);
             magnetDirection = -1;
 
             magneticState.GetComponent<Renderer>().material.color = new Color(0, 0, 255, 0.1f);
@@ -70,28 +70,28 @@ public class PlayerMagnetAction : OnColReactTemplete{
         //// Attract
         if (Input.GetKeyDown("c"))
         {
-            Debug.Log("Change magnetic direction");
-            Debug.Log(magnetDirection);
+            //Debug.Log("Change magnetic direction");
+            //Debug.Log(magnetDirection);
             magnetDirection = 1;
 
             magneticState.GetComponent<Renderer>().material.color = new Color(255, 0, 0, 0.1f);
         }
     }
 
-    public override void onTriEnter(Collider other)
+	public override void onTriStay(Collider other)
     {
-        if (other.tag == "Magnet_S")
+		if (other.tag == "Magnet_S")
         {
-            Debug.Log("Magnet_S Detected!");
-            magnetTrans = other.transform ;
+            //Debug.Log("Magnet_S Detected!");
+			magnetTrans = other.transform ;
             magnetInZone = true;
         }
-		Debug.Log("Enter Collider!");
+		//Debug.Log("Enter Collider!");
 
-        if (other.tag == "Magnet_N")
+		if (other.tag == "Magnet_N")
         {
-            Debug.Log("Magnet_N Detected!");
-            magnetTrans = other.transform;
+            //Debug.Log("Magnet_N Detected!");
+			magnetTrans = other.transform;
             magnetInZone = true;
             north = true;
         }
@@ -102,7 +102,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
     {
         if ( (other.tag == "Magnet_S" || other.tag == "Magnet_N") && looseMagnet == true)
         {
-            Debug.Log("Magnet Exit!");
+            //Debug.Log("Magnet Exit!");
             magnetInZone = false;
             north = false;
         }

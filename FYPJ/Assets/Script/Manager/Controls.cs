@@ -34,7 +34,7 @@ public class Controls : MonoBehaviour {
                 motor.inc.dir = Vector3.zero;
             }
 
-            if (Input.GetKeyUp(KeyCode.R))
+            if (Input.GetKeyUp(KeyCode.E))
             {
                 Global.levelSystem.nextLevel();
             }

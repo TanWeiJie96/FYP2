@@ -100,6 +100,17 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
+	void OnTriggerStay (Collider other)
+	{
+		Debug.Log ("OnTriggerStay");
+		for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
+		{
+			//Debug.Log("checking list");
+			colReac.onColReacList[i].onTriStay(other);
+			
+		}
+	}
+
     void OnTriggerEnter(Collider other)
     {
         //Debug.Log("On trigger enter");

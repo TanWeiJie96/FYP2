@@ -11,4 +11,6 @@ public class OnColReactTemplete : OnCollisionReaction
     public override void onTriExit(Collider other) {/*Debug.Log("Templete hit!");*/ }
 
     public override void onTriEnterPower(Collider other) { /*Debug.Log("Templete hit!");*/ }
+
+	public override void onTriStay(Collider other) { /*Debug.Log("Templete hit!");*/ } 
 }

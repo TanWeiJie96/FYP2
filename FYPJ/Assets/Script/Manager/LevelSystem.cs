@@ -23,6 +23,10 @@ public class LevelSystem : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+		if(Input.GetKeyDown( KeyCode.R ) )
+		{
+			resetLevel();
+		}
 	}
 
     public void _initLevel()
@@ -49,6 +53,7 @@ public class LevelSystem : MonoBehaviour {
         Global.controls.paused = !Global.controls.paused;
         Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
         Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+
     }
 
     public IEnumerator beforeNextLevel()
@@ -67,6 +72,9 @@ public class LevelSystem : MonoBehaviour {
 		Global.checkPointSystem.CheckPoints.Clear();
         Global.gameEndSystem._reset();
        
+		Global.playerScript.motor.cur.vel = Vector3.zero;
+		Global.playerScript.motor.cur.dir = new Vector3 (0, 0, 1);
+
         Destroy(curLevel.placedTrack.gameObject);
 
         if (index < levelList.Count-1)
@@ -76,7 +84,21 @@ public class LevelSystem : MonoBehaviour {
 
         curLevel = levelList[index] ;
         _initLevel();
-
-
+		
     }
+
+	
+	public void resetLevel()
+	{
+		Global.checkPointSystem.CheckPoints.Clear();
+		Global.gameEndSystem._reset();
+
+		Global.playerScript.motor.cur.vel = Vector3.zero;
+		
+		Destroy(curLevel.placedTrack.gameObject);
+		
+		curLevel = levelList[index] ;
+		_initLevel();
+		
+	}
 }
