@@ -37,6 +37,7 @@ public class LevelInfo : MonoBehaviour {
                placedTrack = GameObject.Instantiate(track);
            }
 
+           //getting startpoint and the check points
            foreach (Transform child in placedTrack.transform){
                 if (child.name == "startPosition"){
                     startPosition = child.transform.position;

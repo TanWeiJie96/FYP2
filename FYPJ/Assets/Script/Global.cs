@@ -3,6 +3,10 @@ using System.Collections;
 
 
 public class Global:MonoBehaviour{
+    public static GameObject gameUI;
+    public static GameObject gameSystem;
+    public static GameObject ingameObject;
+
     public static PlayerScript playerScript;
 
     public static GameEndSystem gameEndSystem;
@@ -22,6 +26,10 @@ public class Global:MonoBehaviour{
     {
 		if (CreationFunc != null)
 			CreationFunc();
+
+        gameUI = GameObject.Find("Game UI");
+        gameSystem = GameObject.Find("Game System");
+        ingameObject = GameObject.Find("InGame Object");
 
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         gameEndSystem = GameObject.Find("GameEndSystem").GetComponent<GameEndSystem>();
@@ -43,6 +51,11 @@ public class Global:MonoBehaviour{
 			Debug.Log(checkPointSystem.name + " is up");
 
          levelSystem._initLevel();
-    } 
+    }
+
+    public void resetLevel()
+    {
+
+    }
 
 }

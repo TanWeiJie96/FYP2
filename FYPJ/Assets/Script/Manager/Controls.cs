@@ -13,6 +13,7 @@ public class Controls : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //button to remove when game is paused
         if (!paused)
         {
             if (Input.GetKey(KeyCode.F))
@@ -40,26 +41,34 @@ public class Controls : MonoBehaviour {
             }
 
             // Show Instructions
-            if (Input.GetKeyUp(KeyCode.Escape))
-            {
-                //Global.playerScript.show_I = !Global.playerScript.show_I;
-                if (Global.playerScript.show_I == false)
-                {
-                    Global.playerScript.showInstructions.SetActive(true);
-                    Global.playerScript.showBackgroundColor.SetActive(true);
-                    Time.timeScale = 0;
-                }
-                else
-                {
-                    Time.timeScale = 1;
-                    Global.playerScript.showInstructions.SetActive(false);
-                    Global.playerScript.showBackgroundColor.SetActive(false);
-                }
-            }
+    
         }
         else
         {
 
+        }
+
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            //Global.playerScript.show_I = !Global.playerScript.show_I;
+            /*
+            if (Global.playerScript.show_I == false)
+            {
+                Global.playerScript.showInstructions.SetActive(true);
+                Global.playerScript.showBackgroundColor.SetActive(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                Global.playerScript.showInstructions.SetActive(false);
+                Global.playerScript.showBackgroundColor.SetActive(false);
+            }
+             */
+            Global.uiManager.PauseUI.gameObject.SetActive(!Global.uiManager.PauseUI.gameObject.activeSelf);
+            Global.controls.paused = !Global.controls.paused;
+            Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+            Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
         }
 	}
 }

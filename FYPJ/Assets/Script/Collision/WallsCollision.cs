@@ -6,18 +6,15 @@ public class WallsCollision : OnColReactTemplete {
     
     public override void onColRec(Collision collision)
     {
-        //Global.playerScript.motor._collisionResult(collision);
-        if (collision.gameObject.tag == "Slope" || collision.gameObject.tag == "Floor")
-        {
-            //gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
-            Debug.Log("No Direction change");
-        }
+
         if (collision.gameObject.tag == "Wall")
         {
             BasicVar cur = Global.playerScript.motor.cur;
 
-            cur.vel.x = -cur.vel.x;
-            cur.vel.Scale(new Vector3(0.1f, 0.1f, 0.1f));
+            //cur.vel.x = -cur.vel.x;
+            //cur.vel = Vector3.Reflect(
+
+            cur.vel.Scale(new Vector3(0.9f, 0.9f, 0.9f));
 
             Global.playerScript.motor.cur = cur;
 
@@ -26,18 +23,21 @@ public class WallsCollision : OnColReactTemplete {
         }
     }
 
-    public override void onTriEnter(Collider other)
+    public override void onColStay(Collision collision)
     {
-        
-    }
+        if (collision.gameObject.tag == "Wall")
+        {
+            BasicVar cur = Global.playerScript.motor.cur;
 
-    public override void onTriExit(Collider other)
-    {
+            //cur.vel.x = -cur.vel.x;
+            //cur.vel = Vector3.Reflect(
 
-    }
+            cur.vel.Scale(new Vector3(0.9f, 0.9f, 0.9f));
 
-    public override void onTriEnterPower(Collider other)
-    {
+            Global.playerScript.motor.cur = cur;
 
+
+            Debug.Log("Stay on " + collision.gameObject.name);
+        }
     }
 }

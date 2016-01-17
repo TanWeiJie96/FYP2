@@ -12,9 +12,13 @@ public class UIManager : MonoBehaviour {
 
     public UIHandler levelUI;
 
+    public UIHandler PauseUI;
+
 	// Use this for initialization
 	void Start () {
-	
+        PauseUI.gameObject.SetActive(false);
+
+
 	}
 	
 	// Update is called once per frame

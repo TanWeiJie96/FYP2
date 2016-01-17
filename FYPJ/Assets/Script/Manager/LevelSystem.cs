@@ -15,7 +15,7 @@ public class LevelSystem : MonoBehaviour {
         if (gameEndMenu == null)
         {
             gameEndMenu = GameObject.Find("GameEndMenu").GetComponent<GameEndMenu>();
-            gameEndMenu.gameObject.SetActive(false);
+            
         }
         
 	}
@@ -66,16 +66,24 @@ public class LevelSystem : MonoBehaviour {
         yield return null;
     }
 
+    public void resetStat()
+    {
+        Global.checkPointSystem.CheckPoints.Clear();
+        Global.gameEndSystem._reset();
+
+        Global.playerScript.motor.cur.vel = Vector3.zero;
+        Global.playerScript.motor.cur.dir = new Vector3(0, 0, 1);
+ 
+        Global.playerScript.playerModel.gameObject.transform.rotation = Quaternion.identity;
+
+        Destroy(curLevel.placedTrack.gameObject);
+
+        Global.uiManager.PauseUI.gameObject.SetActive(false);
+    }
 
     public void nextLevel()
     {
-		Global.checkPointSystem.CheckPoints.Clear();
-        Global.gameEndSystem._reset();
-       
-		Global.playerScript.motor.cur.vel = Vector3.zero;
-		Global.playerScript.motor.cur.dir = new Vector3 (0, 0, 1);
-
-        Destroy(curLevel.placedTrack.gameObject);
+        resetStat();
 
         if (index < levelList.Count-1)
             ++index;
@@ -84,18 +92,12 @@ public class LevelSystem : MonoBehaviour {
 
         curLevel = levelList[index] ;
         _initLevel();
-		
     }
 
 	
 	public void resetLevel()
 	{
-		Global.checkPointSystem.CheckPoints.Clear();
-		Global.gameEndSystem._reset();
-
-		Global.playerScript.motor.cur.vel = Vector3.zero;
-		
-		Destroy(curLevel.placedTrack.gameObject);
+        resetStat();
 		
 		curLevel = levelList[index] ;
 		_initLevel();

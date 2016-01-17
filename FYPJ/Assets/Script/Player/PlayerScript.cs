@@ -97,12 +97,22 @@ public class PlayerScript : MonoBehaviour {
         {
             colReac.onColReacList[i].onColRec(collision);
         }
-
     }
+
+    void OnCollisionStay(Collision collision)
+    {
+        //Debug.Log("OnCollisionStay");
+        //colReac
+        for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
+        {
+            colReac.onColReacList[i].onColStay(collision);
+        }
+    }
+
 
 	void OnTriggerStay (Collider other)
 	{
-		Debug.Log ("OnTriggerStay");
+		//Debug.Log ("OnTriggerStay");
 		for (int i = 0; i < colReac.onColReacList.Capacity; ++i)
 		{
 			//Debug.Log("checking list");

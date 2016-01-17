@@ -9,6 +9,7 @@ public class Motor : MonoBehaviour {
 	public CollectPowerUp cpp;
 
 	public float amtOfAccel = 1.0f; //ammount of time accelerated 
+    public float maxMag = 0.08f;
 
 	public BasicVar cur;
 	public BasicVar cons;
@@ -32,7 +33,7 @@ public class Motor : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		//_keyInput ();
+		_keyInput ();
         if(!stopMoving)
 		    _relation ();
 		else
@@ -86,26 +87,37 @@ public class Motor : MonoBehaviour {
 
 	void _relation()
 	{
-		if (inc.dir != Vector3.zero) {
-			for (int i = 0; i < amtOfAccel; ++i)
-			{
-				//Debug.Log ("direction update");
-				inc.vel = inc.dir * inc.speed;
-				cur.vel += inc.vel;
-				
-			}
-			inc.dir = Vector3.zero;
-		}
-
-
-        if (slowDown && cur.vel.magnitude > 0.01)
+        if (cur.vel.magnitude < maxMag)
         {
-			//Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
-            cur.vel.Scale(new Vector3(0.99f, 0.99f, 0.99f));
-			//Debug.Log ("slowing down...");
-		} else {
-			slowDown = false;
-		}
+            //Debug.Log("cur magnitude:" + cur.vel.magnitude);
+            if (inc.dir != Vector3.zero)
+            {
+                for (int i = 0; i < amtOfAccel; ++i)
+                {
+                    //Debug.Log ("direction update");
+                    inc.vel = inc.dir * inc.speed;
+                    cur.vel += inc.vel;
+
+                }
+                inc.dir = Vector3.zero;
+            }
+
+
+            if (slowDown && cur.vel.magnitude > 0.01)
+            {
+                //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
+                cur.vel.Scale(new Vector3(0.99f, 0.99f, 0.99f));
+                //Debug.Log ("slowing down...");
+            }
+            else
+            {
+                slowDown = false;
+            }
+        }
+        else
+        {
+            Debug.Log("max magnitude reached:");
+        }
 		//Move the object according to current magnitude
         TransToMove.position += cur.vel;
 

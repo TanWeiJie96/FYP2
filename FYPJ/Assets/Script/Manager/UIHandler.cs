@@ -14,7 +14,6 @@ public class UIHandler : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
        initColor = mainText.color;
-        
 	}
 
     // Update is called once per frame

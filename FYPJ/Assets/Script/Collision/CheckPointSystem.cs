@@ -45,10 +45,10 @@ public class CheckPointSystem : MonoBehaviour {
         for (int x = 0; x < CheckPoints.Count; ++x)
         {
             GameObject go = CheckPoints[x];
-            Debug.Log("hi");
+            //Debug.Log("hi");
 			if(go != null)
 			{
-                Debug.Log("bye");
+                //Debug.Log("bye");
 	            CheckForCollision Coc = go.GetComponent<CheckForCollision>();
                 
 	            if (Coc.Collided == true && Coc.noMoreCheckNeed == false)
