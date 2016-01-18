@@ -21,6 +21,13 @@ public class WallsCollision : OnColReactTemplete {
 
             Debug.Log("Hit wall");
         }
+
+
+        if (collision.gameObject.tag == "Floor")
+        {
+            //Global.playerScript.motor.RbToMove.angularVelocity = Vector3.zero;
+            Debug.Log("Hit Floor");
+        }
     }
 
     public override void onColStay(Collision collision)
@@ -39,5 +46,7 @@ public class WallsCollision : OnColReactTemplete {
 
             Debug.Log("Stay on " + collision.gameObject.name);
         }
+
+      
     }
 }

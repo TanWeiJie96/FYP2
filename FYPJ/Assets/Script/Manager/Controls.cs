@@ -65,10 +65,7 @@ public class Controls : MonoBehaviour {
                 Global.playerScript.showBackgroundColor.SetActive(false);
             }
              */
-            Global.uiManager.PauseUI.gameObject.SetActive(!Global.uiManager.PauseUI.gameObject.activeSelf);
-            Global.controls.paused = !Global.controls.paused;
-            Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-            Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+            Global.uiManager._togglePauseUI();
         }
 	}
 }

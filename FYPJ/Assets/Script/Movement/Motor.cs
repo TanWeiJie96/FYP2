@@ -5,6 +5,7 @@ using System.Collections;
 public class Motor : MonoBehaviour {
 	//basic needs
 	public Transform TransToMove;
+    public Rigidbody RbToMove;
 
 	public CollectPowerUp cpp;
 
@@ -31,14 +32,17 @@ public class Motor : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
 		_keyInput ();
         if(!stopMoving)
 		    _relation ();
 		else
 		{
-			cur.vel = Vector3.zero;
+            //cur.vel = Vector3.zero;
+            //RbToMove.AddForce(cur.vel); 
+            RbToMove.velocity = Vector3.zero;
+            RbToMove.angularVelocity = Vector3.zero; 
 		}
 
 	}
@@ -46,7 +50,11 @@ public class Motor : MonoBehaviour {
     public void _stopMoving(bool stopMov)
     {
         stopMoving = stopMov;
-        cur.vel = Vector3.zero;
+        //cur.vel = Vector3.zero;
+        //RbToMove.AddForce(cur.vel);
+
+        RbToMove.velocity = Vector3.zero;
+        RbToMove.angularVelocity = Vector3.zero; 
     }
 
     public void _movetowards(Vector3 dir)
@@ -87,6 +95,7 @@ public class Motor : MonoBehaviour {
 
 	void _relation()
 	{
+        //Debug.Log("Rigid body force: " + RbToMove.GetComponent<ConstantForce>().force);
         if (cur.vel.magnitude < maxMag)
         {
             //Debug.Log("cur magnitude:" + cur.vel.magnitude);
@@ -106,7 +115,7 @@ public class Motor : MonoBehaviour {
             if (slowDown && cur.vel.magnitude > 0.01)
             {
                 //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
-                cur.vel.Scale(new Vector3(0.99f, 0.99f, 0.99f));
+                //cur.vel.Scale(new Vector3(0.8f, 0.8f, 0.8f));
                 //Debug.Log ("slowing down...");
             }
             else
@@ -116,17 +125,13 @@ public class Motor : MonoBehaviour {
         }
         else
         {
-            Debug.Log("max magnitude reached:");
+            Debug.Log("max magnitude reached: " + cur.vel.magnitude);
         }
 		//Move the object according to current magnitude
-        TransToMove.position += cur.vel;
-
+        //TransToMove.position += cur.vel;
+        RbToMove.AddForce(cur.vel); 
 	}
 
-	void OnCollisionEnter(Collision collision){
-
-
-	}
     /*
     public void _collisionResult(Collision collision)
     {

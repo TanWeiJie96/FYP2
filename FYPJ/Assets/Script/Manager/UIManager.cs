@@ -43,4 +43,14 @@ public class UIManager : MonoBehaviour {
     {
         levelUI._changeText(temptext);
     }
+
+    public void _togglePauseUI()
+    {
+        PauseUI.gameObject.SetActive(!Global.uiManager.PauseUI.gameObject.activeSelf);
+        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+
+        Global.controls.paused = !Global.controls.paused;
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+        
+    }
 }
