@@ -18,7 +18,7 @@ public class GameEndSystem : MonoBehaviour {
 
     public bool needsCheckForGameEnd;                  //needed so that checking whether the game has ended does not happen every frame
 
-    public GameEnd gameEnd;
+    public GameEnd gameEnd;                             //enum to indicate cur game state
 
     public bool allNeededToWin = false;
     public List<bool> winCondition;
@@ -26,7 +26,9 @@ public class GameEndSystem : MonoBehaviour {
     public bool allNeededToLose = false;
     public List<bool> loseCondition;
 
-    public Text winLoseText;
+    public CheckForCollision areaToLose;
+
+    //public Text winLoseText;
 
 	// Use this for initialization
 	void Start () {
@@ -54,15 +56,16 @@ public class GameEndSystem : MonoBehaviour {
                     gameEnd = GameEnd.WIN;
                     Debug.Log("you win with one of the condition met");
                     
-                    winLoseText.text = "you win";
-                    StartCoroutine(Global.levelSystem.beforeNextLevel());
+                    Global.uiManager.gameEndMenu.title.text = "You win";
+                    //StartCoroutine(Global.levelSystem.beforeNextLevel());
 					//Global.levelSystem.nextLevel();
+                    Global.levelSystem._switchForBeforeNextLevel();
                     break;
                 }
             }
             Debug.Log("something is wrong");
         }
-        else
+        else if (allNeededToWin)
         {
             //if all of the winning condition is met, return win status
             bool confirmWin = true;
@@ -79,11 +82,28 @@ public class GameEndSystem : MonoBehaviour {
             {
                 gameEnd = GameEnd.WIN;
                 Debug.Log("you win with all the condition met");
-                winLoseText.text = "you win";
-                StartCoroutine(Global.levelSystem.beforeNextLevel());
+                Global.uiManager.gameEndMenu.title.text = "you win";
+                //StartCoroutine(Global.levelSystem.beforeNextLevel());
+                Global.levelSystem._switchForBeforeNextLevel();
             }
-
         }
+        
+        if (gameEnd == GameEnd.NOTYET)
+        {
+            Debug.Log(" Checking for lose condition");
+            for (int i = 0; i < loseCondition.Count; ++i)
+            {
+                if (loseCondition[i] == true)
+                {
+                    gameEnd = GameEnd.LOSE;
+                    Debug.Log("you lose~!");
+                    Global.uiManager.gameEndMenu.title.text = "you lose";
+                    Global.levelSystem._switchForBeforeNextLevel();
+                    
+                }
+            }
+        }
+
         needsCheckForGameEnd = false;
 
     }

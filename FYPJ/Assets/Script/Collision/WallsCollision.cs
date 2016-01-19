@@ -44,7 +44,7 @@ public class WallsCollision : OnColReactTemplete {
             Global.playerScript.motor.cur = cur;
 
 
-            Debug.Log("Stay on " + collision.gameObject.name);
+            //Debug.Log("Stay on " + collision.gameObject.name);
         }
 
       

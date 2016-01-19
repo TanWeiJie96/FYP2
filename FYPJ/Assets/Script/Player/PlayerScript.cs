@@ -52,6 +52,7 @@ public class PlayerScript : MonoBehaviour {
         radians = arrow.transform.eulerAngles.y * (Mathf.PI / 180);
 
         arrowSpin = false;
+        motor.slowDown = false;
         //Arrow.SetActive(false);
         //Debug.Log(arrow.transform.eulerAngles.y);
         Vector3 dir = new Vector3(Mathf.Sin(radians), 0, Mathf.Cos(radians));

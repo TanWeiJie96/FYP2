@@ -8,16 +8,12 @@ public class LevelSystem : MonoBehaviour {
     public LevelInfo curLevel;
 
     public int index;
-    public GameEndMenu gameEndMenu;
+
+
+    public CheckForCollision loseArea;
 
 	// Use this for initialization
-	void Awake () {
-        if (gameEndMenu == null)
-        {
-            gameEndMenu = GameObject.Find("GameEndMenu").GetComponent<GameEndMenu>();
-            
-        }
-        
+	void Start () {
 	}
 	
 	// Update is called once per frame
@@ -31,6 +27,12 @@ public class LevelSystem : MonoBehaviour {
 
     public void _initLevel()
     {
+        if (loseArea == null)
+        {
+            loseArea = GameObject.Find("loseArea").GetComponent<CheckForCollision>();
+        }
+        loseArea._init();
+
         if (levelList.Count > 0)
         {
             StartCoroutine( curLevel._init() );
@@ -47,13 +49,16 @@ public class LevelSystem : MonoBehaviour {
          //gameEndMenu.timeBonus._changeText(Global
     }
 
-    void _switchForBeforeNextLevel()
+    public void _switchForBeforeNextLevel()
     {
-        gameEndMenu.gameObject.SetActive(!gameEndMenu.gameObject.activeSelf);
+        
         Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-        Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
 
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+        Global.playerScript.motor.RbToMove.useGravity = !Global.playerScript.motor.RbToMove.useGravity;
+
+        Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+        Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
     }
 
     public IEnumerator beforeNextLevel()
@@ -66,7 +71,7 @@ public class LevelSystem : MonoBehaviour {
         yield return null;
     }
 
-    public void resetStat()
+    public void resetStat(bool GameEnd)
     {
         Global.checkPointSystem.CheckPoints.Clear();
         Global.gameEndSystem._reset();
@@ -77,13 +82,20 @@ public class LevelSystem : MonoBehaviour {
         Global.playerScript.playerModel.gameObject.transform.rotation = Quaternion.identity;
 
         Destroy(curLevel.placedTrack.gameObject);
-
-        Global.uiManager.PauseUI.gameObject.SetActive(false);
+       
+        if(GameEnd)
+            Global.uiManager.gameEndMenu.gameObject.SetActive(false);
+        else
+            Global.uiManager.pauseUI.gameObject.SetActive(false);
     }
 
-    public void nextLevel()
+    public void nextLevel(bool GameEnd = false)
     {
-        resetStat();
+        if (GameEnd)
+            _switchForBeforeNextLevel();
+
+       
+        resetStat(GameEnd);
 
         if (index < levelList.Count-1)
             ++index;
@@ -94,10 +106,13 @@ public class LevelSystem : MonoBehaviour {
         _initLevel();
     }
 
-	
-	public void resetLevel()
+
+    public void resetLevel(bool GameEnd = false)
 	{
-        resetStat();
+        if(GameEnd)
+             _switchForBeforeNextLevel();
+
+        resetStat(GameEnd);
 		
 		curLevel = levelList[index] ;
 		_initLevel();

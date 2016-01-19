@@ -17,12 +17,18 @@ public class LevelUI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        int k = 0;
         for (int i = 0; i < numberOfLevel; ++i)
         {
             //set object to position
             GameObject newIcon = GameObject.Instantiate(levelIcon) as GameObject;
+           
+            if (i % 3 == 0 && i !=0)
+            {
+                ++k;
+            }
 
-            newIcon.transform.position = new Vector3(gameObject.transform.position.x - 100 + (i * spacing), gameObject.transform.position.y, gameObject.transform.position.z);
+            newIcon.transform.position = new Vector3(gameObject.transform.position.x - 100 + ( (i-(k*3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing), gameObject.transform.position.z);
             newIcon.transform.SetParent(gameObject.transform);
             
 

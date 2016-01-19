@@ -25,6 +25,11 @@ public class SceneManager : MonoBehaviour {
         Application.LoadLevel(sceneName);
     }
 
+    public void _changeSceneWithName(string tempSceneName)
+    {
+        Application.LoadLevel(tempSceneName);
+    }
+
     public void _changeScene(string scName , int level)
     {
         Debug.Log(level);

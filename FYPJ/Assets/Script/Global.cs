@@ -26,6 +26,7 @@ public class Global:MonoBehaviour{
     {
 		if (CreationFunc != null)
 			CreationFunc();
+        //Debug.Log("Starting to do shit");
 
         gameUI = GameObject.Find("Game UI");
         gameSystem = GameObject.Find("Game System");
@@ -39,7 +40,13 @@ public class Global:MonoBehaviour{
 		
         checkPointSystem = GameObject.Find("CheckPointSystem").GetComponent<CheckPointSystem>();
         controls = GameObject.Find("Controls").GetComponent<Controls>();
-       
+
+        if (gameUI.name != null)
+            Debug.Log(gameUI.name + " is up");
+
+        if (playerScript.name != null)
+            Debug.Log(playerScript.name + " is up");
+
         if(playerScript.name!=null)
             Debug.Log(playerScript.name + " is up");
          if(gameEndSystem.name!=null)
@@ -50,12 +57,8 @@ public class Global:MonoBehaviour{
 		if (checkPointSystem && checkPointSystem.name != null)
 			Debug.Log(checkPointSystem.name + " is up");
 
-         levelSystem._initLevel();
-    }
-
-    public void resetLevel()
-    {
-
+        uiManager._initUI();
+        levelSystem._initLevel();
     }
 
 }

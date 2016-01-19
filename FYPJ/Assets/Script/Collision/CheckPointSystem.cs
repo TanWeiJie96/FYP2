@@ -31,17 +31,18 @@ public class CheckPointSystem : MonoBehaviour {
 		//GameObject CP = GameObject.Find("Checkpoints");
 		//Debug.Log("getting check point");
 
-		Debug.Log("check points up");
+		//Debug.Log("check points up");
 		foreach (Transform child in CP.transform)
 		{
-			CheckPoints.Add(child.gameObject);
+            CheckPoints.Add(child.gameObject);
+            child.gameObject.GetComponent<CheckForCollision>()._init();
 		}
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        /*
         for (int x = 0; x < CheckPoints.Count; ++x)
         {
             GameObject go = CheckPoints[x];
@@ -64,6 +65,7 @@ public class CheckPointSystem : MonoBehaviour {
                 
 			}
         }
+         */ 
 
 	}
 }

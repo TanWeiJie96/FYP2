@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
+
 using System.Collections;
 
 public class GameEndMenu : MonoBehaviour {
+    public Text title; 
+
     public UIHandler score;
     public UIHandler rating;
     public UIHandler timeBonus;
@@ -9,7 +13,7 @@ public class GameEndMenu : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        gameObject.SetActive(false);
+
 	}
 	
 	// Update is called once per frame

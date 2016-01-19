@@ -22,7 +22,9 @@ public class GameCreation : MonoBehaviour
 			}
 			else
 			{
-				GameObject.Instantiate(gameObjList[i]);
+				GameObject newGO = GameObject.Instantiate(gameObjList[i]);
+                newGO.name = gameObjList[i].name;
+
 				Debug.Log(gameObjList[i].name + " has been created~!");
 			}
 		}

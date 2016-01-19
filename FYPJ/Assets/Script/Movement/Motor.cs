@@ -35,18 +35,20 @@ public class Motor : MonoBehaviour {
 	void FixedUpdate () {
 
 		_keyInput ();
-        if(!stopMoving)
-		    _relation ();
-		else
-		{
+        if (!stopMoving)
+        {
+            _relation();
+        }
+        else
+        {
             //cur.vel = Vector3.zero;
             //RbToMove.AddForce(cur.vel); 
             RbToMove.velocity = Vector3.zero;
-            RbToMove.angularVelocity = Vector3.zero; 
-		}
+            RbToMove.angularVelocity = Vector3.zero;
+        }
 
 	}
-
+    /*
     public void _stopMoving(bool stopMov)
     {
         stopMoving = stopMov;
@@ -56,7 +58,7 @@ public class Motor : MonoBehaviour {
         RbToMove.velocity = Vector3.zero;
         RbToMove.angularVelocity = Vector3.zero; 
     }
-
+    */
     public void _movetowards(Vector3 dir)
     {
         inc.dir = dir;	
@@ -110,23 +112,23 @@ public class Motor : MonoBehaviour {
                 }
                 inc.dir = Vector3.zero;
             }
-
-
-            if (slowDown && cur.vel.magnitude > 0.01)
-            {
-                //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
-                //cur.vel.Scale(new Vector3(0.8f, 0.8f, 0.8f));
-                //Debug.Log ("slowing down...");
-            }
-            else
-            {
-                slowDown = false;
-            }
         }
         else
         {
-            Debug.Log("max magnitude reached: " + cur.vel.magnitude);
+            //Debug.Log("max magnitude reached: " + cur.vel.magnitude);
         }
+
+        if (slowDown && cur.vel.magnitude > 0.01)
+        {
+            //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
+            cur.vel.Scale(new Vector3(0.9f, 0.9f, 0.9f));
+            Debug.Log("slowing down...");
+        }
+        else
+        {
+            slowDown = false;
+        }
+
 		//Move the object according to current magnitude
         //TransToMove.position += cur.vel;
         RbToMove.AddForce(cur.vel); 

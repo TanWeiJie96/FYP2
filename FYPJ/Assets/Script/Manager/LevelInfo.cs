@@ -9,6 +9,7 @@ public class LevelInfo : MonoBehaviour {
     //track object and placement
     public GameObject track;
     public GameObject placedTrack;
+
     public Vector3 trackPosition;
 
     //Scoring and time init
@@ -20,13 +21,14 @@ public class LevelInfo : MonoBehaviour {
     {
         Debug.Log("Level number:" + levelno);
 
-        while (Global.playerScript == null)
+        while (Global.playerScript == null || Global.uiManager == null)
         {
 
         }
 
        if (Global.playerScript != null)
-       {		
+       {
+           
 		    //Track init
            if (GameObject.Find(track.name))
            {
@@ -41,12 +43,12 @@ public class LevelInfo : MonoBehaviour {
            foreach (Transform child in placedTrack.transform){
                 if (child.name == "startPosition"){
                     startPosition = child.transform.position;
-                    Debug.Log("Starting position" + startPosition);
+                    //Debug.Log("Starting position" + startPosition);
                 }
                 if (child.name == "Checkpoints")
                 {
                     Global.checkPointSystem.getCheckPoint(child.gameObject);
-                    Debug.Log("Checkpoints getto");
+                   // Debug.Log("Checkpoints getto");
                 }
            }
            //player init

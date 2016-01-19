@@ -79,8 +79,8 @@ public class CollectPowerUp : OnColReactTemplete
 
 	void Update()
 	{	
-		Debug.Log("gotSpeedUp: " + gotSpeedUp);
-		Debug.Log("useSpeedUp: " + useSpeedUp);
+		//Debug.Log("gotSpeedUp: " + gotSpeedUp);
+		//Debug.Log("useSpeedUp: " + useSpeedUp);
 
 		if (gotSpeedUp == true)
 		{

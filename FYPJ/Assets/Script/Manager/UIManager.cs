@@ -12,13 +12,43 @@ public class UIManager : MonoBehaviour {
 
     public UIHandler levelUI;
 
-    public UIHandler PauseUI;
+    public UIHandler pauseUI;
+
+    public GameEndMenu gameEndMenu;
 
 	// Use this for initialization
-	void Start () {
-        PauseUI.gameObject.SetActive(false);
+	public void _initUI () {
+        //Debug.Log("Init uimanager" + Global.gameUI.gameObject.transform.GetChild(0).gameObject.name);
 
+        foreach (Transform child in Global.gameUI.gameObject.transform.GetChild(0))
+        {
+            if (child.gameObject.name == "InGameScore")
+            {
+                scoreUI = child.gameObject.GetComponent<UIHandler>();
+            }
 
+            if (child.gameObject.name == "InGameTimer")
+            {
+                timerUI = child.gameObject.GetComponent<UIHandler>();
+            }
+
+            if (child.gameObject.name == "InGameLevel")
+            {
+                levelUI = child.gameObject.GetComponent<UIHandler>();
+            }
+
+            if (child.gameObject.name == "PauseMenu")
+            {
+                pauseUI = child.gameObject.GetComponent<UIHandler>();
+            }
+        }
+        pauseUI.gameObject.SetActive(false);
+
+        if (gameEndMenu == null)
+        {
+            gameEndMenu = GameObject.Find("GameEndMenu").GetComponent<GameEndMenu>();
+            gameEndMenu.gameObject.SetActive(false);
+        }
 	}
 	
 	// Update is called once per frame
@@ -46,11 +76,21 @@ public class UIManager : MonoBehaviour {
 
     public void _togglePauseUI()
     {
-        PauseUI.gameObject.SetActive(!Global.uiManager.PauseUI.gameObject.activeSelf);
+        pauseUI.gameObject.SetActive(!Global.uiManager.pauseUI.gameObject.activeSelf);
         timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
 
         Global.controls.paused = !Global.controls.paused;
         Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
         
+    }
+
+    public void _toggleScoreUI()
+    {
+        scoreUI.gameObject.SetActive(!Global.uiManager.scoreUI.gameObject.activeSelf);
+        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+
+        Global.controls.paused = !Global.controls.paused;
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+
     }
 }
