@@ -19,14 +19,7 @@ public class WallsCollision : OnColReactTemplete {
             Global.playerScript.motor.cur = cur;
 
 
-            Debug.Log("Hit wall");
-        }
-
-
-        if (collision.gameObject.tag == "Floor")
-        {
-            //Global.playerScript.motor.RbToMove.angularVelocity = Vector3.zero;
-            Debug.Log("Hit Floor");
+            //Debug.Log("Hit wall");
         }
     }
 

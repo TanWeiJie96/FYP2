@@ -64,33 +64,34 @@ public class UIManager : MonoBehaviour {
             timerUI._changeText(timerClass.timerAmount.ToString(), Color.red);
     }
 
-    public void _updateScore(string temptext)
+    public void _updateScore(int temptext)
     {
-        scoreUI._changeText(temptext);
+        scoreUI._changeText(temptext.ToString());
     }
 
-    public void _updateLevel(string temptext)
+    public void _updateLevel(int temptext)
     {
-        levelUI._changeText(temptext);
+        levelUI._changeText(temptext.ToString());
+    }
+
+    public void _pauseGame()
+    {
+        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+
+        Global.controls.paused = !Global.controls.paused;
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving; 
     }
 
     public void _togglePauseUI()
     {
         pauseUI.gameObject.SetActive(!Global.uiManager.pauseUI.gameObject.activeSelf);
-        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
-
-        Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-        
+        _pauseGame();
+   
     }
 
     public void _toggleScoreUI()
     {
         scoreUI.gameObject.SetActive(!Global.uiManager.scoreUI.gameObject.activeSelf);
-        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
-
-        Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-
+        _pauseGame();
     }
 }

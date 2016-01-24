@@ -122,7 +122,7 @@ public class Motor : MonoBehaviour {
         {
             //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
             cur.vel.Scale(new Vector3(0.9f, 0.9f, 0.9f));
-            Debug.Log("slowing down...");
+            //Debug.Log("slowing down...");
         }
         else
         {

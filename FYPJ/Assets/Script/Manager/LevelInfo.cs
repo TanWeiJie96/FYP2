@@ -13,8 +13,13 @@ public class LevelInfo : MonoBehaviour {
     public Vector3 trackPosition;
 
     //Scoring and time init
-    public float scorePerMin;
+    public float scorePerSec;
     public float timeToComplete;
+    public float scoreToRate;
+
+    public int levelHighScore;
+    public float levelHighRating;
+
 
 
     public IEnumerator _init()
@@ -28,7 +33,6 @@ public class LevelInfo : MonoBehaviour {
 
        if (Global.playerScript != null)
        {
-           
 		    //Track init
            if (GameObject.Find(track.name))
            {
@@ -58,7 +62,7 @@ public class LevelInfo : MonoBehaviour {
            //UI info init
             Global.uiManager.timerClass.startingTime = timeToComplete;
             Global.uiManager.timerClass.timerAmount = timeToComplete;
-            Global.uiManager._updateLevel(levelno.ToString());
+            Global.uiManager._updateLevel(levelno);
 
 
        }
@@ -66,13 +70,15 @@ public class LevelInfo : MonoBehaviour {
        yield return null;
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public int _calcTimeBonus()
+    {
+        return (int)((timeToComplete - Global.uiManager.timerClass.timerAmount) * scorePerSec);
+    }
+
+
+
+    public float _calcRating(float tempScore)
+    {
+        return (  tempScore / scoreToRate   ) * 10 ;
+    }
 }

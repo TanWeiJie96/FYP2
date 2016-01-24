@@ -46,8 +46,11 @@ public class LevelSystem : MonoBehaviour {
 
     public void _setUpGameEndMenu()
     {
-         //gameEndMenu.timeBonus._changeText(Global
+        Global.uiManager.gameEndMenu._showStats();
+        _switchForBeforeNextLevel();
     }
+
+
 
     public void _switchForBeforeNextLevel()
     {
@@ -58,12 +61,12 @@ public class LevelSystem : MonoBehaviour {
         Global.playerScript.motor.RbToMove.useGravity = !Global.playerScript.motor.RbToMove.useGravity;
 
         Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
-        Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
+        //Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
     }
 
     public IEnumerator beforeNextLevel()
     {
-        _switchForBeforeNextLevel();
+        _setUpGameEndMenu();
         yield return new WaitForSeconds(5);
         _switchForBeforeNextLevel();
         
@@ -76,9 +79,12 @@ public class LevelSystem : MonoBehaviour {
         Global.checkPointSystem.CheckPoints.Clear();
         Global.gameEndSystem._reset();
 
+        //Score reset
+        Global.scoreSystem._updateScore(0);
+
+        //Players vel and dir
         Global.playerScript.motor.cur.vel = Vector3.zero;
         Global.playerScript.motor.cur.dir = new Vector3(0, 0, 1);
- 
         Global.playerScript.playerModel.gameObject.transform.rotation = Quaternion.identity;
 
         Destroy(curLevel.placedTrack.gameObject);
@@ -91,8 +97,8 @@ public class LevelSystem : MonoBehaviour {
 
     public void nextLevel(bool GameEnd = false)
     {
-        if (GameEnd)
-            _switchForBeforeNextLevel();
+
+         _switchForBeforeNextLevel();
 
        
         resetStat(GameEnd);
@@ -109,8 +115,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void resetLevel(bool GameEnd = false)
 	{
-        if(GameEnd)
-             _switchForBeforeNextLevel();
+         _switchForBeforeNextLevel();
 
         resetStat(GameEnd);
 		
