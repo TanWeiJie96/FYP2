@@ -28,7 +28,7 @@ public class LevelUI : MonoBehaviour {
                 ++k;
             }
 
-            newIcon.transform.position = new Vector3(gameObject.transform.position.x - 100 + ( (i-(k*3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing), gameObject.transform.position.z);
+            newIcon.transform.position = new Vector3(gameObject.transform.position.x - spacing + ((i - (k * 3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing * 0.5f), gameObject.transform.position.z);
             newIcon.transform.SetParent(gameObject.transform);
             
 

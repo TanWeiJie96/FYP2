@@ -11,6 +11,8 @@ public class Motor : MonoBehaviour {
 
 	public float amtOfAccel = 1.0f; //ammount of time accelerated 
     public float maxMag = 0.08f;
+    public float jumpStr = 500f;    //strength in jumping
+    public float jumpDec = 0.8f;    //speed in decreasing of altitudue
 
 	public BasicVar cur;
 	public BasicVar cons;
@@ -18,8 +20,9 @@ public class Motor : MonoBehaviour {
 
 	//for deceleration when player has not select the direction
 	public bool slowDown = false;
-
     public bool stopMoving = false;
+    public bool jumping = false;
+
 
 	// Use this for initialization
 	void Start () {
@@ -121,33 +124,33 @@ public class Motor : MonoBehaviour {
         if (slowDown && cur.vel.magnitude > 0.01)
         {
             //Debug.Log ("cur magnitude:" + cur.magnitude.magnitude);
-            cur.vel.Scale(new Vector3(0.9f, 0.9f, 0.9f));
+            cur.vel.Scale(new Vector3(0.9f, 1.0f, 0.9f));
             //Debug.Log("slowing down...");
         }
         else
         {
             slowDown = false;
         }
-
+        if (jumping == true)
+        {
+            if (cur.vel.y < 1)
+            {
+                jumping = false;
+            }
+            else
+            {
+                cur.vel.Scale(new Vector3(1.0f, jumpDec, 1.0f));
+            }
+        }
 		//Move the object according to current magnitude
         //TransToMove.position += cur.vel;
         RbToMove.AddForce(cur.vel); 
 	}
 
-    /*
-    public void _collisionResult(Collision collision)
+    public void _jump()
     {
-        if (collision.gameObject.tag == "Slope" || collision.gameObject.tag == "Floor")
-        {
-            //gameObject.transform.rotation = new Quaternion (0, 0, 0, 0);
-            Debug.Log("No Direction change");
-        }
-        if (collision.gameObject.tag == "Wall")
-        {
-            cur.vel.x = -cur.vel.x;
-            cur.vel.Scale(new Vector3(0.1f, 0.1f, 0.1f));
-            Debug.Log("Hit wall");
-        }
+        Global.playerScript.motor.cur.vel += new Vector3(0.0f, jumpStr, 0.0f);
+        Global.playerScript.motor._movetowards(new Vector3(0.0f, 1.0f, 0.0f));
+        jumping = true;
     }
-     */
 }

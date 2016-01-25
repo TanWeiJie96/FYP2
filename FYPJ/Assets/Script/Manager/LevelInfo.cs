@@ -61,8 +61,8 @@ public class LevelInfo : MonoBehaviour {
             Global.playerScript.gameObject.transform.position = startPosition;
 	        
            //UI info init
-            Global.uiManager.timerClass.startingTime = timeToComplete;
-            Global.uiManager.timerClass.timerAmount = timeToComplete;
+            Global.uiManager.inGameUI.timerClass.startingTime = timeToComplete;
+            Global.uiManager.inGameUI.timerClass.timerAmount = timeToComplete;
             Global.uiManager._updateLevel(levelno);
 
 
@@ -73,7 +73,7 @@ public class LevelInfo : MonoBehaviour {
 
     public int _calcTimeBonus()
     {
-        return (int)((timeToComplete - Global.uiManager.timerClass.timerAmount) * scorePerSec);
+        return (int)((timeToComplete - Global.uiManager.inGameUI.timerClass.timerAmount) * scorePerSec);
     }
 
 

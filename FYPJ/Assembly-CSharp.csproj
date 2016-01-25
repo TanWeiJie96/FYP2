@@ -75,6 +75,7 @@
      <Compile Include="Assets\Script\Menu\Fade.cs" />
      <Compile Include="Assets\Script\Menu\Fading.cs" />
      <Compile Include="Assets\Script\Menu\GameEndMenu.cs" />
+     <Compile Include="Assets\Script\Menu\InGameUI.cs" />
      <Compile Include="Assets\Script\Menu\PlaceMid.cs" />
      <Compile Include="Assets\Script\Menu\SceneManager.cs" />
      <Compile Include="Assets\Script\Misc\Timer.cs" />

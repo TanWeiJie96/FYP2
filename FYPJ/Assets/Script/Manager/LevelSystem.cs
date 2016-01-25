@@ -47,6 +47,7 @@ public class LevelSystem : MonoBehaviour {
     public void _setUpGameEndMenu()
     {
         Global.uiManager.gameEndMenu._showStats();
+        Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
         _switchForBeforeNextLevel();
     }
 
@@ -60,7 +61,7 @@ public class LevelSystem : MonoBehaviour {
         Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
         Global.playerScript.motor.RbToMove.useGravity = !Global.playerScript.motor.RbToMove.useGravity;
 
-        Global.uiManager.timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
+        Global.uiManager.inGameUI.timerClass.stopTime = !Global.uiManager.inGameUI.timerClass.stopTime;
         //Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
     }
 
