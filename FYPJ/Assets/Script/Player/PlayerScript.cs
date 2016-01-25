@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
+    public float arrowSpinVel;
 
     public Motor motor;
     public CameraMovement camMovement;
@@ -14,10 +15,13 @@ public class PlayerScript : MonoBehaviour {
 
     public float angleToGoTo = 0;
 
+    //for dir of player
     public float radians = 0;
+
     // Use this for initialization
-    void Start () {
+    void Awake () {
         motor.RbToMove = gameObject.GetComponent<Rigidbody>();
+
 	}
 	
 	// Update is called once per frame
@@ -39,7 +43,7 @@ public class PlayerScript : MonoBehaviour {
         camMovement._rotAroundPlayer(cw);
     }
 
-    public void _camRotAroundPlayer(bool cw , float angle)
+    public void _camRotAroundPlayer(bool cw, float angle)
     {
         camMovement._rotAroundPlayer(cw, angle);
     }

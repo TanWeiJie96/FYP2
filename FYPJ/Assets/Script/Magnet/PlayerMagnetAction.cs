@@ -23,9 +23,8 @@ public class PlayerMagnetAction : OnColReactTemplete{
     void Start()
     {
         trans = transform;
-        thisRd = Global.playerScript.gameObject.GetComponent<Rigidbody>();
+        //thisRd = Global.playerScript.gameObject.GetComponent<Rigidbody>();
 		magneticState.GetComponent<Renderer>().material.color = new Color(255, 255, 255, 0.1f);
-		
     }
 
 

@@ -61,6 +61,7 @@ public class Global:MonoBehaviour{
 
         uiManager._initUI();
         levelSystem._initLevel();
+       // playerScript.camMovement
     }
 
 }

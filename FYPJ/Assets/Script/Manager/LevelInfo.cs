@@ -56,7 +56,8 @@ public class LevelInfo : MonoBehaviour {
                 }
            }
            //player init
-            Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
+           Global.playerScript.camMovement = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
+           Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
 	        
            //UI info init

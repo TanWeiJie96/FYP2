@@ -40,6 +40,12 @@ public class Controls : MonoBehaviour {
                 Global.levelSystem.nextLevel();
             }
 
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Global.playerScript.motor.cur.vel += new Vector3(0.0f, 5.0f, 0.0f);
+                Global.playerScript.motor._movetowards(new Vector3(0.0f,1.0f,0.0f));
+            }
+
             // Show Instructions
     
         }
