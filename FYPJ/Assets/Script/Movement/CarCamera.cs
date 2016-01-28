@@ -20,19 +20,17 @@ public class CarCamera : MonoBehaviour
 
     private bool cameraView;
 
-    Rigidbody carRb;
     public Transform myTransform;
     public Camera cam;
 
     void Start()
     {
-        car = GameObject.Find("CarModel").transform;
+        //car = GameObject.Find("CarModel").transform;
+        car = Global.playerScript.playerModel.transform;
 
         cam = Camera.main;
         myTransform = transform;
 
-        if (car != null)
-            carRb = car.GetComponent<Rigidbody>();
     }
 
     /// <summary>

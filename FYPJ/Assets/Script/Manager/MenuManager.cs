@@ -18,6 +18,17 @@ public class MenuManager : MonoBehaviour {
 	
 	}
 
+    public void _reverseMenu()
+    {
+        menuList[menuIndex].SetActive(false);
+        if (menuIndex > 0)
+            --menuIndex;
+        else
+            menuIndex = menuList.Count;
+        menuList[menuIndex].SetActive(true);
+    }
+
+
     public void _tranverseMenu()
     {
         menuList[menuIndex].SetActive(false);

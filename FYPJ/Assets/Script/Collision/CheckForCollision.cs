@@ -54,8 +54,6 @@ public class CheckForCollision : MonoBehaviour {
                 Collided = false;
             }
 
-            
-
             Debug.Log("check point hit");
         }
     }

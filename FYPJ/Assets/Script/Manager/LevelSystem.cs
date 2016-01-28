@@ -8,9 +8,8 @@ public class LevelSystem : MonoBehaviour {
     public LevelInfo curLevel;
 
     public int index;
-
-
     public CheckForCollision loseArea;
+
 
 	// Use this for initialization
 	void Start () {
@@ -35,6 +34,9 @@ public class LevelSystem : MonoBehaviour {
 
         if (levelList.Count > 0)
         {
+            if (curLevel == null)
+                curLevel = levelList[0];
+
             StartCoroutine( curLevel._init() );
 			
         }

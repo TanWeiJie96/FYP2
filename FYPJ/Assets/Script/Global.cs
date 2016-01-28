@@ -8,6 +8,7 @@ public class Global:MonoBehaviour{
     public static GameObject ingameObject;
 
     public static PlayerScript playerScript;
+    public static GameInfo gameInfo;
 
     public static GameEndSystem gameEndSystem;
     public static LevelSystem levelSystem;
@@ -15,6 +16,7 @@ public class Global:MonoBehaviour{
     public static ScoreSystem scoreSystem;
 
     public static UIManager uiManager;
+
 
 	public static CollectPowerUp collectPowerUp;
 
@@ -43,6 +45,8 @@ public class Global:MonoBehaviour{
         controls = GameObject.Find("Controls").GetComponent<Controls>();
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
 
+        gameInfo = GameObject.Find("GameInfo").GetComponent<GameInfo>();
+
         if (gameUI.name != null)
             Debug.Log(gameUI.name + " is up");
 
@@ -61,7 +65,8 @@ public class Global:MonoBehaviour{
 
         uiManager._initUI();
         levelSystem._initLevel();
-       // playerScript.camMovement
+        playerScript._createCar(gameInfo.vehicleType);
+      // playerScript
     }
 
 }

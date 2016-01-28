@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class PlayerScript : MonoBehaviour {
     //vehicle profile
@@ -10,7 +11,9 @@ public class PlayerScript : MonoBehaviour {
 
     public Motor motor;
     public CameraMovement camMovement;
+    
     public GameObject playerModel;
+    public List<GameObject> modelChoice;
 
     public GameObject arrow;
     public bool arrowSpin = true;
@@ -29,9 +32,13 @@ public class PlayerScript : MonoBehaviour {
         motor.jumpDec = motorJumpDec;
         motor.amtOfAccel = motorAmtAccel;
 	}
-	
+
+
 	// Update is called once per frame
 	void Update () {
+        playerModel.transform.localPosition = Vector3.zero;
+        //Debug.Log(playerModel.transform.localPosition);
+
         if(arrowSpin)
             arrow.transform.Rotate(new Vector3(0, arrowSpinVel, 0));
 
@@ -43,6 +50,22 @@ public class PlayerScript : MonoBehaviour {
         }
 
     }
+
+    public void _createCar(VehicleType vt)
+    {
+        GameObject newVehicle = Instantiate(modelChoice[(int)vt]);
+        newVehicle.transform.parent = gameObject.transform;
+
+        //reset all position after puting to the right parent
+
+        newVehicle.transform.localRotation = Quaternion.identity;
+        newVehicle.transform.localScale = new Vector3(1.0f,1.0f,1.0f);
+        newVehicle.transform.localPosition = Vector3.zero;
+
+        playerModel = newVehicle;
+        Debug.Log(playerModel.transform.localPosition);
+    }
+
       
     public void _camRotAroundPlayer(bool cw)
     {
