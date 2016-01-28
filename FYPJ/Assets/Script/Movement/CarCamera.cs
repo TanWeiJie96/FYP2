@@ -26,6 +26,8 @@ public class CarCamera : MonoBehaviour
 
     void Start()
     {
+        car = GameObject.Find("CarModel").transform;
+
         cam = Camera.main;
         myTransform = transform;
 
@@ -59,11 +61,14 @@ public class CarCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        // Smooth camera
-        SmoothCamera();
+        if (Application.loadedLevelName == "Level1")
+        {
+            // Smooth camera
+            SmoothCamera();
 
-        // Checking collision Camera-Wall
-        CameraCollision();
+            // Checking collision Camera-Wall
+            CameraCollision();
+        }
     }
 
     void SmoothCamera()
@@ -95,8 +100,11 @@ public class CarCamera : MonoBehaviour
     void FixedUpdate()
     {
         // Camera rotation follow car rotataion, meant for 3rd person camera only
-        if(followAngle)
-            rotationVector.y = car.eulerAngles.y;
+        if (Application.loadedLevelName == "Level1")
+        {
+            if (followAngle)
+                rotationVector.y = car.eulerAngles.y;
+        }
     }
 
     public void ChangeCamera()

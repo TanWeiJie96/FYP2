@@ -40,6 +40,16 @@ public class Controls : MonoBehaviour {
                 Global.levelSystem.nextLevel();
             }
 
+            //for jumping
+            if (Global.playerScript.motor.jumping == false)
+            {
+                if (Input.GetKeyUp(KeyCode.B))
+                {
+                    Debug.Log("ok....");
+                    Global.playerScript.motor._jump();
+                }
+            }
+
             // Show Instructions
     
         }

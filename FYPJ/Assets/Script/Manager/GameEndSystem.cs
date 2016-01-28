@@ -59,7 +59,7 @@ public class GameEndSystem : MonoBehaviour {
                     Global.uiManager.gameEndMenu.title.text = "You win";
                     //StartCoroutine(Global.levelSystem.beforeNextLevel());
 					//Global.levelSystem.nextLevel();
-                    Global.levelSystem._switchForBeforeNextLevel();
+                    Global.levelSystem._setUpGameEndMenu();
                     break;
                 }
             }
@@ -84,7 +84,7 @@ public class GameEndSystem : MonoBehaviour {
                 Debug.Log("you win with all the condition met");
                 Global.uiManager.gameEndMenu.title.text = "you win";
                 //StartCoroutine(Global.levelSystem.beforeNextLevel());
-                Global.levelSystem._switchForBeforeNextLevel();
+                Global.levelSystem._setUpGameEndMenu();
             }
         }
         
@@ -98,7 +98,7 @@ public class GameEndSystem : MonoBehaviour {
                     gameEnd = GameEnd.LOSE;
                     Debug.Log("you lose~!");
                     Global.uiManager.gameEndMenu.title.text = "you lose";
-                    Global.levelSystem._switchForBeforeNextLevel();
+                    Global.levelSystem._setUpGameEndMenu();
                     
                 }
             }

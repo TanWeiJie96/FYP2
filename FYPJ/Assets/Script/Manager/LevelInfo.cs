@@ -13,8 +13,13 @@ public class LevelInfo : MonoBehaviour {
     public Vector3 trackPosition;
 
     //Scoring and time init
-    public float scorePerMin;
+    public float scorePerSec;
     public float timeToComplete;
+    public float scoreToRate;
+
+    public int levelHighScore;
+    public float levelHighRating;
+
 
 
     public IEnumerator _init()
@@ -28,7 +33,6 @@ public class LevelInfo : MonoBehaviour {
 
        if (Global.playerScript != null)
        {
-           
 		    //Track init
            if (GameObject.Find(track.name))
            {
@@ -52,13 +56,14 @@ public class LevelInfo : MonoBehaviour {
                 }
            }
            //player init
-            Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
+           Global.playerScript.camMovement = GameObject.Find("Main Camera").GetComponent<CameraMovement>();
+           Global.playerScript._camRotAroundPlayer(true, camStartAngle) ;
             Global.playerScript.gameObject.transform.position = startPosition;
 	        
            //UI info init
-            Global.uiManager.timerClass.startingTime = timeToComplete;
-            Global.uiManager.timerClass.timerAmount = timeToComplete;
-            Global.uiManager._updateLevel(levelno.ToString());
+            Global.uiManager.inGameUI.timerClass.startingTime = timeToComplete;
+            Global.uiManager.inGameUI.timerClass.timerAmount = timeToComplete;
+            Global.uiManager._updateLevel(levelno);
 
 
        }
@@ -66,13 +71,15 @@ public class LevelInfo : MonoBehaviour {
        yield return null;
     }
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public int _calcTimeBonus()
+    {
+        return (int)((timeToComplete - Global.uiManager.inGameUI.timerClass.timerAmount) * scorePerSec);
+    }
+
+
+
+    public float _calcRating(float tempScore)
+    {
+        return (  tempScore / scoreToRate   ) * 10 ;
+    }
 }

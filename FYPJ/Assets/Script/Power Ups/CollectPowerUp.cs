@@ -20,7 +20,7 @@ public class CollectPowerUp : OnColReactTemplete
 
 	// Power-up GameObjects
 	public GameObject speedUp;
-	public GameObject speedUpOnMap;
+	private GameObject speedUpOnMap;
 	public GameObject turnInvisible;
 	public GameObject shootBomb;
 	public GameObject wall1;

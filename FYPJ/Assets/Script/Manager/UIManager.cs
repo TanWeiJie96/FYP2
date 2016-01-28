@@ -5,15 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour {
-    public UIHandler scoreUI;
-    
-    public UIHandler timerUI;
-    public Timer timerClass;
-
-    public UIHandler levelUI;
 
     public UIHandler pauseUI;
-
+    public InGameUI inGameUI;
     public GameEndMenu gameEndMenu;
 
 	// Use this for initialization
@@ -22,33 +16,26 @@ public class UIManager : MonoBehaviour {
 
         foreach (Transform child in Global.gameUI.gameObject.transform.GetChild(0))
         {
-            if (child.gameObject.name == "InGameScore")
+            if (child.gameObject.name == "InGameUI")
             {
-                scoreUI = child.gameObject.GetComponent<UIHandler>();
+                inGameUI = child.gameObject.GetComponent<InGameUI>();
             }
 
-            if (child.gameObject.name == "InGameTimer")
-            {
-                timerUI = child.gameObject.GetComponent<UIHandler>();
-            }
-
-            if (child.gameObject.name == "InGameLevel")
-            {
-                levelUI = child.gameObject.GetComponent<UIHandler>();
-            }
 
             if (child.gameObject.name == "PauseMenu")
             {
                 pauseUI = child.gameObject.GetComponent<UIHandler>();
             }
+
+            if (child.gameObject.name == "GameEndMenu" && gameEndMenu == null)
+            {
+                gameEndMenu = child.gameObject.GetComponent<GameEndMenu>();
+                gameEndMenu.gameObject.SetActive(false);
+            }
         }
         pauseUI.gameObject.SetActive(false);
 
-        if (gameEndMenu == null)
-        {
-            gameEndMenu = GameObject.Find("GameEndMenu").GetComponent<GameEndMenu>();
-            gameEndMenu.gameObject.SetActive(false);
-        }
+        
 	}
 	
 	// Update is called once per frame
@@ -58,39 +45,40 @@ public class UIManager : MonoBehaviour {
 
     void _updateTimer()
     {
-        if (timerClass.timerAmount > 5)
-            timerUI._changeText(timerClass.timerAmount.ToString(), Color.yellow);
+        if (inGameUI.timerClass.timerAmount > 5)
+            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString(), Color.black);
         else
-            timerUI._changeText(timerClass.timerAmount.ToString(), Color.red);
+            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString(), Color.red);
     }
 
-    public void _updateScore(string temptext)
+    public void _updateScore(int temptext)
     {
-        scoreUI._changeText(temptext);
+        inGameUI.scoreUI._changeText(temptext.ToString());
     }
 
-    public void _updateLevel(string temptext)
+    public void _updateLevel(int temptext)
     {
-        levelUI._changeText(temptext);
+        inGameUI.levelUI._changeText(temptext.ToString());
+    }
+
+    public void _pauseGame()
+    {
+        inGameUI.timerClass.stopTime = !inGameUI.timerClass.stopTime;
+
+        Global.controls.paused = !Global.controls.paused;
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving; 
     }
 
     public void _togglePauseUI()
     {
         pauseUI.gameObject.SetActive(!Global.uiManager.pauseUI.gameObject.activeSelf);
-        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
-
-        Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-        
+        _pauseGame();
+   
     }
 
     public void _toggleScoreUI()
     {
-        scoreUI.gameObject.SetActive(!Global.uiManager.scoreUI.gameObject.activeSelf);
-        timerClass.stopTime = !Global.uiManager.timerClass.stopTime;
-
-        Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
-
+        inGameUI.scoreUI.gameObject.SetActive(!inGameUI.scoreUI.gameObject.activeSelf);
+        _pauseGame();
     }
 }

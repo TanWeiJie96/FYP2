@@ -12,6 +12,7 @@ public class Global:MonoBehaviour{
     public static GameEndSystem gameEndSystem;
     public static LevelSystem levelSystem;
 	public static CheckPointSystem checkPointSystem;
+    public static ScoreSystem scoreSystem;
 
     public static UIManager uiManager;
 
@@ -40,6 +41,7 @@ public class Global:MonoBehaviour{
 		
         checkPointSystem = GameObject.Find("CheckPointSystem").GetComponent<CheckPointSystem>();
         controls = GameObject.Find("Controls").GetComponent<Controls>();
+        scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
 
         if (gameUI.name != null)
             Debug.Log(gameUI.name + " is up");
@@ -59,6 +61,7 @@ public class Global:MonoBehaviour{
 
         uiManager._initUI();
         levelSystem._initLevel();
+       // playerScript.camMovement
     }
 
 }
