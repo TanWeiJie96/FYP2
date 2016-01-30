@@ -44,7 +44,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
             float distance = Vector3.Distance(magnetTrans.position, trans.position);
             float magnetDistanceStr = (distanceStrength / distance) * magnetStrength;
 
-            thisRd.AddForce(magnetDistanceStr * (directionToMagnet * magnetDirection), ForceMode.Force);
+            Global.playerScript.motor.RbToMove.AddForce(magnetDistanceStr * (directionToMagnet * magnetDirection), ForceMode.Force);
 
         }
 

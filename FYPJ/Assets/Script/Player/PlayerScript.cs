@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour {
     public float motorJumpStr = 1000f;
     public float motorJumpDec = 0.8f;
     public float motorAmtAccel = 5;
+    public float motorMaxSpeed;
 
     public Motor motor;
     public CameraMovement camMovement;

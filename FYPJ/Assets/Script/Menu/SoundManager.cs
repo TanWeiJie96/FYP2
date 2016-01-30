@@ -48,9 +48,12 @@ public class SoundManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 
         //set the bar to the volume
-        s_efxVolume.value = efxSource.volume;
+        if(s_efxVolume != null)
+            s_efxVolume.value = efxSource.volume;
 
-        s_musicVolume.value = musicSource.volume;
+        if (s_musicVolume != null)
+            s_musicVolume.value = musicSource.volume;
+
         f_musicVolume = musicSource.volume;
     }
 

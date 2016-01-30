@@ -1,0 +1,153 @@
+fileFormatVersion: 2
+guid: fb2dc01cec5d34f49a1aeadfa2322663
+timeCreated: 1454167144
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Buildings:pCube254
+    100004: Buildings:pCube255
+    100006: Buildings:pCube256
+    100008: Buildings:pCube258
+    100010: Buildings:pCube276
+    100012: Buildings:pCube278
+    100014: Buildings:pCube279
+    100016: Buildings:pCube280
+    100018: Buildings:pCube281
+    100020: Buildings:pCube282
+    100022: Buildings:pCube283
+    100024: Buildings:pCube284
+    100026: Buildings:pCylinder16
+    100028: Buildings:pCylinder17
+    100030: Buildings:polySurface104
+    100032: Buildings:polySurface76
+    100034: Buildings:polySurface76 1
+    100036: Buildings:polySurface77
+    100038: Buildings:polySurface79
+    100040: Buildings:polySurface80
+    100042: Buildings:polySurface81
+    100044: Buildings:polySurface82
+    100046: Buildings:transform107
+    100048: Buildings:transform108
+    100050: Buildings:transform109
+    100052: Buildings:transform110
+    100054: Buildings:transform111
+    100056: Buildings:transform112
+    100058: Buildings:transform113
+    100060: Buildings:transform114
+    100062: Buildings:transform115
+    100064: Buildings:transform116
+    100066: Buildings:transform117
+    100068: Buildings:transform118
+    100070: Buildings:transform119
+    100072: Buildings:transform120
+    100074: Buildings:transform121
+    100076: Buildings:transform122
+    400000: //RootNode
+    400002: Buildings:pCube254
+    400004: Buildings:pCube255
+    400006: Buildings:pCube256
+    400008: Buildings:pCube258
+    400010: Buildings:pCube276
+    400012: Buildings:pCube278
+    400014: Buildings:pCube279
+    400016: Buildings:pCube280
+    400018: Buildings:pCube281
+    400020: Buildings:pCube282
+    400022: Buildings:pCube283
+    400024: Buildings:pCube284
+    400026: Buildings:pCylinder16
+    400028: Buildings:pCylinder17
+    400030: Buildings:polySurface104
+    400032: Buildings:polySurface76
+    400034: Buildings:polySurface76 1
+    400036: Buildings:polySurface77
+    400038: Buildings:polySurface79
+    400040: Buildings:polySurface80
+    400042: Buildings:polySurface81
+    400044: Buildings:polySurface82
+    400046: Buildings:transform107
+    400048: Buildings:transform108
+    400050: Buildings:transform109
+    400052: Buildings:transform110
+    400054: Buildings:transform111
+    400056: Buildings:transform112
+    400058: Buildings:transform113
+    400060: Buildings:transform114
+    400062: Buildings:transform115
+    400064: Buildings:transform116
+    400066: Buildings:transform117
+    400068: Buildings:transform118
+    400070: Buildings:transform119
+    400072: Buildings:transform120
+    400074: Buildings:transform121
+    400076: Buildings:transform122
+    2300000: Buildings:polySurface76
+    3300000: Buildings:polySurface76
+    4300000: Buildings:polySurface76
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
