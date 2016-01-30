@@ -1,0 +1,121 @@
+fileFormatVersion: 2
+guid: 78e091cb275eb6c44a99426b84aaf245
+timeCreated: 1454167223
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Buildings:group30
+    100004: Buildings:pCube200
+    100006: Buildings:pCube202
+    100008: Buildings:pCube204
+    100010: Buildings:pCube205
+    100012: Buildings:pCube207
+    100014: Buildings:pCube244
+    100016: Buildings:pCube245
+    100018: Buildings:pCube247
+    100020: Buildings:polySurface59
+    100022: Buildings:polySurface59 1
+    100024: Buildings:polySurface60
+    100026: Buildings:transform100
+    100028: Buildings:transform101
+    100030: Buildings:transform92
+    100032: Buildings:transform93
+    100034: Buildings:transform94
+    100036: Buildings:transform95
+    100038: Buildings:transform96
+    100040: Buildings:transform97
+    100042: Buildings:transform98
+    100044: Buildings:transform99
+    400000: //RootNode
+    400002: Buildings:group30
+    400004: Buildings:pCube200
+    400006: Buildings:pCube202
+    400008: Buildings:pCube204
+    400010: Buildings:pCube205
+    400012: Buildings:pCube207
+    400014: Buildings:pCube244
+    400016: Buildings:pCube245
+    400018: Buildings:pCube247
+    400020: Buildings:polySurface59
+    400022: Buildings:polySurface59 1
+    400024: Buildings:polySurface60
+    400026: Buildings:transform100
+    400028: Buildings:transform101
+    400030: Buildings:transform92
+    400032: Buildings:transform93
+    400034: Buildings:transform94
+    400036: Buildings:transform95
+    400038: Buildings:transform96
+    400040: Buildings:transform97
+    400042: Buildings:transform98
+    400044: Buildings:transform99
+    2300000: Buildings:polySurface59
+    3300000: Buildings:polySurface59
+    4300000: Buildings:polySurface59
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
