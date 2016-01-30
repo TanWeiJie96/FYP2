@@ -34,6 +34,10 @@ public class SceneManager : MonoBehaviour {
     {
         Debug.Log(level);
         levelSys.curLevel = levelSys.levelList[level];
+
+        SoundManager.instance._adjustMusicVolume(4.0f,true);
+ 
+
         Application.LoadLevel(scName);
     }
 

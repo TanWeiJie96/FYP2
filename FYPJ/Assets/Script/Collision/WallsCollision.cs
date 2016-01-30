@@ -18,7 +18,7 @@ public class WallsCollision : OnColReactTemplete {
 
             Global.playerScript.motor.cur = cur;
 
-
+            SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
             //Debug.Log("Hit wall");
         }
     }

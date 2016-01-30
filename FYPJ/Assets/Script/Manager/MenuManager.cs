@@ -25,6 +25,9 @@ public class MenuManager : MonoBehaviour {
             --menuIndex;
         else
             menuIndex = menuList.Count;
+
+        SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
+
         menuList[menuIndex].SetActive(true);
     }
 
@@ -36,12 +39,17 @@ public class MenuManager : MonoBehaviour {
             ++menuIndex;
         else
             menuIndex = 0;
+        SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
+
         menuList[menuIndex].SetActive(true);
     }
 
     public void _jumpMenu(int newIndex)
     {
-        menuIndex = newIndex;
         menuList[menuIndex].SetActive(false);
+
+        menuIndex = newIndex;
+        SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
+        menuList[menuIndex].SetActive(true);
     }
 }
