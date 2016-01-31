@@ -10,7 +10,7 @@ public class Motor : MonoBehaviour {
 	public CollectPowerUp cpp;
 
 	public float amtOfAccel = 1.0f; //ammount of time accelerated 
-    public float maxMag = 0.08f;
+    public float maxMag = 50.0f;    //maximum speed it can go to
     public float jumpStr = 500f;    //strength in jumping
     public float jumpDec = 0.8f;    //speed in decreasing of altitudue
 

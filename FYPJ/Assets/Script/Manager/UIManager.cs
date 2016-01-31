@@ -22,16 +22,50 @@ public class UIManager : MonoBehaviour {
             }
 
 
-            if (child.gameObject.name == "PauseMenu")
+            else if (child.gameObject.name == "PauseMenu")
             {
                 pauseUI = child.gameObject.GetComponent<UIHandler>();
             }
 
-            if (child.gameObject.name == "GameEndMenu" && gameEndMenu == null)
+            else if (child.gameObject.name == "GameEndMenu" && gameEndMenu == null)
             {
                 gameEndMenu = child.gameObject.GetComponent<GameEndMenu>();
-                gameEndMenu.gameObject.SetActive(false);
+          
             }
+        }
+
+        foreach (Transform child in gameEndMenu.gameObject.transform)
+        {
+            if (child.name == "NextLevel_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.levelSystem.nextLevel(true); });
+            }
+            else if (child.name == "BackToMenu_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("Menu"); });
+            }
+            else if (child.name == "Retry_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.levelSystem.resetLevel(true); });
+            }
+        }
+        gameEndMenu.gameObject.SetActive(false);
+
+        foreach (Transform child in pauseUI.gameObject.transform.GetChild(1))
+        {
+            if (child.name == "NextLevel_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.levelSystem.nextLevel(); });
+            }
+            else if (child.name == "BackToMenu_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("Menu"); });
+            }
+            else if (child.name == "Retry_Button")
+            {
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.levelSystem.resetLevel(); });
+            }
+            
         }
         pauseUI.gameObject.SetActive(false);
 
@@ -71,7 +105,9 @@ public class UIManager : MonoBehaviour {
 
     public void _togglePauseUI()
     {
-        pauseUI.gameObject.SetActive(!Global.uiManager.pauseUI.gameObject.activeSelf);
+        pauseUI.gameObject.SetActive(!pauseUI.gameObject.activeSelf);
+
+
         _pauseGame();
    
     }

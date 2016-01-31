@@ -63,6 +63,7 @@
      <Compile Include="Assets\Script\Magnet\MagentChangeDir.cs" />
      <Compile Include="Assets\Script\Magnet\MagnetAction.cs" />
      <Compile Include="Assets\Script\Magnet\PlayerMagnetAction.cs" />
+     <Compile Include="Assets\Script\Manager\AppManager.cs" />
      <Compile Include="Assets\Script\Manager\Controls.cs" />
      <Compile Include="Assets\Script\Manager\GameEndSystem.cs" />
      <Compile Include="Assets\Script\Manager\GameInfo.cs" />
@@ -72,7 +73,7 @@
      <Compile Include="Assets\Script\Manager\ScoreSystem.cs" />
      <Compile Include="Assets\Script\Manager\UIHandler.cs" />
      <Compile Include="Assets\Script\Manager\UIManager.cs" />
-     <Compile Include="Assets\Script\Menu\CharacterSelection.cs" />
+     <Compile Include="Assets\Script\Menu\CharacterSelectMenu.cs" />
      <Compile Include="Assets\Script\Menu\Exit.cs" />
      <Compile Include="Assets\Script\Menu\Fade.cs" />
      <Compile Include="Assets\Script\Menu\Fading.cs" />
@@ -88,6 +89,7 @@
      <Compile Include="Assets\Script\Movement\Motor.cs" />
      <Compile Include="Assets\Script\ObjectRotation.cs" />
      <Compile Include="Assets\Script\Player\PlayerScript.cs" />
+     <Compile Include="Assets\Script\Player\VehicleProfile.cs" />
      <Compile Include="Assets\Script\Power Ups\Cannon.cs" />
      <Compile Include="Assets\Script\Power Ups\CollectPowerUp.cs" />
      <None Include="Assets\Structure.txt" />

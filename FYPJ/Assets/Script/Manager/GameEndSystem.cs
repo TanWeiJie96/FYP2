@@ -99,7 +99,6 @@ public class GameEndSystem : MonoBehaviour {
                     Debug.Log("you lose~!");
                     Global.uiManager.gameEndMenu.title.text = "you lose";
                     Global.levelSystem._setUpGameEndMenu();
-                    
                 }
             }
         }

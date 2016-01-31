@@ -13,7 +13,7 @@ public class GameEndMenu : MonoBehaviour {
 
     public UIHandler rating;
 
-    public void _showStats()
+    public float _showStats()
     {
         int IScore = Global.scoreSystem.getScore();
         float ITBonus = Mathf.Round(Global.levelSystem.curLevel._calcTimeBonus());
@@ -26,6 +26,6 @@ public class GameEndMenu : MonoBehaviour {
         totalScore._changeText( ITScore.ToString() );
 
         rating._changeText( IRat.ToString() + " / 10 ");
-        
+        return IRat;
     }
 }

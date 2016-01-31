@@ -6,19 +6,34 @@ using System.Collections;
 public class LevelUI : MonoBehaviour {
     public MenuManager menuManager;
     public SceneManager sceneManager;
-    
+    public LevelSystem levelSystem;
+
     public GameObject levelIcon;
-    public int numberOfLevel;
+ 
+    //public int numberOfLevel;
     
     public int onLevel = 1;
     public float spacing = 100;
 
     public bool semiLevel = true;
 
+    void Awake()
+    {
+        if (sceneManager == null)
+        {
+            sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
+        }
+        if (levelSystem == null)
+        {
+            levelSystem = GameObject.Find("LevelInit").GetComponent<LevelSystem>();
+        }
+
+    }
+
 	// Use this for initialization
 	void Start () {
         int k = 0;
-        for (int i = 0; i < numberOfLevel; ++i)
+        for (int i = 0; i < levelSystem.levelList.Count; ++i)
         {
             //set object to position
             GameObject newIcon = GameObject.Instantiate(levelIcon) as GameObject;
@@ -54,6 +69,13 @@ public class LevelUI : MonoBehaviour {
                 int newint = i;
                 Debug.Log(newint);
                 newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel, newint); });
+                foreach (Transform child in newIcon.transform)
+                {
+                    if(child.gameObject.name == "Rating")
+                    {
+                        child.GetComponent<Text>().text = levelSystem.levelList[i].levelHighRating.ToString() + "/10";
+                    }
+                }
             }
 
         }

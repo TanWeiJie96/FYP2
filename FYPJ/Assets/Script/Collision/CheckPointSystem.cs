@@ -35,37 +35,8 @@ public class CheckPointSystem : MonoBehaviour {
 		foreach (Transform child in CP.transform)
 		{
             CheckPoints.Add(child.gameObject);
-            child.gameObject.GetComponent<CheckForCollision>()._init();
+            child.gameObject.GetComponent<CheckForCollision>()._initCol();
 		}
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        /*
-        for (int x = 0; x < CheckPoints.Count; ++x)
-        {
-            GameObject go = CheckPoints[x];
-            //Debug.Log("hi");
-			if(go != null)
-			{
-                //Debug.Log("bye");
-	            CheckForCollision Coc = go.GetComponent<CheckForCollision>();
-                
-	            if (Coc.Collided == true && Coc.noMoreCheckNeed == false)
-	            {
-	                Global.gameEndSystem.winCondition[Coc.slot] = Coc.Collided;
-	                Global.gameEndSystem.needsCheckForGameEnd = true;
-	                Coc.noMoreCheckNeed = true;
-	                Coc.Collided = false;
-	                Debug.Log("check point updated");
-
-                    Debug.Log(CheckPoints.Count);
-	            }
-                
-			}
-        }
-         */ 
-
 	}
 }

@@ -6,11 +6,13 @@ public class CheckForCollision : MonoBehaviour {
     public bool intoLoseCon = false;    //if you want the trigger added to losecondition
 
     public bool Collided = false;        //check if collided
+
+    public bool resetNeeded = false;
     public bool noMoreCheckNeed = false; //stop checking wheter collide or not
 
     public int slot;
 	// Use this for initialization
-	public void _init () {
+	public void _initCol () {
        // Debug.Log("Shit is real");
 
         if (intoWinCon)
@@ -37,20 +39,26 @@ public class CheckForCollision : MonoBehaviour {
     {
         if (!noMoreCheckNeed && collider.gameObject.tag == "Player")
         {
-            gameObject.GetComponent<Renderer>().material.color = new Color(Color.green.r, Color.green.g, Color.green.b, gameObject.GetComponent<Renderer>().material.color.a);
+            //gameObject.GetComponent<Renderer>().material.color = new Color(Color.green.r, Color.green.g, Color.green.b, gameObject.GetComponent<Renderer>().material.color.a);
             Collided = true;
             if (intoWinCon)
             {
                 Global.gameEndSystem.winCondition[slot] = Collided;
                 Global.gameEndSystem.needsCheckForGameEnd = true;
-                noMoreCheckNeed = true;
+                if (!resetNeeded)
+                {
+                    noMoreCheckNeed = true;
+                }
                 Collided = false;
             }
             else if (intoLoseCon)
             {
                 Global.gameEndSystem.loseCondition[slot] = Collided;
                 Global.gameEndSystem.needsCheckForGameEnd = true;
-                noMoreCheckNeed = true;
+                if (!resetNeeded)
+                {
+                    noMoreCheckNeed = true;
+                }
                 Collided = false;
             }
 

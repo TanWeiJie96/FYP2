@@ -14,6 +14,7 @@ public class Global:MonoBehaviour{
     public static LevelSystem levelSystem;
 	public static CheckPointSystem checkPointSystem;
     public static ScoreSystem scoreSystem;
+    public static SceneManager sceneManager;
 
     public static UIManager uiManager;
 
@@ -46,6 +47,7 @@ public class Global:MonoBehaviour{
         scoreSystem = GameObject.Find("ScoreSystem").GetComponent<ScoreSystem>();
 
         gameInfo = GameObject.Find("GameInfo").GetComponent<GameInfo>();
+        sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
 
         if (gameUI.name != null)
             Debug.Log(gameUI.name + " is up");
@@ -65,7 +67,7 @@ public class Global:MonoBehaviour{
 
         uiManager._initUI();
         levelSystem._initLevel();
-        playerScript._createCar(gameInfo.vehicleType);
+        playerScript._createCar(gameInfo.chosen_VehProfile);
       // playerScript
     }
 

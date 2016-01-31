@@ -4,11 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerScript : MonoBehaviour {
     //vehicle profile
-    public float arrowSpinVel = 10f;
-    public float motorJumpStr = 1000f;
-    public float motorJumpDec = 0.8f;
-    public float motorAmtAccel = 5;
-    public float motorMaxSpeed;
+    public VehicleProfile vehicleProfile;
 
     public Motor motor;
     public CameraMovement camMovement;
@@ -29,9 +25,6 @@ public class PlayerScript : MonoBehaviour {
     // Use this for initialization
     void Awake () {
         motor.RbToMove = gameObject.GetComponent<Rigidbody>();
-        motor.jumpStr = motorJumpStr;
-        motor.jumpDec = motorJumpDec;
-        motor.amtOfAccel = motorAmtAccel;
 	}
 
 
@@ -41,7 +34,7 @@ public class PlayerScript : MonoBehaviour {
         //Debug.Log(playerModel.transform.localPosition);
 
         if(arrowSpin)
-            arrow.transform.Rotate(new Vector3(0, arrowSpinVel, 0));
+            arrow.transform.Rotate(new Vector3(0, vehicleProfile.arrowSpinVel, 0));
 
         if (angleToGoTo != gameObject.transform.eulerAngles.y)
         {
@@ -52,16 +45,23 @@ public class PlayerScript : MonoBehaviour {
 
     }
 
-    public void _createCar(VehicleType vt)
+    public void _createCar(VehicleProfile vt)
     {
-        GameObject newVehicle = Instantiate(modelChoice[(int)vt]);
+        vehicleProfile = vt;
+
+        GameObject newVehicle = Instantiate(vehicleProfile.vehicleModel);
         newVehicle.transform.parent = gameObject.transform;
 
         //reset all position after puting to the right parent
-
         newVehicle.transform.localRotation = Quaternion.identity;
         newVehicle.transform.localScale = new Vector3(1.0f,1.0f,1.0f);
         newVehicle.transform.localPosition = Vector3.zero;
+
+        //init motor parameters
+        motor.jumpStr = vehicleProfile.motorJumpStr;
+        motor.jumpDec = vehicleProfile.motorJumpDec;
+        motor.amtOfAccel = vehicleProfile.motorAmtAccel;
+
 
         playerModel = newVehicle;
         Debug.Log(playerModel.transform.localPosition);
