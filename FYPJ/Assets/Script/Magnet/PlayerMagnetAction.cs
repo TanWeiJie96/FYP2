@@ -92,7 +92,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
     {
 		if (other.tag == "Magnet_S")
         {
-            //Debug.Log("Magnet_S Detected!");
+            Debug.Log("Magnet_S Detected!");
 			magnetTrans = other.transform ;
             magnetInZone = true;
         }
@@ -100,7 +100,7 @@ public class PlayerMagnetAction : OnColReactTemplete{
 
 		if (other.tag == "Magnet_N")
         {
-            //Debug.Log("Magnet_N Detected!");
+            Debug.Log("Magnet_N Detected!");
 			magnetTrans = other.transform;
             magnetInZone = true;
             north = true;
