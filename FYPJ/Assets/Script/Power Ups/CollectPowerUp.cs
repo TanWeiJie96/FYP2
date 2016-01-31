@@ -58,7 +58,8 @@ public class CollectPowerUp : OnColReactTemplete
         if (other.tag == "Speed")
         {	
 			Debug.Log("Got Speed!");
-			speedUp.SetActive(false);
+			//speedUp.SetActive(false);
+            other.gameObject.SetActive(false);
 			gotSpeedUp = true;
 			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
         }
