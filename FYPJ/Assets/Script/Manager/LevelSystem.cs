@@ -30,7 +30,7 @@ public class LevelSystem : MonoBehaviour {
         {
             loseArea = GameObject.Find("loseArea").GetComponent<CheckForCollision>();
         }
-        loseArea._init();
+        loseArea._initCol();
 
         if (levelList.Count > 0)
         {
@@ -48,7 +48,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void _setUpGameEndMenu()
     {
-        Global.uiManager.gameEndMenu._showStats();
+        curLevel.levelHighRating = Global.uiManager.gameEndMenu._showStats();
         Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
         _switchForBeforeNextLevel();
     }
