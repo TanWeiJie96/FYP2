@@ -60,6 +60,7 @@
      <Compile Include="Assets\Script\Global.cs" />
      <Compile Include="Assets\Script\LevelCreation.cs" />
      <Compile Include="Assets\Script\LevelUI.cs" />
+     <Compile Include="Assets\Script\Magnet\CHECKINGFORMAGNETWITHINRANGE.cs" />
      <Compile Include="Assets\Script\Magnet\MagentChangeDir.cs" />
      <Compile Include="Assets\Script\Magnet\MagnetAction.cs" />
      <Compile Include="Assets\Script\Magnet\PlayerMagnetAction.cs" />

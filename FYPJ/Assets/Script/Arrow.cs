@@ -10,6 +10,6 @@ public class Arrow : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //gameObject.transform.position = Global.playerScript.playerModel.gameObject.transform.position;  
+        gameObject.transform.position = Global.playerScript.playerModel.gameObject.transform.position;  
 	}
 }

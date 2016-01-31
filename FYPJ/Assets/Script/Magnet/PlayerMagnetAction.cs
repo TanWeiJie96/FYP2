@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class PlayerMagnetAction : OnColReactTemplete{
+public class PlayerMagnetAction : MonoBehaviour{
 
     public float magnetStrength = 5.0f;
     public float magnetDirection = 0; // 1 = Attraction, -1 = Repel, 0 = Neutral
@@ -13,8 +13,8 @@ public class PlayerMagnetAction : OnColReactTemplete{
 
     private Transform trans; // playerTransform
     private Rigidbody thisRd; // playerRigidBody
-    private Transform magnetTrans; // magnetTransform 
-	private bool magnetInZone;
+    public Transform magnetTrans; // magnetTransform 
+	public bool magnetInZone;
 
     public GameObject magneticState;
 
@@ -85,36 +85,6 @@ public class PlayerMagnetAction : OnColReactTemplete{
             magnetDirection = 0;
 
             magneticState.GetComponent<Renderer>().material.color = new Color(255, 255, 255, 0.1f);
-        }
-    }
-
-	public override void onTriStay(Collider other)
-    {
-		if (other.tag == "Magnet_S")
-        {
-            Debug.Log("Magnet_S Detected!");
-			magnetTrans = other.transform ;
-            magnetInZone = true;
-        }
-		//Debug.Log("Enter Collider!");
-
-		if (other.tag == "Magnet_N")
-        {
-            Debug.Log("Magnet_N Detected!");
-			magnetTrans = other.transform;
-            magnetInZone = true;
-            north = true;
-        }
-
-    }
-
-    public override void onTriExit(Collider other)
-    {
-        if ( (other.tag == "Magnet_S" || other.tag == "Magnet_N") && looseMagnet == true)
-        {
-            //Debug.Log("Magnet Exit!");
-            magnetInZone = false;
-            north = false;
         }
     }
 }
