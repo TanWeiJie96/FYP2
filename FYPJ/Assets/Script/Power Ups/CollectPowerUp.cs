@@ -179,6 +179,8 @@ public class CollectPowerUp : OnColReactTemplete
 		{
 			wall1.GetComponent<Collider>().isTrigger = false;
 			startTime = 0.0f;
+			speedUp.SetActive(true);
+			
 		}
 	}
 }
