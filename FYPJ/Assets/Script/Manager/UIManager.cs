@@ -80,9 +80,9 @@ public class UIManager : MonoBehaviour {
     void _updateTimer()
     {
         if (inGameUI.timerClass.timerAmount > 5)
-            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString(), Color.black);
+            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString("F2"), Color.black);
         else
-            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString(), Color.red);
+            inGameUI.timerUI._changeText(inGameUI.timerClass.timerAmount.ToString("F2"), Color.red);
     }
 
     public void _updateScore(int temptext)
@@ -100,7 +100,8 @@ public class UIManager : MonoBehaviour {
         inGameUI.timerClass.stopTime = !inGameUI.timerClass.stopTime;
 
         Global.controls.paused = !Global.controls.paused;
-        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving; 
+        Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
+        Global.playerScript.motor.RbToMove.useGravity = !Global.playerScript.motor.RbToMove.useGravity;
     }
 
     public void _togglePauseUI()

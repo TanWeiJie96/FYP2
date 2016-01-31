@@ -8,8 +8,13 @@ public class Timer : MonoBehaviour {
     public float timerAmount;
 
     public bool stopTime;
-
     public bool countdown = true;
+
+    //for losing condition
+    public bool loseToTime = false; 
+    public int slot;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -34,6 +39,13 @@ public class Timer : MonoBehaviour {
             else
             {
                 timerAmount = 0;
+                stopTime = true;
+
+                //for losing condition
+                loseToTime = true;
+
+                Global.gameEndSystem.loseCondition[slot] = loseToTime; 
+                Global.gameEndSystem.needsCheckForGameEnd = true;
             }
         }
 	}

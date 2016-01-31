@@ -31,6 +31,7 @@ public class CHECKINGFORMAGNETWITHINRANGE : MonoBehaviour {
     {
         if ((other.tag == "Magnet_S" || other.tag == "Magnet_N") && PMA.looseMagnet == true)
         {
+            
             //Debug.Log("Magnet Exit!");
             PMA.magnetInZone = false;
             PMA.north = false;

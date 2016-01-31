@@ -63,6 +63,12 @@ public class LevelInfo : MonoBehaviour {
            //UI info init
             Global.uiManager.inGameUI.timerClass.startingTime = timeToComplete;
             Global.uiManager.inGameUI.timerClass.timerAmount = timeToComplete;
+            Global.uiManager.inGameUI.timerClass.stopTime = false ;
+
+           //Set time to losing condition
+            Global.gameEndSystem.loseCondition.Add( Global.uiManager.inGameUI.timerClass.loseToTime);
+            Global.uiManager.inGameUI.timerClass.slot = Global.gameEndSystem.loseCondition.Count - 1;
+
             Global.uiManager._updateLevel(levelno);
 
 
@@ -73,7 +79,7 @@ public class LevelInfo : MonoBehaviour {
 
     public int _calcTimeBonus()
     {
-        return (int)((timeToComplete - Global.uiManager.inGameUI.timerClass.timerAmount) * scorePerSec);
+        return (int)((Global.uiManager.inGameUI.timerClass.timerAmount) * scorePerSec);
     }
 
 

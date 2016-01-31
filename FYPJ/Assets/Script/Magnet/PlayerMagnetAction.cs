@@ -30,7 +30,7 @@ public class PlayerMagnetAction : MonoBehaviour{
 
     void Update()
     {
-        if (magnetInZone)
+        if (magnetInZone && magnetTrans!=null)
         {
             if (north == false)
             {
