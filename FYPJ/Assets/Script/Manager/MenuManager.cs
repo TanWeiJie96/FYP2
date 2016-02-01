@@ -29,6 +29,11 @@ public class MenuManager : MonoBehaviour {
 	
 	}
 
+	public void Quit()
+	{
+		Application.Quit();
+	}
+
     public void _reverseMenu()
     {
         menuList[menuIndex].SetActive(false);

@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour {
     public UIHandler pauseUI;
     public InGameUI inGameUI;
     public GameEndMenu gameEndMenu;
+	public InGameInstruction inGameInstructions;
 
 	// Use this for initialization
 	public void _initUI () {
@@ -18,7 +19,7 @@ public class UIManager : MonoBehaviour {
         {
             if (child.gameObject.name == "InGameUI")
             {
-                inGameUI = child.gameObject.GetComponent<InGameUI>();
+                inGameUI = child.gameObject.GetComponent<InGameUI>(); 
             }
 
 
@@ -31,7 +32,11 @@ public class UIManager : MonoBehaviour {
             {
                 gameEndMenu = child.gameObject.GetComponent<GameEndMenu>();
           
-            }
+            } 
+			else if (child.gameObject.name == "InGameInstruction")
+			{
+				inGameInstructions = child.gameObject.GetComponent<InGameInstruction>();
+			}
         }
 
         foreach (Transform child in gameEndMenu.gameObject.transform)

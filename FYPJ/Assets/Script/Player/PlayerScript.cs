@@ -53,8 +53,7 @@ public class PlayerScript : MonoBehaviour {
         newVehicle.transform.parent = gameObject.transform;
 
         //reset all position after puting to the right parent
-        newVehicle.transform.localRotation = Quaternion.identity;
-        newVehicle.transform.localScale = new Vector3(1.0f,1.0f,1.0f);
+		newVehicle.transform.localRotation = Quaternion.identity;
         newVehicle.transform.localPosition = Vector3.zero;
 
         //init motor parameters

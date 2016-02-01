@@ -5,6 +5,7 @@ public class CHECKINGFORMAGNETWITHINRANGE : MonoBehaviour {
 
     public PlayerMagnetAction PMA;
 
+	public bool instructionBefore = false;  
 
     void OnTriggerStay(Collider other)
     {
@@ -27,7 +28,7 @@ public class CHECKINGFORMAGNETWITHINRANGE : MonoBehaviour {
 
     }
 
-    void onTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if ((other.tag == "Magnet_S" || other.tag == "Magnet_N") && PMA.looseMagnet == true)
         {
@@ -37,4 +38,12 @@ public class CHECKINGFORMAGNETWITHINRANGE : MonoBehaviour {
             PMA.north = false;
         }
     }
+
+	void OnTriggerEnter(Collider other)
+	{
+		if (!instructionBefore)
+		{
+
+		}
+	}
 }
