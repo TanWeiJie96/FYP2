@@ -9,6 +9,9 @@ public class LevelUI : MonoBehaviour {
     public LevelSystem levelSystem;
 
     public GameObject levelIcon;
+    public MenuHandler menuHandler;
+
+    public Button backBut;
  
     //public int numberOfLevel;
     
@@ -27,29 +30,30 @@ public class LevelUI : MonoBehaviour {
         {
             levelSystem = GameObject.Find("LevelInit").GetComponent<LevelSystem>();
         }
-
+        popularLevelButton();
     }
 
-	// Use this for initialization
-	void Start () {
+
+    void popularLevelButton()
+    {
         int k = 0;
         for (int i = 0; i < levelSystem.levelList.Count; ++i)
         {
             //set object to position
             GameObject newIcon = GameObject.Instantiate(levelIcon) as GameObject;
-           
-            if (i % 3 == 0 && i !=0)
+
+            if (i % 3 == 0 && i != 0)
             {
                 ++k;
             }
 
             newIcon.transform.position = new Vector3(gameObject.transform.position.x - spacing + ((i - (k * 3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing * 0.5f), gameObject.transform.position.z);
             newIcon.transform.SetParent(gameObject.transform);
-            
+
 
             //input string into button
             string newstr;
-            if(semiLevel)
+            if (semiLevel)
                 newstr = onLevel + "-" + (i + 1);
             else
                 newstr = (i + 1).ToString();
@@ -71,14 +75,16 @@ public class LevelUI : MonoBehaviour {
                 newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel, newint); });
                 foreach (Transform child in newIcon.transform)
                 {
-                    if(child.gameObject.name == "Rating")
+                    if (child.gameObject.name == "Rating")
                     {
                         child.GetComponent<Text>().text = levelSystem.levelList[i].levelHighRating.ToString() + "/10";
                     }
                 }
             }
+            //add button to menuhandler so that you can select the button using keys
+            menuHandler.buttonOnMenu.Add(newButton);
 
         }
-	}
-	
+        menuHandler.buttonOnMenu.Add(backBut);
+    }
 }

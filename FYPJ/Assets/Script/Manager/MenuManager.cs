@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class MenuManager : MonoBehaviour {
     public int menuIndex = 0;       //indicates which menu it is on 
     public List<GameObject> menuList;
+    public List<MenuHandler> menuHandlerList;
 
     public static MenuManager instance;
    
@@ -20,8 +21,8 @@ public class MenuManager : MonoBehaviour {
             Destroy(gameObject);
 
 
-		if (menuList[menuIndex] != null)
-	    menuList[menuIndex].SetActive(true);
+        if (menuHandlerList[menuIndex] != null)
+            menuHandlerList[menuIndex].gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -36,7 +37,8 @@ public class MenuManager : MonoBehaviour {
 
     public void _reverseMenu()
     {
-        menuList[menuIndex].SetActive(false);
+        menuHandlerList[menuIndex]._resetMenu();
+        menuHandlerList[menuIndex].gameObject.SetActive(false);
         if (menuIndex > 0)
             --menuIndex;
         else
@@ -44,28 +46,30 @@ public class MenuManager : MonoBehaviour {
 
         SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
 
-        menuList[menuIndex].SetActive(true);
+        menuHandlerList[menuIndex].gameObject.SetActive(true);
     }
 
 
     public void _tranverseMenu()
     {
-        menuList[menuIndex].SetActive(false);
+        menuHandlerList[menuIndex]._resetMenu();
+        menuHandlerList[menuIndex].gameObject.SetActive(false);
         if (menuIndex < menuList.Count)
             ++menuIndex;
         else
             menuIndex = 0;
         SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
 
-        menuList[menuIndex].SetActive(true);
+        menuHandlerList[menuIndex].gameObject.SetActive(true);
     }
 
     public void _jumpMenu(int newIndex)
     {
-        menuList[menuIndex].SetActive(false);
+        menuHandlerList[menuIndex]._resetMenu();
+        menuHandlerList[menuIndex].gameObject.SetActive(false);
 
         menuIndex = newIndex;
         SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
-        menuList[menuIndex].SetActive(true);
+        menuHandlerList[menuIndex].gameObject.SetActive(true);
     }
 }
