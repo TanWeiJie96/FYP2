@@ -14,6 +14,8 @@ public class MenuHandler : MonoBehaviour {
 
     public bool Updown = true;
 
+	public Animator animator;
+
 	// Use this for initialization
 	void Start () {
         curButton = buttonOnMenu[0];
@@ -58,8 +60,8 @@ public class MenuHandler : MonoBehaviour {
 
     void _highlightButton()
     {
-        ColorBlock cb2 = curButton.colors;
-        curButton.targetGraphic.color = cb2.highlightedColor; 
+       ColorBlock cb2 = curButton.colors;
+       curButton.targetGraphic.color = cb2.highlightedColor; 
     }
 
 
