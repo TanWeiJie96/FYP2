@@ -9,7 +9,8 @@ public class UIHandler : MonoBehaviour {
     public Text mainText;
     public Color initColor;
 
-    public List<GameObject> ToControlList; 
+    public List<GameObject> ToControlList;
+    public MenuHandler menuHandler;
 
 	// Use this for initialization
 	void Start () {

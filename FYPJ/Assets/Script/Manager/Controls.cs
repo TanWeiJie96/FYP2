@@ -16,6 +16,7 @@ public class Controls : MonoBehaviour {
         //button to remove when game is paused
         if (!paused)
         {
+            /*
             if (Input.GetKey(KeyCode.F))
             {
                 Global.playerScript._camRotAroundPlayer(true);
@@ -24,7 +25,7 @@ public class Controls : MonoBehaviour {
             {
                 Global.playerScript._camRotAroundPlayer(false);
             }
-
+            */
             if (Input.GetKey(KeyCode.Space))
             {
                 Global.playerScript._motorGoTowardDir();

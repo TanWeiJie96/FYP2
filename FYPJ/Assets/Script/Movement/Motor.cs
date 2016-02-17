@@ -37,7 +37,7 @@ public class Motor : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 
-		_keyInput ();
+		//_keyInput ();
         if (!stopMoving)
         {
             _relation();
@@ -133,7 +133,7 @@ public class Motor : MonoBehaviour {
         }
         if (jumping == true)
         {
-            if (cur.vel.y < 1)
+            if (cur.vel.y < 0.0001)
             {
                 jumping = false;
             }

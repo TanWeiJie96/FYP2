@@ -8,6 +8,8 @@ public class MenuHandler : MonoBehaviour {
     public List<Button> buttonOnMenu;
 
     public int curButtonIndex;
+    public int updownSize = 1;
+
     public Button curButton;
 
     public bool Updown = true;
@@ -20,26 +22,26 @@ public class MenuHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Updown)
+        //if (Updown)
         {
             if (InputSetUp.instance.characterActions.Down.WasPressed)
             {
-                _transerveButton(true);
+                _transerveButton(true, updownSize);
             }
             if (InputSetUp.instance.characterActions.Up.WasPressed)
             {
-                _transerveButton(false);
+                _transerveButton(false, updownSize);
             }
         }
-        else
+       // else
         {
             if (InputSetUp.instance.characterActions.Right.WasPressed)
             {
-                _transerveButton(true);
+                _transerveButton(true, 1);
             }
             if (InputSetUp.instance.characterActions.Left.WasPressed)
             {
-                _transerveButton(false);
+                _transerveButton(false,1);
             }
         }
 
@@ -71,25 +73,30 @@ public class MenuHandler : MonoBehaviour {
     }
 
 
-    void _transerveButton(bool downward){
+    void _transerveButton(bool downward, int jumpAmount){
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
 
         if (downward)
         {
             if (curButtonIndex < buttonOnMenu.Count - 1)
-                ++curButtonIndex;
+                if (curButtonIndex + jumpAmount < buttonOnMenu.Count)
+                    curButtonIndex += jumpAmount;
+                else
+                    curButtonIndex = buttonOnMenu.Count-1;
             else
                 curButtonIndex = 0;
-
            
         }
         else
         {
             if (curButtonIndex > 0)
-                --curButtonIndex;
+                if (curButtonIndex + jumpAmount < buttonOnMenu.Count)
+                    curButtonIndex -= jumpAmount;
+                else
+                    curButtonIndex = 0;
             else
-                curButtonIndex = buttonOnMenu.Count-1;
+                curButtonIndex = buttonOnMenu.Count - 1;
         }
         curButton = buttonOnMenu[curButtonIndex];
 
