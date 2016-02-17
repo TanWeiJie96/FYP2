@@ -5,11 +5,6 @@ public class Controls : MonoBehaviour {
 
 	public Motor motor;
     public bool paused;
-
-	// Use this for initialization
-	void Start () {
-	
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -26,11 +21,11 @@ public class Controls : MonoBehaviour {
                 Global.playerScript._camRotAroundPlayer(false);
             }
             */
-            if (Input.GetKey(KeyCode.Space))
+            if (InputSetUp.instance.characterActions.Accelerate.IsPressed)
             {
                 Global.playerScript._motorGoTowardDir();
             }
-            if (Input.GetKeyUp(KeyCode.Space))
+            if (InputSetUp.instance.characterActions.Accelerate.WasReleased)
             {
                 Global.playerScript._motorSlowsDowm();
                 motor.inc.dir = Vector3.zero;
@@ -44,7 +39,7 @@ public class Controls : MonoBehaviour {
             //for jumping
             if (Global.playerScript.motor.jumping == false)
             {
-                if (Input.GetKeyUp(KeyCode.B))
+                if (InputSetUp.instance.characterActions.Boost.WasReleased)
                 {
                     Debug.Log("ok....");
                     Global.playerScript.motor._jump();
@@ -61,21 +56,7 @@ public class Controls : MonoBehaviour {
 
         if (Input.GetKeyUp(KeyCode.Escape))
         {
-            //Global.playerScript.show_I = !Global.playerScript.show_I;
-            /*
-            if (Global.playerScript.show_I == false)
-            {
-                Global.playerScript.showInstructions.SetActive(true);
-                Global.playerScript.showBackgroundColor.SetActive(true);
-                Time.timeScale = 0;
-            }
-            else
-            {
-                Time.timeScale = 1;
-                Global.playerScript.showInstructions.SetActive(false);
-                Global.playerScript.showBackgroundColor.SetActive(false);
-            }
-             */
+
             Global.uiManager._togglePauseUI();
         }
 	}

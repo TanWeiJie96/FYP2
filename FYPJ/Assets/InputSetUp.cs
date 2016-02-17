@@ -10,6 +10,11 @@ public class MyCharacterActions : PlayerActionSet
     public PlayerAction Down;
 
     public PlayerAction Jump;
+    public PlayerAction Accelerate;
+    public PlayerAction SwitchPolarity;
+    public PlayerAction SwitchToNormal;
+    public PlayerAction Boost;
+
     public PlayerOneAxisAction Move;
 
     public MyCharacterActions()
@@ -20,6 +25,10 @@ public class MyCharacterActions : PlayerActionSet
         Down = CreatePlayerAction("Move Down");
 
         Jump = CreatePlayerAction("Jump");
+        Accelerate = CreatePlayerAction("Accelerate");
+        SwitchPolarity = CreatePlayerAction("Switch Polarity");
+        SwitchToNormal = CreatePlayerAction("Switch To Normal");
+        Boost = CreatePlayerAction("Boost");
 
         Move = CreateOneAxisPlayerAction(Left, Right);
 
@@ -47,21 +56,34 @@ public class InputSetUp : MonoBehaviour
 	// Use this for initialization
 	void Start () {
         characterActions = new MyCharacterActions();
-
-        characterActions.Left.AddDefaultBinding(Key.A);
+        
+        characterActions.Left.AddDefaultBinding(Key.LeftArrow);
         characterActions.Left.AddDefaultBinding(InputControlType.DPadLeft);
 
-        characterActions.Right.AddDefaultBinding(Key.D);
+        characterActions.Right.AddDefaultBinding(Key.RightArrow);
         characterActions.Right.AddDefaultBinding(InputControlType.DPadRight);
 
-        characterActions.Up.AddDefaultBinding(Key.W);
+        characterActions.Up.AddDefaultBinding(Key.UpArrow);
         characterActions.Up.AddDefaultBinding(InputControlType.DPadDown);
 
-        characterActions.Down.AddDefaultBinding(Key.S);
+        characterActions.Down.AddDefaultBinding(Key.DownArrow);
         characterActions.Down.AddDefaultBinding(InputControlType.DPadUp);
 
-        characterActions.Jump.AddDefaultBinding(Key.Space);
-        characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
+        characterActions.Accelerate.AddDefaultBinding(Key.Space);
+        characterActions.Accelerate.AddDefaultBinding(InputControlType.DPadUp);
+
+        characterActions.SwitchPolarity.AddDefaultBinding(Key.Z);
+        characterActions.SwitchPolarity.AddDefaultBinding(InputControlType.Action1);
+
+        characterActions.SwitchToNormal.AddDefaultBinding(Key.X);
+        characterActions.SwitchToNormal.AddDefaultBinding(InputControlType.Action2);
+
+        characterActions.Jump.AddDefaultBinding(Key.C);
+        characterActions.Jump.AddDefaultBinding(InputControlType.Action3);
+
+        characterActions.Boost.AddDefaultBinding(Key.V);
+        characterActions.Boost.AddDefaultBinding(InputControlType.Action4);
+        
 	}
 	
 	// Update is called once per frame

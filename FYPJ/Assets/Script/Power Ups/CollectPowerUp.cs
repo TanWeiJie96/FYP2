@@ -84,7 +84,8 @@ public class CollectPowerUp : OnColReactTemplete
 	{
 		if (gotSpeedUp == true)
 		{
-			if (Input.GetKeyUp(KeyCode.A))
+            //go to inputsetup to see the link
+            if (InputSetUp.instance.characterActions.Boost.WasReleased)
 			{	
 				useSpeedUp = true;
 				boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 0.5f);
