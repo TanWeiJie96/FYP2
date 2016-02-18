@@ -90,16 +90,19 @@ public class MenuHandler : MonoBehaviour {
 		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Normal");
+			curButton.animator.SetTrigger("Normal_char1");
 		}
 
 		else if (curButtonIndex == 1)
 		{
 			curButton.animator.SetTrigger("Normal_Option");
+			curButton.animator.SetTrigger("Normal_char2");
 		}
 
 		else if (curButtonIndex == 2)
 		{
 			curButton.animator.SetTrigger("Normal_Exit");
+			curButton.animator.SetTrigger("Normal_Back");
 		}
 
         if (downward)
@@ -132,16 +135,19 @@ public class MenuHandler : MonoBehaviour {
 		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Highlighted");
+			curButton.animator.SetTrigger("Highlighted_char1");
 		}
 
 		else if (curButtonIndex == 1)
 		{
 			curButton.animator.SetTrigger("Highlighted_Option");
+			curButton.animator.SetTrigger("Highlighted_char2");
 		}
 
 		else if (curButtonIndex == 2)
 		{
 			curButton.animator.SetTrigger("Highlighted_Exit");
+			curButton.animator.SetTrigger("Highlighted_Back");
 		}
 	
     }
