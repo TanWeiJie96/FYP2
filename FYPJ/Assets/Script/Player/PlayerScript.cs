@@ -81,6 +81,8 @@ public class PlayerScript : MonoBehaviour {
 
     public void _motorGoTowardDir()
     {
+       
+		
         angleToGoTo = arrow.transform.eulerAngles.y;
         radians = arrow.transform.eulerAngles.y * (Mathf.PI / 180);
 
@@ -95,6 +97,7 @@ public class PlayerScript : MonoBehaviour {
 
     public void _motorSlowsDowm()
     {
+		
          arrowSpin = true;
          motor.slowDown = true;
     }

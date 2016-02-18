@@ -18,9 +18,15 @@ public class WallsCollision : OnColReactTemplete {
 
             Global.playerScript.motor.cur = cur;
 
-            SoundManager.instance._playSingle(1);
+            SoundManager.instance._playSingle(4);
             //Debug.Log("Hit wall");
         }
+
+		if (collision.gameObject.tag == "obstacle")
+		{
+            SoundManager.instance._playSingle(5);
+			
+		}
     }
 
     public override void onColStay(Collision collision)

@@ -23,10 +23,17 @@ public class Controls : MonoBehaviour {
             */
             if (InputSetUp.instance.characterActions.Accelerate.IsPressed)
             {
+				//SoundManager.instance._playSingle(2);
+				//SoundManager.instance.efxSource1.Play();
+				
                 Global.playerScript._motorGoTowardDir();
             }
             if (InputSetUp.instance.characterActions.Accelerate.WasReleased)
             {
+				//SoundManager.instance.efxSource1.Stop();
+				//SoundManager.instance._stopSingle(2);
+				
+				
                 Global.playerScript._motorSlowsDowm();
                 motor.inc.dir = Vector3.zero;
             }

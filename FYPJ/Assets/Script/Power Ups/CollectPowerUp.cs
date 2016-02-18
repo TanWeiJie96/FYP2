@@ -95,7 +95,7 @@ public class CollectPowerUp : OnColReactTemplete
 			
 			if (useSpeedUp == true)
 			{
-				SoundManager.instance._playSingle(2);
+				SoundManager.instance._playSingle(3);
 				if (startTime <= 0.0f)
 				{
 					gotSpeedUp = false;
