@@ -13,8 +13,7 @@ public class MenuHandler : MonoBehaviour {
     public Button curButton;
 
     public bool Updown = true;
-
-	public Animator animator;
+	
 
 	// Use this for initialization
 	void Start () {
@@ -25,17 +24,7 @@ public class MenuHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if (curButton == buttonOnMenu[0])
-		{
-			animator.SetTrigger("Highlighted");
-			Debug.Log ("HIGHLIGHT");
-		}
-		if (curButton != buttonOnMenu[0])
-		{
-			animator.SetTrigger("Normal");
-			Debug.Log ("NORMAL");
-			
-		}
+
 
         //if (Updown)
         {
@@ -81,7 +70,11 @@ public class MenuHandler : MonoBehaviour {
        ColorBlock cb2 = curButton.colors;
        curButton.targetGraphic.color = cb2.highlightedColor; 
 
-
+		if (curButton == buttonOnMenu[0])
+		{
+			curButton.animator.SetTrigger("Highlighted");
+			Debug.Log ("HIGHLIGHT");
+		}
     }
 
 
@@ -99,6 +92,13 @@ public class MenuHandler : MonoBehaviour {
     void _transerveButton(bool downward, int jumpAmount){
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
+
+		if (curButton == buttonOnMenu[0])
+		{
+			curButton.animator.SetTrigger("Normal");
+			Debug.Log ("NORMAL");
+			
+		}
 
         if (downward)
         {
@@ -125,6 +125,14 @@ public class MenuHandler : MonoBehaviour {
 
         ColorBlock cb2 = curButton.colors;
         curButton.targetGraphic.color = cb2.highlightedColor; 
+
+
+		if (curButton == buttonOnMenu[0])
+		{
+			curButton.animator.SetTrigger("Highlighted");
+			Debug.Log ("HIGHLIGHT");
+		}
+	
     }
 
 }
