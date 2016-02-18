@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class CollectPowerUp : OnColReactTemplete
 {
@@ -62,6 +63,7 @@ public class CollectPowerUp : OnColReactTemplete
             other.gameObject.SetActive(false);
 			gotSpeedUp = true;
 			boostImage.GetComponent<Image>().color = new Color(1.0f, 1.0f, 1.0f, 1.0f);
+			SoundManager.instance._playSingle(3);
         }
 
 //		if (other.tag == "Invis")
@@ -93,6 +95,7 @@ public class CollectPowerUp : OnColReactTemplete
 			
 			if (useSpeedUp == true)
 			{
+				SoundManager.instance._playSingle(2);
 				if (startTime <= 0.0f)
 				{
 					gotSpeedUp = false;
