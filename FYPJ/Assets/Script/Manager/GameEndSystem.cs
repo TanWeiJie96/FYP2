@@ -59,6 +59,7 @@ public class GameEndSystem : MonoBehaviour {
                     Global.uiManager.gameEndMenu.title.text = "You win";
                     //StartCoroutine(Global.levelSystem.beforeNextLevel());
 					//Global.levelSystem.nextLevel();
+                    
                     Global.levelSystem._setUpGameEndMenu();
                     break;
                 }

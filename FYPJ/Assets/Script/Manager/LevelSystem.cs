@@ -48,6 +48,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void _setUpGameEndMenu()
     {
+        Global.uiManager.gameEndMenu.menuHandler._resetMenu();
         curLevel.levelHighRating = Global.uiManager.gameEndMenu._showStats();
         Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
         _switchForBeforeNextLevel();
@@ -66,7 +67,7 @@ public class LevelSystem : MonoBehaviour {
         Global.uiManager.inGameUI.timerClass.stopTime = !Global.uiManager.inGameUI.timerClass.stopTime;
         //Global.uiManager.gameEndMenu.gameObject.SetActive(!Global.uiManager.gameEndMenu.gameObject.activeSelf);
     }
-
+    /*
     public IEnumerator beforeNextLevel()
     {
         _setUpGameEndMenu();
@@ -76,7 +77,7 @@ public class LevelSystem : MonoBehaviour {
         nextLevel();
         yield return null;
     }
-
+     */
     public void resetStat(bool GameEnd)
     {
         Global.checkPointSystem.CheckPoints.Clear();

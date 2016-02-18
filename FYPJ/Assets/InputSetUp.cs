@@ -14,6 +14,7 @@ public class MyCharacterActions : PlayerActionSet
     public PlayerAction SwitchPolarity;
     public PlayerAction SwitchToNormal;
     public PlayerAction Boost;
+    public PlayerAction Select;
 
     public PlayerOneAxisAction Move;
 
@@ -29,6 +30,8 @@ public class MyCharacterActions : PlayerActionSet
         SwitchPolarity = CreatePlayerAction("Switch Polarity");
         SwitchToNormal = CreatePlayerAction("Switch To Normal");
         Boost = CreatePlayerAction("Boost");
+        Select = CreatePlayerAction("Select");
+
 
         Move = CreateOneAxisPlayerAction(Left, Right);
 
@@ -73,16 +76,19 @@ public class InputSetUp : MonoBehaviour
         characterActions.Accelerate.AddDefaultBinding(InputControlType.DPadUp);
 
         characterActions.SwitchPolarity.AddDefaultBinding(Key.Z);
-        characterActions.SwitchPolarity.AddDefaultBinding(InputControlType.Action1);
+        characterActions.SwitchPolarity.AddDefaultBinding(InputControlType.Action3);
 
         characterActions.SwitchToNormal.AddDefaultBinding(Key.X);
         characterActions.SwitchToNormal.AddDefaultBinding(InputControlType.Action2);
 
         characterActions.Jump.AddDefaultBinding(Key.C);
-        characterActions.Jump.AddDefaultBinding(InputControlType.Action3);
+        characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
 
         characterActions.Boost.AddDefaultBinding(Key.V);
         characterActions.Boost.AddDefaultBinding(InputControlType.Action4);
+
+        characterActions.Select.AddDefaultBinding(Key.Z);
+        characterActions.Select.AddDefaultBinding(InputControlType.Action4);
         
 	}
 	

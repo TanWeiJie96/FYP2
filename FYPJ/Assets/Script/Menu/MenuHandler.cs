@@ -45,7 +45,7 @@ public class MenuHandler : MonoBehaviour {
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        if (InputSetUp.instance.characterActions.SwitchPolarity.WasPressed)
         {
             _selectButton();
         }
@@ -68,7 +68,9 @@ public class MenuHandler : MonoBehaviour {
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
 
-        curButton = buttonOnMenu[0];
+
+        curButtonIndex = 0;
+        curButton = buttonOnMenu[curButtonIndex];
         _highlightButton();
     }
 
@@ -91,7 +93,7 @@ public class MenuHandler : MonoBehaviour {
         else
         {
             if (curButtonIndex > 0)
-                if (curButtonIndex + jumpAmount < buttonOnMenu.Count)
+                if (curButtonIndex - jumpAmount < buttonOnMenu.Count)
                     curButtonIndex -= jumpAmount;
                 else
                     curButtonIndex = 0;

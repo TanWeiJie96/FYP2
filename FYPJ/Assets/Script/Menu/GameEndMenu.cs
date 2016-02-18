@@ -13,6 +13,8 @@ public class GameEndMenu : MonoBehaviour {
 
     public UIHandler rating;
 
+    public MenuHandler menuHandler;
+
     public float _showStats()
     {
         int IScore = Global.scoreSystem.getScore();

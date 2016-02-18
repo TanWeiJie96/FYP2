@@ -113,6 +113,10 @@ public class UIManager : MonoBehaviour {
     {
         pauseUI.gameObject.SetActive(!pauseUI.gameObject.activeSelf);
 
+        if (!pauseUI.gameObject.activeSelf)
+        {
+            pauseUI.menuHandler._resetMenu();
+        }
 
         _pauseGame();
    
@@ -121,6 +125,8 @@ public class UIManager : MonoBehaviour {
     public void _toggleScoreUI()
     {
         inGameUI.scoreUI.gameObject.SetActive(!inGameUI.scoreUI.gameObject.activeSelf);
+
+
         _pauseGame();
     }
 }
