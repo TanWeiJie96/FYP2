@@ -69,12 +69,6 @@ public class MenuHandler : MonoBehaviour {
     {
        ColorBlock cb2 = curButton.colors;
        curButton.targetGraphic.color = cb2.highlightedColor; 
-
-		if (curButton == buttonOnMenu[0])
-		{
-			curButton.animator.SetTrigger("Highlighted");
-			Debug.Log ("HIGHLIGHT");
-		}
     }
 
 
@@ -93,11 +87,19 @@ public class MenuHandler : MonoBehaviour {
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
 
-		if (curButton == buttonOnMenu[0])
+		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Normal");
-			Debug.Log ("NORMAL");
-			
+		}
+
+		else if (curButtonIndex == 1)
+		{
+			curButton.animator.SetTrigger("Normal_Option");
+		}
+
+		else if (curButtonIndex == 2)
+		{
+			curButton.animator.SetTrigger("Normal_Exit");
 		}
 
         if (downward)
@@ -127,10 +129,19 @@ public class MenuHandler : MonoBehaviour {
         curButton.targetGraphic.color = cb2.highlightedColor; 
 
 
-		if (curButton == buttonOnMenu[0])
+		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Highlighted");
-			Debug.Log ("HIGHLIGHT");
+		}
+
+		else if (curButtonIndex == 1)
+		{
+			curButton.animator.SetTrigger("Highlighted_Option");
+		}
+
+		else if (curButtonIndex == 2)
+		{
+			curButton.animator.SetTrigger("Highlighted_Exit");
 		}
 	
     }

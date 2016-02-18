@@ -1,8 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Menu\MenuHandler.cs">
     <Files>
-      <File FileName="Assets\Script\Menu\MenuHandler.cs" Line="95" Column="55" />
+      <File FileName="Assets\Script\Menu\MenuHandler.cs" Line="96" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
