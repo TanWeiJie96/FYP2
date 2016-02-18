@@ -93,6 +93,9 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Normal_char1");
 			curButton.animator.SetTrigger("Normal_levelIcon");
 			curButton.animator.SetTrigger("Normal_BGM");
+			curButton.animator.SetTrigger("Normal_Retry");
+			curButton.animator.SetTrigger("Normal_PauseRetry");
+
 		}
 
 		else if (curButtonIndex == 1)
@@ -101,18 +104,25 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Normal_char2");
 			curButton.animator.SetTrigger("Normal_levelIcon");
 			curButton.animator.SetTrigger("Normal_SE");
+			curButton.animator.SetTrigger("Normal_NextLevel");
+			curButton.animator.SetTrigger("Normal_PauseBackToMenu");
+			
 			
 		}
 		else if (curButtonIndex == 2)
-		{
+		{ 
 			curButton.animator.SetTrigger("Normal_Exit");
 			curButton.animator.SetTrigger("Normal_Back");
 			curButton.animator.SetTrigger("Normal_levelIcon");
+			curButton.animator.SetTrigger("Normal_BackToMenu");
+			curButton.animator.SetTrigger("Normal_PauseNL");
+			
 			
 		}
 		else if (curButtonIndex == 3)
 		{
 			curButton.animator.SetTrigger("Normal_levelIcon");
+			curButton.animator.SetTrigger("Normal_PauseBTG");
 			
 		}
 		else if (curButtonIndex == 4)
@@ -179,8 +189,8 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Highlighted_char1");
 			curButton.animator.SetTrigger("Highlighted_levelIcon");
 			curButton.animator.SetTrigger("Highlighted_BGM");
-
-			
+			curButton.animator.SetTrigger("Highlighted_Retry");
+			curButton.animator.SetTrigger("Highlighted_PauseRetry");
 		}
 
 		else if (curButtonIndex == 1)
@@ -189,7 +199,8 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Highlighted_char2");
 			curButton.animator.SetTrigger("Highlighted_levelIcon");
 			curButton.animator.SetTrigger("Highlighted_SE");
-			
+			curButton.animator.SetTrigger("Highlighted_NextLevel");
+			curButton.animator.SetTrigger("Highlighted_PauseBackToMenu");
 		}
 
 		else if (curButtonIndex == 2)
@@ -197,11 +208,13 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Highlighted_Exit");
 			curButton.animator.SetTrigger("Highlighted_Back");
 			curButton.animator.SetTrigger("Highlighted_levelIcon");
-			
+			curButton.animator.SetTrigger("Highlighted_BackToMenu");
+			curButton.animator.SetTrigger("Highlighted_PauseNL");
 		}
 		else if (curButtonIndex == 3)
 		{
 			curButton.animator.SetTrigger("Highlighted_levelIcon");
+			curButton.animator.SetTrigger("Highlighted_PauseBTG");
 			
 		}
 		else if (curButtonIndex == 4)

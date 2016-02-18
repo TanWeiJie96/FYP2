@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Menu\GameEndMenu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Script\Menu\MenuHandler.cs">
     <Files>
-      <File FileName="Assets\Script\Menu\MenuHandler.cs" Line="77" Column="36" />
-      <File FileName="Assets\Script\Menu\GameEndMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets\Script\Menu\MenuHandler.cs" Line="181" Column="50" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
