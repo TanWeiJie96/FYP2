@@ -295,6 +295,7 @@
      <Compile Include="Assets\Script\Player\VehicleProfile.cs" />
      <Compile Include="Assets\Script\Power Ups\Cannon.cs" />
      <Compile Include="Assets\Script\Power Ups\CollectPowerUp.cs" />
+     <Compile Include="Assets\Script\UiScript\ScaleUp.cs" />
      <None Include="Assets\InControl\Readme\README.txt" />
      <None Include="Assets\Structure.txt" />
  <Reference Include="UnityEngine.Advertisements">

@@ -24,8 +24,6 @@ public class MenuHandler : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-
         //if (Updown)
         {
             if (InputSetUp.instance.characterActions.Down.WasPressed)
@@ -76,8 +74,6 @@ public class MenuHandler : MonoBehaviour {
     {
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
-		
-
 
         curButtonIndex = 0;
         curButton = buttonOnMenu[curButtonIndex];
@@ -88,7 +84,7 @@ public class MenuHandler : MonoBehaviour {
     void _transerveButton(bool downward, int jumpAmount){
         ColorBlock cb = curButton.colors;
         curButton.targetGraphic.color = cb.normalColor;
-
+        /*
 		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Normal");
@@ -156,7 +152,7 @@ public class MenuHandler : MonoBehaviour {
 		{
 			curButton.animator.SetTrigger("Normal_Back");
 			
-		}
+		}*/
 
         if (downward)
         {
@@ -184,7 +180,7 @@ public class MenuHandler : MonoBehaviour {
         ColorBlock cb2 = curButton.colors;
         curButton.targetGraphic.color = cb2.highlightedColor; 
 
-
+        /*
 		if (curButtonIndex == 0)
 		{
 			curButton.animator.SetTrigger("Highlighted");
@@ -249,5 +245,6 @@ public class MenuHandler : MonoBehaviour {
 			curButton.animator.SetTrigger("Highlighted_Back");
 			
 		}
+         */ 
     }
 }
