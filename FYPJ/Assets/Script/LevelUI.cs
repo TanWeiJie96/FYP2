@@ -11,7 +11,7 @@ public class LevelUI : MonoBehaviour {
     public GameObject levelIcon;
     public MenuHandler menuHandler;
 
-    public Button backBut;
+    public ButtonHandler backBut;
  
     //public int numberOfLevel;
     
@@ -47,7 +47,7 @@ public class LevelUI : MonoBehaviour {
                 ++k;
             }
 
-            newIcon.transform.position = new Vector3(gameObject.transform.position.x - spacing + ((i - (k * 3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing * 0.5f), gameObject.transform.position.z);
+            newIcon.transform.position = new Vector3(gameObject.transform.position.x - spacing + ((i - (k * 3)) * spacing), gameObject.transform.position.y + 50 - (k * spacing * 0.75f), gameObject.transform.position.z);
             newIcon.transform.SetParent(gameObject.transform);
 
 
@@ -71,8 +71,8 @@ public class LevelUI : MonoBehaviour {
             {
                 //sceneManager.sceneName = "Level" + onLevel;
                 int newint = i;
-                Debug.Log(newint);
-                newButton.onClick.AddListener(delegate { sceneManager._changeScene("Level" + onLevel, newint); });
+                //Debug.Log(newint);
+                newButton.onClick.AddListener(delegate { sceneManager._changeScene("MainGame", newint); });
                 foreach (Transform child in newIcon.transform)
                 {
                     if (child.gameObject.name == "Rating")
@@ -82,9 +82,9 @@ public class LevelUI : MonoBehaviour {
                 }
             }
             //add button to menuhandler so that you can select the button using keys
-            menuHandler.buttonOnMenu.Add(newButton);
+            menuHandler.buttonHanOnMenu.Add(newIcon.GetComponentInChildren<ButtonHandler>());
 
         }
-        menuHandler.buttonOnMenu.Add(backBut);
+        menuHandler.buttonHanOnMenu.Add(backBut);
     }
 }

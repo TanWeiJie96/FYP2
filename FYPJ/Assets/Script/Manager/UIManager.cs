@@ -38,7 +38,7 @@ public class UIManager : MonoBehaviour {
 				inGameInstructions = child.gameObject.GetComponent<InGameInstruction>();
 			}
         }
-
+        
         foreach (Transform child in gameEndMenu.gameObject.transform)
         {
             if (child.name == "NextLevel_Button")
@@ -47,16 +47,17 @@ public class UIManager : MonoBehaviour {
             }
             else if (child.name == "BackToMenu_Button")
             {
-                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("Menu"); });
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("MainMenu"); });
             }
             else if (child.name == "Retry_Button")
             {
                 child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.levelSystem.resetLevel(true); });
             }
         }
+         
         gameEndMenu.gameObject.SetActive(false);
-
-        foreach (Transform child in pauseUI.gameObject.transform.GetChild(1))
+        
+        foreach (Transform child in pauseUI.gameObject.transform)
         {
             if (child.name == "NextLevel_Button")
             {
@@ -64,7 +65,7 @@ public class UIManager : MonoBehaviour {
             }
             else if (child.name == "BackToMenu_Button")
             {
-                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("Menu"); });
+                child.gameObject.GetComponent<Button>().onClick.AddListener(delegate { Global.sceneManager._changeSceneWithName("MainMenu"); });
             }
             else if (child.name == "Retry_Button")
             {
@@ -97,7 +98,7 @@ public class UIManager : MonoBehaviour {
 
     public void _updateLevel(int temptext)
     {
-        inGameUI.levelUI._changeText(temptext.ToString());
+        inGameUI.levelUI._changeText("1-" + temptext.ToString());
     }
 
     public void _pauseGame()

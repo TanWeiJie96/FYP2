@@ -285,6 +285,9 @@
      <Compile Include="Assets\Script\Menu\PlaceMid.cs" />
      <Compile Include="Assets\Script\Menu\SceneManager.cs" />
      <Compile Include="Assets\Script\Menu\SoundManager.cs" />
+     <Compile Include="Assets\Script\Menu\UiScript\ButtonHandler.cs" />
+     <Compile Include="Assets\Script\Menu\UiScript\ScaleUp.cs" />
+     <Compile Include="Assets\Script\Menu\UiScript\SliderFunction.cs" />
      <Compile Include="Assets\Script\Misc\Timer.cs" />
      <Compile Include="Assets\Script\Movement\BasicVar.cs" />
      <Compile Include="Assets\Script\Movement\CameraMovement.cs" />
@@ -295,20 +298,13 @@
      <Compile Include="Assets\Script\Player\VehicleProfile.cs" />
      <Compile Include="Assets\Script\Power Ups\Cannon.cs" />
      <Compile Include="Assets\Script\Power Ups\CollectPowerUp.cs" />
-     <Compile Include="Assets\Script\UiScript\ScaleUp.cs" />
      <None Include="Assets\InControl\Readme\README.txt" />
      <None Include="Assets\Structure.txt" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
  </Reference>
  <Reference Include="Mono.Cecil">
  <HintPath>C:/Program Files/Unity/Editor/Data/Managed/Mono.Cecil.dll</HintPath>

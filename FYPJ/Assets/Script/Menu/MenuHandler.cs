@@ -5,19 +5,21 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class MenuHandler : MonoBehaviour {
-    public List<Button> buttonOnMenu;
+   // public List<Button> buttonOnMenu;
+    public List<ButtonHandler> buttonHanOnMenu;
 
     public int curButtonIndex;
     public int updownSize = 1;
 
-    public Button curButton;
+    public ButtonHandler curButton;
 
     public bool Updown = true;
 	
 
 	// Use this for initialization
 	void Start () {
-        curButton = buttonOnMenu[0];
+        //Debug.Log("gg");
+       curButton = buttonHanOnMenu[curButtonIndex];
        _resetMenu();
 	}
 	
@@ -49,7 +51,7 @@ public class MenuHandler : MonoBehaviour {
             }
         }
 
-        if (InputSetUp.instance.characterActions.SwitchPolarity.WasPressed)
+        if (InputSetUp.instance.characterActions.Select.WasReleased)
         {
             _selectButton();
         }
@@ -60,30 +62,50 @@ public class MenuHandler : MonoBehaviour {
 
     void _selectButton()
     {
-        curButton.onClick.Invoke();
+        curButton.ownButton.onClick.Invoke();
     }
 
     void _highlightButton()
     {
-       ColorBlock cb2 = curButton.colors;
-       curButton.targetGraphic.color = cb2.highlightedColor; 
+        ColorBlock cb2 = curButton.ownButton.colors;
+        curButton.ownButton.targetGraphic.color = cb2.highlightedColor;
+
+        curButton._buttonScale(true);
     }
 
 
     public void _resetMenu()
     {
-        ColorBlock cb = curButton.colors;
-        curButton.targetGraphic.color = cb.normalColor;
+        ColorBlock cb = curButton.ownButton.colors;
+        curButton.ownButton.targetGraphic.color = cb.normalColor;
 
         curButtonIndex = 0;
-        curButton = buttonOnMenu[curButtonIndex];
+        curButton = buttonHanOnMenu[curButtonIndex];
         _highlightButton();
     }
 
 
     void _transerveButton(bool downward, int jumpAmount){
-        ColorBlock cb = curButton.colors;
-        curButton.targetGraphic.color = cb.normalColor;
+
+        //check if the mouse has selected any button
+        foreach (ButtonHandler tempbuthan in buttonHanOnMenu)
+        {
+            if (tempbuthan.selected)
+            {
+                ColorBlock cb3 = tempbuthan.ownButton.colors;
+                tempbuthan.ownButton.targetGraphic.color = cb3.normalColor;
+                tempbuthan._buttonScale(false);
+                tempbuthan.selected = false;
+                break;
+            }
+        }
+
+
+        ColorBlock cb = curButton.ownButton.colors;
+        curButton.ownButton.targetGraphic.color = cb.normalColor;
+
+        curButton._buttonScale(false);
+        curButton.selected = false;
         /*
 		if (curButtonIndex == 0)
 		{
@@ -156,11 +178,11 @@ public class MenuHandler : MonoBehaviour {
 
         if (downward)
         {
-            if (curButtonIndex < buttonOnMenu.Count - 1)
-                if (curButtonIndex + jumpAmount < buttonOnMenu.Count)
+            if (curButtonIndex < buttonHanOnMenu.Count - 1)
+                if (curButtonIndex + jumpAmount < buttonHanOnMenu.Count)
                     curButtonIndex += jumpAmount;
                 else
-                    curButtonIndex = buttonOnMenu.Count-1;
+                    curButtonIndex = buttonHanOnMenu.Count - 1;
             else
                 curButtonIndex = 0;
            
@@ -168,18 +190,20 @@ public class MenuHandler : MonoBehaviour {
         else
         {
             if (curButtonIndex > 0)
-                if (curButtonIndex - jumpAmount < buttonOnMenu.Count)
+                if (curButtonIndex - jumpAmount < buttonHanOnMenu.Count)
                     curButtonIndex -= jumpAmount;
                 else
                     curButtonIndex = 0;
             else
-                curButtonIndex = buttonOnMenu.Count - 1;
+                curButtonIndex = buttonHanOnMenu.Count - 1;
         }
-        curButton = buttonOnMenu[curButtonIndex];
+        curButton = buttonHanOnMenu[curButtonIndex];
 
-        ColorBlock cb2 = curButton.colors;
-        curButton.targetGraphic.color = cb2.highlightedColor; 
+        ColorBlock cb2 = curButton.ownButton.colors;
+        curButton.ownButton.targetGraphic.color = cb2.highlightedColor;
 
+        curButton._buttonScale(true);
+        curButton.selected = true;
         /*
 		if (curButtonIndex == 0)
 		{

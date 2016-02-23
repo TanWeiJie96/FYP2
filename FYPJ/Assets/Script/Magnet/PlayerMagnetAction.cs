@@ -49,7 +49,7 @@ public class PlayerMagnetAction : MonoBehaviour{
         }
 
         //// Neutral
-        if (Input.GetKeyDown("z"))
+        if (InputSetUp.instance.characterActions.SwitchPolarity.WasPressed)
         {
 			changeMagnet = !changeMagnet;
 
@@ -78,7 +78,7 @@ public class PlayerMagnetAction : MonoBehaviour{
         //}
 
         //// Neutral
-        if (Input.GetKeyDown("x"))
+        if (InputSetUp.instance.characterActions.SwitchToNormal.WasPressed)
         {
             //Debug.Log("Change magnetic direction");
             //Debug.Log(magnetDirection);

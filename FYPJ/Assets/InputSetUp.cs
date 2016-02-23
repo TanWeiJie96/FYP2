@@ -75,13 +75,13 @@ public class InputSetUp : MonoBehaviour
         characterActions.Accelerate.AddDefaultBinding(Key.Space);
         characterActions.Accelerate.AddDefaultBinding(InputControlType.DPadUp);
 
-        characterActions.SwitchPolarity.AddDefaultBinding(Key.Z);
+        characterActions.SwitchPolarity.AddDefaultBinding(Key.X);
         characterActions.SwitchPolarity.AddDefaultBinding(InputControlType.Action3);
 
-        characterActions.SwitchToNormal.AddDefaultBinding(Key.X);
+        characterActions.SwitchToNormal.AddDefaultBinding(Key.C);
         characterActions.SwitchToNormal.AddDefaultBinding(InputControlType.Action2);
 
-        characterActions.Jump.AddDefaultBinding(Key.C);
+        characterActions.Jump.AddDefaultBinding(Key.Z);
         characterActions.Jump.AddDefaultBinding(InputControlType.Action1);
 
         characterActions.Boost.AddDefaultBinding(Key.V);
@@ -94,10 +94,11 @@ public class InputSetUp : MonoBehaviour
 	
 	// Update is called once per frame
 	void Update () {
-	    
+	    /*
         if(characterActions.Jump.IsPressed)
         {
             Debug.Log("Action 1");
         }
+         */ 
 	}
 }

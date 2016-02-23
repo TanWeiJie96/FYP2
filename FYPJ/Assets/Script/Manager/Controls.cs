@@ -11,16 +11,6 @@ public class Controls : MonoBehaviour {
         //button to remove when game is paused
         if (!paused)
         {
-            /*
-            if (Input.GetKey(KeyCode.F))
-            {
-                Global.playerScript._camRotAroundPlayer(true);
-            }
-            if (Input.GetKey(KeyCode.G))
-            {
-                Global.playerScript._camRotAroundPlayer(false);
-            }
-            */
             if (InputSetUp.instance.characterActions.Accelerate.IsPressed)
             {
 				//SoundManager.instance._playSingle(2);
@@ -46,9 +36,9 @@ public class Controls : MonoBehaviour {
             //for jumping
             if (Global.playerScript.motor.jumping == false)
             {
-                if (InputSetUp.instance.characterActions.Boost.WasReleased)
+                if (InputSetUp.instance.characterActions.Jump.WasPressed)
                 {
-                    Debug.Log("ok....");
+                   // Debug.Log("ok....");
                     Global.playerScript.motor._jump();
                 }
             }

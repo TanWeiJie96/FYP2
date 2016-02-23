@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class AppManager : MonoBehaviour {
+    
     static AppManager instance;
 
 	// Use this for initialization

@@ -42,7 +42,7 @@ public class MenuManager : MonoBehaviour {
         if (menuIndex > 0)
             --menuIndex;
         else
-            menuIndex = menuList.Count;
+            menuIndex = menuHandlerList.Count;
 
         SoundManager.instance._playSingle(SoundManager.instance.buttonDownIndex);
 
@@ -54,7 +54,7 @@ public class MenuManager : MonoBehaviour {
     {
         menuHandlerList[menuIndex]._resetMenu();
         menuHandlerList[menuIndex].gameObject.SetActive(false);
-        if (menuIndex < menuList.Count)
+        if (menuIndex < menuHandlerList.Count)
             ++menuIndex;
         else
             menuIndex = 0;

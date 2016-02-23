@@ -30,7 +30,7 @@ public class ScoreSystem : MonoBehaviour {
         if (score > highScore)
         {
             highScore = score;
-            Debug.Log("HighScore has been made");
+            //Debug.Log("HighScore has been made");
         }
         else
         {
@@ -60,7 +60,7 @@ public class ScoreSystem : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Score Updated");
+            //Debug.Log("Score Updated");
             score = tempScore;
             Global.uiManager._updateScore(score);
         }
@@ -75,7 +75,7 @@ public class ScoreSystem : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Score Updated");
+            //Debug.Log("Score Updated");
             score = tempScore;
             Global.uiManager._updateScore(score);
         }

@@ -58,7 +58,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void _switchForBeforeNextLevel()
     {
-        
+        Debug.Log("wtf is this");
         Global.controls.paused = !Global.controls.paused;
 
         Global.playerScript.motor.stopMoving = !Global.playerScript.motor.stopMoving;
@@ -101,7 +101,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void nextLevel(bool GameEnd = false)
     {
-
+        Debug.Log("okay...");
          _switchForBeforeNextLevel();
 
        
@@ -119,6 +119,7 @@ public class LevelSystem : MonoBehaviour {
 
     public void resetLevel(bool GameEnd = false)
 	{
+        Debug.Log("hello...");
          _switchForBeforeNextLevel();
 
         resetStat(GameEnd);

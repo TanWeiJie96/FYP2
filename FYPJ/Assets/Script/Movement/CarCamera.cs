@@ -59,7 +59,7 @@ public class CarCamera : MonoBehaviour
 
     void LateUpdate()
     {
-        if (Application.loadedLevelName == "Level1")
+        if (Application.loadedLevelName == "MainGame")
         {
             // Smooth camera
             SmoothCamera();
@@ -98,7 +98,7 @@ public class CarCamera : MonoBehaviour
     void FixedUpdate()
     {
         // Camera rotation follow car rotataion, meant for 3rd person camera only
-        if (Application.loadedLevelName == "Level1")
+        if (Application.loadedLevelName == "MainGame")
         {
             if (followAngle)
                 rotationVector.y = car.eulerAngles.y;
